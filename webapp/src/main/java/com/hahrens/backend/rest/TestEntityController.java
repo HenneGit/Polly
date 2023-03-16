@@ -1,6 +1,5 @@
 package com.hahrens.backend.rest;
 
-import com.hahrens.controller.service.TestEntityDTO;
 import com.hahrens.controller.service.api.TestController;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

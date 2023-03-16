@@ -1,31 +1,39 @@
-package com.hahrens.controller.service;
+package com.hahrens.controller.implementation;
 
-import com.hahrens.backend.TestEntity;
-import com.hahrens.backend.TestEntityRepository;
 import com.hahrens.backend.model.AnswerEntity;
 import com.hahrens.backend.model.QuestionEntity;
 import com.hahrens.backend.model.SurveyEntity;
 import com.hahrens.backend.repository.AnswerEntityRepository;
 import com.hahrens.backend.repository.QuestionEntityRepository;
 import com.hahrens.backend.repository.SurveyEntityRepository;
+import com.hahrens.controller.api.model.dto.SurveyDTO;
+import com.hahrens.controller.api.service.SurveyService;
+import com.hahrens.controller.implementation.model.SurveyDTOImpl;
 import com.hahrens.controller.service.api.TestController;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
-public class TestControllerImpl implements TestController {
+public class SurveyServiceImpl implements SurveyService {
 
-    @Autowired
     private AnswerEntityRepository answerEntityRepository;
 
-    @Autowired
     private QuestionEntityRepository questionEntityRepository;
 
-    @Autowired
     private SurveyEntityRepository surveyEntityRepository;
 
+    private Map<Comparable<?>, SurveyEntity> repository;
+
+    public SurveyServiceImpl(AnswerEntityRepository answerEntityRepository, QuestionEntityRepository questionEntityRepository, SurveyEntityRepository surveyEntityRepository) {
+        this.answerEntityRepository = answerEntityRepository;
+        this.questionEntityRepository = questionEntityRepository;
+        this.surveyEntityRepository = surveyEntityRepository;
+        repository = new HashMap<>();
+    }
 
     @Override
     public List<TestEntityDTO> findAll() {
@@ -57,7 +65,21 @@ public class TestControllerImpl implements TestController {
     }
 
 
-    private TestEntityDTO toTestEntityDTO(final TestEntity testEntity) {
-        return new TestEntityDTO(testEntity.getId(), testEntity.getName(), testEntity.getFirstName());
+    @Override
+    public SurveyDTO findById(Comparable<?> pk) {
+        return null;
     }
+
+    @Override
+    public Collection<SurveyDTO> getSurveys() {
+        return null;
+    }
+
+    private SurveyDTO toSurveyDTO(SurveyEntity surveyEntity) {
+        repository.put(surveyEntity.getId(), surveyEntity);
+        return new SurveyDTOImpl(surveyEntity.)
+
+
+    }
+
 }
