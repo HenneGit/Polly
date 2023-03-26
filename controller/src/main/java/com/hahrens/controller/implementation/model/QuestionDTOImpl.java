@@ -9,12 +9,14 @@ public class QuestionDTOImpl implements QuestionDTO {
     private String name;
     private String description;
     private AnswerContainer answerContainer;
+    private Comparable<?> surveyPk;
 
-    public QuestionDTOImpl(Comparable<?> primaryKey, String name, String description, AnswerContainer answerContainer) {
+    public QuestionDTOImpl(Comparable<?> primaryKey, String name, String description, AnswerContainer answerContainer, Comparable<?> surveyPk) {
         this.primaryKey = primaryKey;
         this.name = name;
         this.description = description;
         this.answerContainer = answerContainer;
+        this.surveyPk = surveyPk;
     }
 
     @Override
@@ -25,6 +27,11 @@ public class QuestionDTOImpl implements QuestionDTO {
     @Override
     public AnswerContainer getAnswerContainer() {
         return answerContainer;
+    }
+
+    @Override
+    public Comparable<?> getSurveyPk() {
+        return surveyPk;
     }
 
     @Override

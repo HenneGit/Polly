@@ -10,6 +10,13 @@ public class SurveyDTOImpl implements SurveyDTO {
     private String name;
     private String description;
 
+    public SurveyDTOImpl(Comparable<?> primaryKey, String name, String description, QuestionContainer questionContainer) {
+        this.questionContainer = questionContainer;
+        this.primaryKey = primaryKey;
+        this.name = name;
+        this.description = description;
+    }
+
     @Override
     public Comparable<?> getPrimaryKey() {
         return primaryKey;

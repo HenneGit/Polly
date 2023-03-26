@@ -7,4 +7,7 @@ import java.util.Collection;
 public interface AnswerContainer {
 
     Collection<AnswerDTO> getAnswers();
+
+    void add(AnswerDTO answerDTO);
+
 }

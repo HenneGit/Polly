@@ -7,4 +7,6 @@ import java.util.Collection;
 public interface SurveyContainer {
 
     Collection<SurveyDTO> getSurveys();
+
+    void add(SurveyDTO surveyDTO);
 }

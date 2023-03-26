@@ -1,11 +1,12 @@
 package com.hahrens.controller.api.model.dto;
 
 import com.hahrens.controller.api.model.container.AnswerContainer;
-import com.hahrens.controller.api.model.container.Container;
 
-public interface QuestionDTO extends Entity{
+public interface QuestionDTO extends DTOEntityInterface {
 
     AnswerContainer getAnswerContainer();
+
+    Comparable<?> getSurveyPk();
 
     String getName();
 
