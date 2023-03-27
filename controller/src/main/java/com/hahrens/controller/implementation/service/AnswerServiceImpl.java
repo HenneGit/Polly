@@ -6,7 +6,6 @@ import com.hahrens.controller.api.model.dto.AnswerDTO;
 import com.hahrens.controller.api.model.dto.QuestionDTO;
 import com.hahrens.controller.api.service.AnswerService;
 import com.hahrens.controller.api.service.QuestionService;
-import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 import org.springframework.stereotype.Service;
 
@@ -46,6 +45,9 @@ public class AnswerServiceImpl implements AnswerService {
 
     @Override
     public AnswerDTO findById(final Comparable<?> primaryKey) {
+        if (primaryKey == null) {
+            return null;
+        }
         Set<Map.Entry<AnswerDTO, AnswerEntity>> entries = dtoMapping.entrySet();
         for (Map.Entry<AnswerDTO, AnswerEntity> entry : entries) {
             if (entry.getKey().getPrimaryKey().equals(primaryKey)) {
@@ -61,8 +63,8 @@ public class AnswerServiceImpl implements AnswerService {
             return null;
         }
         AnswerEntity answerEntity = AnswerEntity.builder().answerText(answerDTO.getAnswerText()).build();
-        answerEntityRepository.save(answerEntity);
-        dtoMapping.put(answerDTO, answerEntity);
+        AnswerEntity saved = answerEntityRepository.save(answerEntity);
+        dtoMapping.put(DTOFactory.getAnswerDTO(saved, answerDTO.getQuestionPk()), answerEntity);
         return answerDTO;
     }
 
@@ -84,10 +86,11 @@ public class AnswerServiceImpl implements AnswerService {
         if (answerDTO == null) {
             return null;
         }
-        AnswerEntity answerEntity = dtoMapping.get(answerDTO);
-        if (answerEntity == null) {
+        Optional<AnswerDTO> optionalAnswerDTO = dtoMapping.keySet().stream().filter(dto -> dto.getPrimaryKey().equals(answerDTO.getPrimaryKey())).findFirst();
+        if (optionalAnswerDTO.isEmpty()) {
             return null;
         }
+        AnswerEntity answerEntity = dtoMapping.get(optionalAnswerDTO.get());
         answerEntity.setAnswerText(answerDTO.getAnswerText());
         AnswerEntity updatedEntity = answerEntityRepository.save(answerEntity);
         dtoMapping.replace(answerDTO, updatedEntity);
