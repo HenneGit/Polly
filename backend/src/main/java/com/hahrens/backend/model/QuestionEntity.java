@@ -34,7 +34,30 @@ public class QuestionEntity {
     private List<AnswerEntity> answers = new ArrayList<>();
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name="surveyEntity_id", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name="surveyEntity_id", nullable = false)
     private SurveyEntity surveyEntity;
+
+    /**
+     * add an answer to this question.
+     * @param answerEntity the answer to add.
+     */
+    public void addAnswer(AnswerEntity answerEntity) {
+        if (answers == null) {
+            answers = new ArrayList<>();
+        }
+        answers.add(answerEntity);
+    }
+
+    /**
+     * remove an answer from this entity.
+     * @param answerEntity the answer to remove.
+     */
+    public void removeAnswer(final AnswerEntity answerEntity) {
+        if (answers == null || answers.isEmpty()) {
+            return;
+        }
+        answers.remove(answerEntity);
+
+    }
 
 }

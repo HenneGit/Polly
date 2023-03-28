@@ -4,29 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="314eb581-d504-47f3-bc46-b9583dcb124e" name="Changes" comment="AnswerServiceTest finished. Some comments.">
-      <change afterPath="$PROJECT_DIR$/backend/src/test/java/com/hahrens/backend/repository/SurveyEntityRepositoryTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/test/java/com/hahrens/backend/repository/TestApplication.java" afterDir="false" />
+    <list default="true" id="314eb581-d504-47f3-bc46-b9583dcb124e" name="Changes" comment="SurveyEntityRepositoryTest setup complete.">
+      <change afterPath="$PROJECT_DIR$/backend/src/test/java/com/hahrens/backend/repository/AnswerEntityRepositoryTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/test/java/com/hahrens/backend/repository/QuestionEntityRepositoryTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app.log" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/hahrens/backend/model/AnswerEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/hahrens/backend/model/AnswerEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/hahrens/backend/model/QuestionEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/hahrens/backend/model/QuestionEntity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/hahrens/backend/model/SurveyEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/hahrens/backend/model/SurveyEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/hahrens/backend/repository/AnswerEntityRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/hahrens/backend/repository/AnswerEntityRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/hahrens/backend/repository/QuestionEntityRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/hahrens/backend/repository/QuestionEntityRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/hahrens/backend/repository/SurveyEntityRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/hahrens/backend/repository/SurveyEntityRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/AnswerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/AnswerServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/DTOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/DTOFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/QuestionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/QuestionServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/SurveyServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/SurveyServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/AnswerServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/AnswerServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/QuestionServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/QuestionServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/mocks/SurveyServiceMock.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/mocks/SurveyServiceMock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/main/java/com/hahrens/backend/PollyApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main/java/com/hahrens/backend/PollyApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/main/java/com/hahrens/backend/rest/TestEntityController.java" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main/java/com/hahrens/backend/rest/TestEntityController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/hahrens/backend/repository/SurveyEntityRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/hahrens/backend/repository/SurveyEntityRepositoryTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +125,7 @@
       <workItem from="1678953933381" duration="6853000" />
       <workItem from="1679838847403" duration="14206000" />
       <workItem from="1679900808385" duration="16208000" />
-      <workItem from="1679998472062" duration="2062000" />
+      <workItem from="1679998472062" duration="11832000" />
     </task>
     <task id="LOCAL-00001" summary="init commit.">
       <created>1678887988652</created>
@@ -176,7 +162,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679905940231</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="SurveyEntityRepositoryTest setup complete.">
+      <created>1680000695990</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1680000695990</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -199,7 +192,8 @@
     <MESSAGE value="dto objects started" />
     <MESSAGE value="somewhat reasonable mapping of storage objects to dto objects. test setup started." />
     <MESSAGE value="AnswerServiceTest finished. Some comments." />
-    <option name="LAST_COMMIT_MESSAGE" value="AnswerServiceTest finished. Some comments." />
+    <MESSAGE value="SurveyEntityRepositoryTest setup complete." />
+    <option name="LAST_COMMIT_MESSAGE" value="SurveyEntityRepositoryTest setup complete." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -223,6 +217,16 @@
           <url>file://$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/QuestionServiceTest.java</url>
           <line>72</line>
           <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/backend/src/test/java/com/hahrens/backend/repository/SurveyEntityRepositoryTest.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/backend/src/test/java/com/hahrens/backend/repository/AnswerEntityRepositoryTest.java</url>
+          <line>89</line>
+          <option name="timeStamp" value="14" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

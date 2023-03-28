@@ -30,4 +30,24 @@ public class SurveyEntity {
             cascade = CascadeType.ALL)
     private List<QuestionEntity> questionEntities = new ArrayList<>();
 
+    /**
+     * add a question to this survey.
+     * @param questionEntity the question to add.
+     */
+    public void addQuestion(final QuestionEntity questionEntity) {
+        if (questionEntities == null) {
+            questionEntities = new ArrayList<>();
+        }
+        questionEntities.add(questionEntity);
+    }
+
+    public void removeQuestion(final QuestionEntity questionEntity) {
+        if (questionEntities == null || questionEntities.isEmpty()) {
+            return;
+        }
+        questionEntities.remove(questionEntity);
+
+    }
+
+
 }

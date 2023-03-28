@@ -21,7 +21,7 @@ public class AnswerEntity {
     private String answerText;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name ="questionEntity_id",referencedColumnName = "id", nullable = false)
+    @JoinColumn(name ="questionEntity_id", nullable = false)
     private QuestionEntity questionEntity;
 
 }
