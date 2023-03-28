@@ -2,6 +2,7 @@ package com.hahrens.controller.implementation.service;
 
 import com.hahrens.backend.model.AnswerEntity;
 import com.hahrens.backend.repository.AnswerEntityRepository;
+import com.hahrens.backend.repository.QuestionEntityRepository;
 import com.hahrens.controller.api.model.dto.AnswerDTO;
 import com.hahrens.controller.api.model.dto.QuestionDTO;
 import com.hahrens.controller.api.service.AnswerService;
@@ -15,6 +16,8 @@ import java.util.*;
 public class AnswerServiceImpl implements AnswerService {
 
     private AnswerEntityRepository answerEntityRepository;
+
+    private QuestionEntityRepository questionEntityRepository;
 
     private QuestionService questionService;
 

@@ -4,8 +4,23 @@ import com.hahrens.controller.api.model.dto.SurveyDTO;
 import com.hahrens.controller.api.service.SurveyService;
 
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class SurveyServiceMock implements SurveyService {
+
+
+    private Map<Comparable<?>, SurveyDTO> repo;
+
+
+    public SurveyServiceMock(List<SurveyDTO> list) {
+        repo = new HashMap<>();
+        list.forEach(q -> repo.put(q.getPrimaryKey(), q));
+    }
+
+
+
     @Override
     public Collection<SurveyDTO> findAll() {
         return null;
@@ -13,7 +28,7 @@ public class SurveyServiceMock implements SurveyService {
 
     @Override
     public SurveyDTO findById(Comparable<?> primaryKey) {
-        return null;
+        return repo.get(primaryKey);
     }
 
     @Override

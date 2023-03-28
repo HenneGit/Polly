@@ -13,12 +13,21 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * Factory creating dtos from storage objects.
+ */
 final class DTOFactory {
 
     private DTOFactory() {
         //hide constructor
     }
 
+    /**
+     * produce question dto from questionEntity.
+     * @param questionEntity
+     * @param surveyPk
+     * @return
+     */
     static QuestionDTO getQuestionDTO(QuestionEntity questionEntity, Comparable<?> surveyPk) {
         UUID primaryKey = UUID.randomUUID();
         List<AnswerEntity> answers = questionEntity.getAnswers();

@@ -34,12 +34,7 @@ public class SurveyServiceImpl implements SurveyService {
 
     @Override
     public Collection<SurveyDTO> findAll() {
-        if (dtoMapping.isEmpty()) {
-            List<SurveyEntity> all = surveyEntityRepository.findAll();
-            for (SurveyEntity surveyEntity : all) {
-                dtoMapping.put(DTOFactory.getSurveyDTO(surveyEntity), surveyEntity);
-            }
-        }
+        load();
         return dtoMapping.keySet();
     }
 
@@ -49,14 +44,6 @@ public class SurveyServiceImpl implements SurveyService {
         for (Map.Entry<SurveyDTO, SurveyEntity> entry : entries) {
             if (entry.getKey().getPrimaryKey().equals(pk)) {
                 return entry.getKey();
-            }
-        }
-        Optional<SurveyEntity> byId = surveyEntityRepository.findById((Long) pk);
-        if (byId.isPresent()) {
-            for (Map.Entry<SurveyDTO, SurveyEntity> entry : entries) {
-                if (entry.getValue().equals(byId.get())) {
-                    return entry.getKey();
-                }
             }
         }
         return null;
@@ -98,6 +85,14 @@ public class SurveyServiceImpl implements SurveyService {
         return surveyDTO;
     }
 
+    private void load() {
+        if (dtoMapping.isEmpty()) {
+            List<SurveyEntity> all = surveyEntityRepository.findAll();
+            for (SurveyEntity surveyEntity : all) {
+                dtoMapping.put(DTOFactory.getSurveyDTO(surveyEntity), surveyEntity);
+            }
+        }
+    }
 
 //    AnswerEntity answerYes = AnswerEntity.builder().answerText("Yes2").build();
 //    AnswerEntity answerNo = AnswerEntity.builder().answerText("No2").build();

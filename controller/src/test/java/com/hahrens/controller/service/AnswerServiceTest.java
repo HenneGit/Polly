@@ -12,8 +12,6 @@ import com.hahrens.controller.implementation.service.AnswerServiceImpl;
 import com.hahrens.controller.service.mocks.QuestionServiceMock;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -26,7 +24,6 @@ import java.util.function.Function;
 import static org.junit.jupiter.api.Assertions.*;
 
 
-@ExtendWith(MockitoExtension.class)
 public class AnswerServiceTest {
 
     private AnswerService answerService;
@@ -89,7 +86,6 @@ public class AnswerServiceTest {
         assertNotNull(createdAnswerDTO);
         assertNotNull(createdAnswerDTO.getPrimaryKey());
         assertEquals(QUESTION_ID, createdAnswerDTO.getQuestionPk());
-
         AnswerDTO nullDTO = answerService.create(null);
         assertNull(nullDTO);
 

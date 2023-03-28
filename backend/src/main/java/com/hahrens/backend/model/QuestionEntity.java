@@ -29,11 +29,12 @@ public class QuestionEntity {
     @Column(name = "descriptopn")
     private String description;
 
-    @OneToMany(mappedBy = "questionEntity")
+    @OneToMany(mappedBy = "questionEntity", fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
     private List<AnswerEntity> answers = new ArrayList<>();
 
-    @ManyToOne
-    @JoinColumn(name="surveyEntity_id", referencedColumnName = "id")
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name="surveyEntity_id", referencedColumnName = "id", nullable = false)
     private SurveyEntity surveyEntity;
 
 }

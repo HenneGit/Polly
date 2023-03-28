@@ -26,7 +26,8 @@ public class SurveyEntity {
     @Column(name = "descriptopn")
     private String description;
 
-    @OneToMany(mappedBy = "surveyEntity")
+    @OneToMany(mappedBy = "surveyEntity", fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
     private List<QuestionEntity> questionEntities = new ArrayList<>();
 
 }

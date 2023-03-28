@@ -20,8 +20,8 @@ public class AnswerEntity {
     @Column(name = "answerText")
     private String answerText;
 
-    @ManyToOne
-    @JoinColumn(name ="questionEntity_id",referencedColumnName = "id")
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name ="questionEntity_id",referencedColumnName = "id", nullable = false)
     private QuestionEntity questionEntity;
 
 }
