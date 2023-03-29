@@ -10,6 +10,7 @@ import com.hahrens.controller.api.model.dto.SurveyDTO;
 import com.hahrens.controller.implementation.model.*;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
@@ -32,11 +33,13 @@ final class DTOFactory {
         UUID primaryKey = UUID.randomUUID();
         List<AnswerEntity> answers = questionEntity.getAnswers();
         List<AnswerDTO> answerDTOS = new ArrayList<>();
-        for (AnswerEntity answer : answers) {
-            answerDTOS.add(getAnswerDTO(answer, primaryKey));
+        if (answers != null) {
+            for (AnswerEntity answer : answers) {
+                answerDTOS.add(getAnswerDTO(answer, primaryKey));
+            }
         }
         AnswerContainerImpl answerContainer = new AnswerContainerImpl(answerDTOS);
-        return new QuestionDTOImpl(primaryKey, questionEntity.getName(), questionEntity.getDescription(), answerContainer, surveyPk);
+        return new QuestionDTOImpl(primaryKey, questionEntity.getName(), questionEntity.getDescription(), questionEntity.getQuestion(), answerContainer, surveyPk);
 
     }
 
@@ -49,8 +52,11 @@ final class DTOFactory {
         UUID primaryKey = UUID.randomUUID();
         List<QuestionEntity> questionEntities = surveyEntity.getQuestionEntities();
         List<QuestionDTO> questionDTOS = new ArrayList<>();
-        for (QuestionEntity questionEntity : questionEntities) {
-            questionDTOS.add(getQuestionDTO(questionEntity, primaryKey));
+        if (questionEntities != null) {
+
+            for (QuestionEntity questionEntity : questionEntities) {
+                questionDTOS.add(getQuestionDTO(questionEntity, primaryKey));
+            }
         }
         QuestionContainer questionContainer = new QuestionContainerImpl(questionDTOS);
         return new SurveyDTOImpl(primaryKey, surveyEntity.getName(), surveyEntity.getDescription(), questionContainer);

@@ -1,109 +1,63 @@
 package com.hahrens.controller.implementation.service;
 
-import com.hahrens.backend.model.SurveyEntity;
-import com.hahrens.backend.repository.SurveyEntityRepository;
 import com.hahrens.controller.api.model.dto.QuestionDTO;
 import com.hahrens.controller.api.model.dto.SurveyDTO;
-import com.hahrens.controller.api.service.QuestionService;
+import com.hahrens.controller.api.service.DTOMapping;
 import com.hahrens.controller.api.service.SurveyService;
-import jakarta.annotation.PostConstruct;
+import com.hahrens.controller.implementation.model.SurveyDTOImpl;
 import jakarta.annotation.PreDestroy;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.List;
+import java.util.UUID;
 
 @Service
 public class SurveyServiceImpl implements SurveyService {
 
-    private SurveyEntityRepository surveyEntityRepository;
+    private DTOMapping dtoMapping;
+    private Collection<SurveyDTO> surveyDTOS;
 
-    private Map<SurveyDTO, SurveyEntity> dtoMapping;
-
-
-    public SurveyServiceImpl(SurveyEntityRepository surveyEntityRepository) {
-        this.surveyEntityRepository = surveyEntityRepository;
-        dtoMapping = new HashMap<>();
+    public SurveyServiceImpl(DTOMapping dtoMapping) {
+        this.dtoMapping = dtoMapping;
+        surveyDTOS = dtoMapping.getSurveys();
     }
 
-
     @PreDestroy
-    private void flush() {
-        surveyEntityRepository.flush();
+    public void persistChanges() {
+        dtoMapping.persistDTOs(surveyDTOS, QuestionDTO.class);
     }
 
 
     @Override
     public Collection<SurveyDTO> findAll() {
-        load();
-        return dtoMapping.keySet();
+        return surveyDTOS;
     }
 
     @Override
-    public SurveyDTO findById(final Comparable<?> pk) {
-        Set<Map.Entry<SurveyDTO, SurveyEntity>> entries = dtoMapping.entrySet();
-        for (Map.Entry<SurveyDTO, SurveyEntity> entry : entries) {
-            if (entry.getKey().getPrimaryKey().equals(pk)) {
-                return entry.getKey();
-            }
-        }
-        return null;
+    public SurveyDTO findById(final Comparable<?> primaryKey) {
+        return surveyDTOS.stream().filter(a -> a.getPrimaryKey().equals(primaryKey)).findFirst().orElse(null);
     }
 
     @Override
     public SurveyDTO create(final SurveyDTO surveyDTO) {
-        if (surveyDTO == null) {
-            return null;
-        }
-        SurveyEntity surveyEntity = SurveyEntity.builder().name(surveyDTO.getName()).description(surveyDTO.getDescription()).build();
-        SurveyEntity saveQuestionEntity = surveyEntityRepository.save(surveyEntity);
-        SurveyDTO newSurveyDTO = DTOFactory.getSurveyDTO(saveQuestionEntity);
-        dtoMapping.put(newSurveyDTO, saveQuestionEntity);
-        return newSurveyDTO;
+        SurveyDTO answerDTO1 = new SurveyDTOImpl(UUID.randomUUID(), surveyDTO.getName(), surveyDTO.getDescription(), surveyDTO.getQuestionContainer());
+        surveyDTOS.add(answerDTO1);
+        return answerDTO1;
     }
 
     @Override
     public void remove(final SurveyDTO surveyDTO) {
-        if (surveyDTO == null) {
-            return;
-        }
-        SurveyEntity surveyEntity = dtoMapping.get(surveyDTO);
-        if (surveyEntity != null) {
-            surveyEntityRepository.delete(surveyEntity);
-        }
+        surveyDTOS.remove(surveyDTO);
     }
 
     @Override
     public SurveyDTO update(final SurveyDTO surveyDTO) {
-        if (surveyDTO == null) {
-            return null;
-        }
-        SurveyEntity surveyEntity = dtoMapping.get(surveyDTO);
-        surveyEntity.setName(surveyDTO.getName());
-        surveyEntity.setDescription(surveyDTO.getDescription());
-        SurveyEntity updatedEntity = surveyEntityRepository.save(surveyEntity);
-        dtoMapping.replace(surveyDTO, updatedEntity);
-        return surveyDTO;
+        SurveyDTO oldAnswerDTO = surveyDTOS.stream().filter(a -> a.getPrimaryKey().equals(surveyDTO.getPrimaryKey())).findFirst().orElse(null);
+        surveyDTOS.remove(oldAnswerDTO);
+        SurveyDTO updatedAnswerDTO = new SurveyDTOImpl(UUID.randomUUID(), surveyDTO.getName(), surveyDTO.getDescription(), surveyDTO.getQuestionContainer());
+        surveyDTOS.add(updatedAnswerDTO);
+        return updatedAnswerDTO;
     }
-
-    private void load() {
-        if (dtoMapping.isEmpty()) {
-            List<SurveyEntity> all = surveyEntityRepository.findAll();
-            for (SurveyEntity surveyEntity : all) {
-                dtoMapping.put(DTOFactory.getSurveyDTO(surveyEntity), surveyEntity);
-            }
-        }
-    }
-
-//    AnswerEntity answerYes = AnswerEntity.builder().answerText("Yes2").build();
-//    AnswerEntity answerNo = AnswerEntity.builder().answerText("No2").build();
-//    QuestionEntity questionEntity = QuestionEntity.builder().name("Question 2").question("Had a nice day?").description("Question 1 if you had a nice day").answers(List.of(answerNo, answerYes)).build();
-//    SurveyEntity surveyEntity = saveSurveyEntity(SurveyEntity.builder().name("My first survey 3").description("A simple test survey").questionEntities(List.of(questionEntity)).build());
-//        answerNo.setQuestionEntity(questionEntity);
-//        answerYes.setQuestionEntity(questionEntity);
-//        questionEntity.setSurveyEntity(surveyEntity);
-//    saveQuestionEntity(questionEntity);
-//    saveAnswerEntity(answerYes);
-//    saveAnswerEntity(answerNo);
-//    List<SurveyEntity> all = surveyEntityRepository.findAll();
 
 }

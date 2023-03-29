@@ -36,8 +36,6 @@ public class AnswerEntityRepositoryTest {
         surveyEntityRepository.save(surveyEntity);
         questionEntity = QuestionEntity.builder().surveyEntity(surveyEntity).question("Question1").description("desc").build();
         QuestionEntity saved = questionEntityRepository.saveAndFlush(questionEntity);
-
-
         AnswerEntity answerEntity = new AnswerEntity(null, ANSWER_TEXT, questionEntity);
         entityRepository.save(answerEntity);
         saved.addAnswer(answerEntity);
@@ -99,8 +97,6 @@ public class AnswerEntityRepositoryTest {
         assertEquals(newAnswerText, getSingleEntity().getAnswerText());
 
     }
-
-
 
     private AnswerEntity getSingleEntity() {
         List<AnswerEntity> all = entityRepository.findAll();

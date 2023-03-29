@@ -12,5 +12,7 @@ public interface QuestionDTO extends DTOEntityInterface {
 
     String getDescription();
 
+    String getQuestion();
+
 
 }
