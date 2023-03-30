@@ -24,11 +24,6 @@ public class SurveyDTOImpl implements SurveyDTO {
     }
 
     @Override
-    public boolean equals(DTOEntityInterface dtoEntityInterface) {
-        return false;
-    }
-
-    @Override
     public QuestionContainer getQuestionContainer() {
         return questionContainer;
     }

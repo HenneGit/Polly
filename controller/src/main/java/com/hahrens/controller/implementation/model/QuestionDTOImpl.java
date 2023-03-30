@@ -1,7 +1,6 @@
 package com.hahrens.controller.implementation.model;
 
 import com.hahrens.controller.api.model.container.AnswerContainer;
-import com.hahrens.controller.api.model.dto.DTOEntityInterface;
 import com.hahrens.controller.api.model.dto.QuestionDTO;
 
 public class QuestionDTOImpl implements QuestionDTO {
@@ -25,11 +24,6 @@ public class QuestionDTOImpl implements QuestionDTO {
     @Override
     public Comparable<?> getPrimaryKey() {
         return primaryKey;
-    }
-
-    @Override
-    public boolean equals(DTOEntityInterface dtoEntityInterface) {
-        return false;
     }
 
     @Override
