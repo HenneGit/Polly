@@ -30,8 +30,6 @@ public class QuestionServiceTest{
         QuestionDTO questionDTO = all.get(0);
         questionPk = questionDTO.getPrimaryKey();
         surveyPk = questionDTO.getSurveyPk();
-
-
     }
 
     @Test
@@ -86,13 +84,14 @@ public class QuestionServiceTest{
         QuestionDTO updatedQuestionDto = new QuestionDTOImpl(byId.getPrimaryKey(), newName, newDescription, newQuestion, byId.getAnswerContainer(), byId.getSurveyPk());
         questionService.update(updatedQuestionDto);
         QuestionDTO updatedDto = questionService.findById(questionPk);
-        assertNotNull(updatedDto);
-        assertEquals(newName, updatedDto.getName());
-        assertEquals(newDescription, updatedDto.getDescription());
-        assertEquals(newQuestion, updatedDto.getQuestion());
+        testPropertiesAfterUpdate(updatedDto, newName, newDescription, newQuestion);
         testSetup.resetDtoMapping(questionService);
         questionService = new QuestionServiceImpl(testSetup.getDtoMapping());
         QuestionDTO updatedDtoAfterPersist = questionService.findAll().stream().filter(q -> q.getName().equals(newName)).findFirst().orElse(null);
+        testPropertiesAfterUpdate(updatedDtoAfterPersist, newName, newDescription, newQuestion);
+    }
+
+    private void testPropertiesAfterUpdate(QuestionDTO updatedDtoAfterPersist, String newName, String newDescription, String newQuestion) {
         assertNotNull(updatedDtoAfterPersist);
         assertEquals(newName, updatedDtoAfterPersist.getName());
         assertEquals(newDescription, updatedDtoAfterPersist.getDescription());

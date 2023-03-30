@@ -92,8 +92,21 @@ public class SurveyServiceTest {
         resetServiceAndMapping();
         testCollectionSize(3);
         testPropertiesAfterUpdate(description, name);
+    }
+
+    @Test
+    public void testUpdate() {
+        String description = "New Survey description";
+        String name = "New Survey name";
+        SurveyDTO byId = surveyService.findById(surveyPk);
+        SurveyDTO surveyDTO = new SurveyDTOImpl(byId.getPrimaryKey(), name, description, null);
+        surveyService.update(surveyDTO);
+        testPropertiesAfterUpdate(description, name);
+        resetServiceAndMapping();
+        testPropertiesAfterUpdate(description, name);
 
     }
+
 
     private void testPropertiesAfterUpdate(String description, String name) {
         SurveyDTO updatedDto = surveyService.findAll().stream().filter(s -> s.getDescription().equals(description)).findFirst().orElse(null);

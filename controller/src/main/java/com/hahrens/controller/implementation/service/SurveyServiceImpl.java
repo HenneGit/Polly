@@ -1,6 +1,5 @@
 package com.hahrens.controller.implementation.service;
 
-import com.hahrens.controller.api.model.dto.QuestionDTO;
 import com.hahrens.controller.api.model.dto.SurveyDTO;
 import com.hahrens.controller.api.service.DTOMapping;
 import com.hahrens.controller.api.service.SurveyService;
@@ -56,7 +55,7 @@ public class SurveyServiceImpl implements SurveyService {
     public SurveyDTO update(final SurveyDTO surveyDTO) {
         SurveyDTO oldAnswerDTO = surveyDTOS.stream().filter(a -> a.getPrimaryKey().equals(surveyDTO.getPrimaryKey())).findFirst().orElse(null);
         surveyDTOS.remove(oldAnswerDTO);
-        SurveyDTO updatedAnswerDTO = new SurveyDTOImpl(UUID.randomUUID(), surveyDTO.getName(), surveyDTO.getDescription(), surveyDTO.getQuestionContainer());
+        SurveyDTO updatedAnswerDTO = new SurveyDTOImpl(surveyDTO.getPrimaryKey(), surveyDTO.getName(), surveyDTO.getDescription(), surveyDTO.getQuestionContainer());
         surveyDTOS.add(updatedAnswerDTO);
         return updatedAnswerDTO;
     }
