@@ -44,6 +44,9 @@ public class DTOMappingImpl implements DTOMapping {
 
     //public for texting.
     public void init() {
+        answerDTOMapping.clear();
+        questionDTOMapping.clear();
+        surveyDTOMapping.clear();
         List<SurveyEntity> surveyEntities = surveyEntityRepository.findAll();
         for (SurveyEntity surveyEntity : surveyEntities) {
             surveyDTOMapping.put(surveyEntity.getId(), DTOFactory.getSurveyDTO(surveyEntity));
@@ -74,7 +77,7 @@ public class DTOMappingImpl implements DTOMapping {
     }
 
     @Override
-    public void persistDTOs(final Collection<? extends DTOEntityInterface> DTOs, final Class<? extends DTOEntityInterface> clazz) {
+    public void persistDTOs(final Collection<? extends DTOEntityInterface> dtoEntityInterfaces, final Class<? extends DTOEntityInterface> clazz) {
         Collection<? extends DTOEntityInterface> cachedDTOs = null;
         if (clazz.equals(AnswerDTO.class)) {
             cachedDTOs = answerDTOMapping.values();
@@ -87,9 +90,9 @@ public class DTOMappingImpl implements DTOMapping {
         }
         if (cachedDTOs != null) {
             //delete something
-            if (DTOs.size() < cachedDTOs.size()) {
+            if (dtoEntityInterfaces.size() < cachedDTOs.size()) {
                 List<? extends Comparable<?>> toDelete = cachedDTOs.stream().map(DTOEntityInterface::getPrimaryKey).collect(Collectors.toList());
-                List<? extends Comparable<?>> dtos = DTOs.stream().map(DTOEntityInterface::getPrimaryKey).toList();
+                List<? extends Comparable<?>> dtos = dtoEntityInterfaces.stream().map(DTOEntityInterface::getPrimaryKey).toList();
                 toDelete.removeIf(dtos::contains);
                 for (DTOEntityInterface cachedDTO : cachedDTOs) {
                     if (toDelete.contains(cachedDTO.getPrimaryKey())) {
@@ -98,18 +101,17 @@ public class DTOMappingImpl implements DTOMapping {
                 }
             }
             //there is something to create.
-            if (DTOs.size() > cachedDTOs.size()) {
+            if (dtoEntityInterfaces.size() > cachedDTOs.size()) {
                 Collection<DTOEntityInterface> toCreate = new ArrayList<>();
-                for (DTOEntityInterface dto : DTOs) {
+                for (DTOEntityInterface dto : dtoEntityInterfaces) {
                     if (!cachedDTOs.contains(dto)) {
                         toCreate.add(dto);
                     }
                 }
-                DTOs.removeIf(toCreate::contains);
+                dtoEntityInterfaces.removeIf(toCreate::contains);
                 toCreate.forEach(this::addEntity);
             }
-            DTOs.forEach(this::updateEntity);
-            answerDTOMapping.clear();
+            dtoEntityInterfaces.forEach(this::updateEntity);
         }
 
     }
@@ -147,16 +149,16 @@ public class DTOMappingImpl implements DTOMapping {
             }
         }
         if (dtoEntityInterface instanceof QuestionDTO questionDTO) {
-            Long entityIdForDTOPk = getEntityIdForDTOPk(questionDTO.getPrimaryKey(), answerDTOMapping);
+            Long entityIdForDTOPk = getEntityIdForDTOPk(questionDTO.getPrimaryKey(), questionDTOMapping);
             QuestionEntity questionEntity = questionEntityRepository.findById(entityIdForDTOPk).orElse(null);
             if (questionEntity != null) {
                 questionEntity.setQuestion(questionDTO.getQuestion());
-                questionEntity.setDescription(questionEntity.getDescription());
+                questionEntity.setDescription(questionDTO.getDescription());
                 questionEntity.setName(questionDTO.getName());
             }
         }
         if (dtoEntityInterface instanceof SurveyDTO surveyDTO) {
-            Long entityIdForDTOPk = getEntityIdForDTOPk(surveyDTO.getPrimaryKey(), answerDTOMapping);
+            Long entityIdForDTOPk = getEntityIdForDTOPk(surveyDTO.getPrimaryKey(), surveyDTOMapping);
             SurveyEntity surveyEntity = surveyEntityRepository.findById(entityIdForDTOPk).orElse(null);
             if (surveyEntity != null) {
                 surveyEntity.setDescription(surveyDTO.getDescription());
@@ -209,7 +211,7 @@ public class DTOMappingImpl implements DTOMapping {
     }
 
     private void removeSurvey(final SurveyDTO surveyDTO) {
-        Long entityIdForDTOPk = getEntityIdForDTOPk(surveyDTO.getPrimaryKey(), answerDTOMapping);
+        Long entityIdForDTOPk = getEntityIdForDTOPk(surveyDTO.getPrimaryKey(), surveyDTOMapping);
         surveyEntityRepository.deleteById(entityIdForDTOPk);
     }
 

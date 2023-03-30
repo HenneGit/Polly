@@ -1,20 +1,12 @@
 package com.hahrens.controller.service;
 
-import com.hahrens.backend.model.AnswerEntity;
-import com.hahrens.backend.model.QuestionEntity;
-import com.hahrens.backend.model.SurveyEntity;
 import com.hahrens.controller.api.model.dto.AnswerDTO;
 import com.hahrens.controller.implementation.model.AnswerDTOImpl;
 import com.hahrens.controller.implementation.service.AnswerServiceImpl;
-import com.hahrens.controller.implementation.service.DTOMappingImpl;
-import com.hahrens.controller.service.mocks.AnswerEntityRepositoryMock;
-import com.hahrens.controller.service.mocks.QuestionEntityRepositoryMock;
-import com.hahrens.controller.service.mocks.SurveyEntityRepositoryMock;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -23,23 +15,15 @@ import static org.junit.jupiter.api.Assertions.*;
 public class AnswerServiceTest {
 
     private AnswerServiceImpl answerService;
-    private DTOMappingImpl dtoMapping;
     private Comparable<?> answerId;
     private String answerText;
+    private TestSetup testSetup;
+
 
     @BeforeEach
     public void init() {
-        SurveyEntityRepositoryMock surveyEntityRepositoryMock = new SurveyEntityRepositoryMock();
-        List<SurveyEntity> all = surveyEntityRepositoryMock.findAll();
-        QuestionEntityRepositoryMock questionEntityRepositoryMock = new QuestionEntityRepositoryMock(all.get(0), all.get(1));
-        List<QuestionEntity> all1 = questionEntityRepositoryMock.findAll();
-        AnswerEntityRepositoryMock answerEntityRepositoryMock = new AnswerEntityRepositoryMock(all1.get(0), all1.get(1));
-        dtoMapping = new DTOMappingImpl(questionEntityRepositoryMock, answerEntityRepositoryMock, surveyEntityRepositoryMock);
-        answerService = new AnswerServiceImpl(dtoMapping);
-        List<AnswerEntity> allAnswers = answerEntityRepositoryMock.findAll();
-        questionEntityRepositoryMock.setAnswers(allAnswers);
-        List<QuestionEntity> allQuestions = questionEntityRepositoryMock.findAll();
-        surveyEntityRepositoryMock.setQuestions(allQuestions);
+        testSetup = new TestSetup();
+        answerService = new AnswerServiceImpl(testSetup.getDtoMapping());
         AnswerDTO answerDTO = answerService.findAll().stream().toList().get(0);
         answerId = answerDTO.getPrimaryKey();
         answerText = answerDTO.getAnswerText();
@@ -67,7 +51,8 @@ public class AnswerServiceTest {
         answerService.remove(byId);
         AnswerDTO nullDto = answerService.findById(answerId);
         assertNull(nullDto);
-        resetDtoMapping();
+        testSetup.resetDtoMapping(answerService);
+        answerService = new AnswerServiceImpl(testSetup.getDtoMapping());
         AnswerDTO stillNullDto = answerService.findById(answerId);
         assertNull(stillNullDto);
     }
@@ -87,7 +72,8 @@ public class AnswerServiceTest {
         assertEquals(byId.getQuestionPk(), createdAnswerDTO.getQuestionPk());
         AnswerDTO nullDTO = answerService.create(null);
         assertNull(nullDTO);
-        resetDtoMapping();
+        testSetup.resetDtoMapping(answerService);
+        answerService = new AnswerServiceImpl(testSetup.getDtoMapping());
         AnswerDTO byId1 = answerService.findAll().stream().filter(a -> answerText.equals(a.getAnswerText())).findFirst().orElse(null);
         assertNotNull(byId1);
 
@@ -106,9 +92,11 @@ public class AnswerServiceTest {
         AnswerDTO updatedDTO = answerService.update(DTOtoUpdate);
         assertNotNull(updatedDTO);
         assertEquals(newAnswerText, updatedDTO.getAnswerText());
-        resetDtoMapping();
+        testSetup.resetDtoMapping(answerService);
+        answerService = new AnswerServiceImpl(testSetup.getDtoMapping());
         AnswerDTO byId1 = answerService.findAll().stream().filter(a -> newAnswerText.equals(a.getAnswerText())).findFirst().orElse(null);
         assertNotNull(byId1);
+        assertEquals(newAnswerText, byId1.getAnswerText());
 
     }
 
@@ -122,11 +110,6 @@ public class AnswerServiceTest {
 
     }
 
-    private void resetDtoMapping() {
-        answerService.persistChanges();
-        dtoMapping.init();
-        answerService = new AnswerServiceImpl(dtoMapping);
 
-    }
 
 }

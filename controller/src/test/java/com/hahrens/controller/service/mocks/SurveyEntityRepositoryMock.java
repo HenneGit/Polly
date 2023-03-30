@@ -144,7 +144,7 @@ public class SurveyEntityRepositoryMock implements SurveyEntityRepository {
 
     @Override
     public Optional<SurveyEntity> findById(Long aLong) {
-        return Optional.empty();
+        return Optional.of(surveyEntities.get(aLong));
     }
 
     @Override

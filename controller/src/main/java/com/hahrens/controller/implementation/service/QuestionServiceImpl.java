@@ -8,6 +8,7 @@ import com.hahrens.controller.implementation.model.QuestionDTOImpl;
 import jakarta.annotation.PreDestroy;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
@@ -16,11 +17,11 @@ import java.util.UUID;
 public class QuestionServiceImpl implements QuestionService {
 
     private DTOMapping dtoMapping;
-    private Collection<QuestionDTO> questionDTOS;
+    private List<QuestionDTO> questionDTOS;
 
     public QuestionServiceImpl(DTOMapping dtoMapping) {
         this.dtoMapping = dtoMapping;
-        questionDTOS = dtoMapping.getQuestions();
+        questionDTOS = new ArrayList<>(dtoMapping.getQuestions());
     }
 
     @PreDestroy

@@ -8,6 +8,7 @@ import com.hahrens.controller.implementation.model.SurveyDTOImpl;
 import jakarta.annotation.PreDestroy;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
@@ -16,16 +17,16 @@ import java.util.UUID;
 public class SurveyServiceImpl implements SurveyService {
 
     private DTOMapping dtoMapping;
-    private Collection<SurveyDTO> surveyDTOS;
+    private List<SurveyDTO> surveyDTOS;
 
     public SurveyServiceImpl(DTOMapping dtoMapping) {
         this.dtoMapping = dtoMapping;
-        surveyDTOS = dtoMapping.getSurveys();
+        surveyDTOS = new ArrayList<>(dtoMapping.getSurveys());
     }
 
     @PreDestroy
     public void persistChanges() {
-        dtoMapping.persistDTOs(surveyDTOS, QuestionDTO.class);
+        dtoMapping.persistDTOs(surveyDTOS, SurveyDTO.class);
     }
 
 

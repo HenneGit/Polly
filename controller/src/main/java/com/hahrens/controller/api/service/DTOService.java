@@ -1,5 +1,7 @@
 package com.hahrens.controller.api.service;
 
+import jakarta.annotation.PreDestroy;
+
 import java.util.Collection;
 
 /**
@@ -39,6 +41,12 @@ public interface DTOService<DTO> {
      * @return the updated dto.
      */
     DTO update(DTO dto);
+
+    /**
+     * persist changes when bean is destroyed.
+     */
+    @PreDestroy
+    void persistChanges();
 
 
 }
