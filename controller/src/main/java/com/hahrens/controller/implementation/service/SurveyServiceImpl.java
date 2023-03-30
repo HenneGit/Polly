@@ -20,17 +20,21 @@ public class SurveyServiceImpl implements SurveyService {
 
     public SurveyServiceImpl(DTOMapping dtoMapping) {
         this.dtoMapping = dtoMapping;
-        surveyDTOS = new ArrayList<>(dtoMapping.getSurveys());
+        surveyDTOS = new ArrayList<>();
     }
+
 
     @PreDestroy
     public void persistChanges() {
-        dtoMapping.persistDTOs(surveyDTOS, SurveyDTO.class);
+        dtoMapping.save(surveyDTOS, SurveyDTO.class);
     }
 
 
     @Override
     public Collection<SurveyDTO> findAll() {
+        if (surveyDTOS.isEmpty()) {
+            surveyDTOS.addAll(dtoMapping.getSurveys());
+        }
         return surveyDTOS;
     }
 

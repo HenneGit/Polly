@@ -12,6 +12,9 @@ import java.util.Collection;
  * all changes are persisted in db.
  */
 public interface DTOMapping {
+
+    void load();
+
     /**
      * get all answers.
      * @return collection of all answers.
@@ -35,5 +38,5 @@ public interface DTOMapping {
      * @param dtoEntityInterfaces the dto objects to store.
      * @param clazz the class of the objects.
      */
-    void persistDTOs(Collection<? extends DTOEntityInterface> dtoEntityInterfaces, Class<? extends DTOEntityInterface> clazz);
+    void save(Collection<? extends DTOEntityInterface> dtoEntityInterfaces, Class<? extends DTOEntityInterface> clazz);
 }

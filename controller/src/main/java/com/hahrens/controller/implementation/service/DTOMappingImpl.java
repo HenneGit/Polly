@@ -11,12 +11,12 @@ import com.hahrens.controller.api.model.dto.DTOEntityInterface;
 import com.hahrens.controller.api.model.dto.QuestionDTO;
 import com.hahrens.controller.api.model.dto.SurveyDTO;
 import com.hahrens.controller.api.service.DTOMapping;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
-@Component
+@Service
 public class DTOMappingImpl implements DTOMapping {
 
     private final QuestionEntityRepository questionEntityRepository;
@@ -39,14 +39,10 @@ public class DTOMappingImpl implements DTOMapping {
         answerDTOMapping = new HashMap<>();
         surveyDTOMapping = new HashMap<>();
         questionDTOMapping = new HashMap<>();
-        init();
     }
 
-    //public for texting.
-    public void init() {
-        answerDTOMapping.clear();
-        questionDTOMapping.clear();
-        surveyDTOMapping.clear();
+    @Override
+    public void load() {
         List<SurveyEntity> surveyEntities = surveyEntityRepository.findAll();
         for (SurveyEntity surveyEntity : surveyEntities) {
             surveyDTOMapping.put(surveyEntity.getId(), DTOFactory.getSurveyDTO(surveyEntity));
@@ -63,21 +59,30 @@ public class DTOMappingImpl implements DTOMapping {
 
     @Override
     public Collection<AnswerDTO> getAnswers() {
+        if (surveyDTOMapping.isEmpty()) {
+            load();
+        }
         return answerDTOMapping.values();
     }
 
     @Override
     public Collection<QuestionDTO> getQuestions() {
+        if (surveyDTOMapping.isEmpty()) {
+            load();
+        }
         return questionDTOMapping.values();
     }
 
     @Override
     public Collection<SurveyDTO> getSurveys() {
+        if (surveyDTOMapping.isEmpty()) {
+            load();
+        }
         return surveyDTOMapping.values();
     }
 
     @Override
-    public void persistDTOs(final Collection<? extends DTOEntityInterface> dtoEntityInterfaces, final Class<? extends DTOEntityInterface> clazz) {
+    public void save(final Collection<? extends DTOEntityInterface> dtoEntityInterfaces, final Class<? extends DTOEntityInterface> clazz) {
         Collection<? extends DTOEntityInterface> cachedDTOs = null;
         if (clazz.equals(AnswerDTO.class)) {
             cachedDTOs = answerDTOMapping.values();

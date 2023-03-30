@@ -43,7 +43,7 @@ public class TestSetup {
      */
     public void resetDtoMapping(final DTOService<?> dtoService) {
         dtoService.persistChanges();
-        dtoMapping.init();
+        dtoMapping.load();
 
     }
 }
