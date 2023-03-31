@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
 
 @RestController
+@RequestMapping("/answer")
 public class AnswerRestController {
 
 
@@ -22,7 +23,7 @@ public class AnswerRestController {
         return ResponseEntity.ok(answerService.findAll());
     }
 
-    @PostMapping("/postAnswer")
+    @PostMapping("/add")
     public ResponseEntity<AnswerDTO> createSurvey(@RequestBody AnswerDTO answerDTO) {
         return ResponseEntity.ok(answerService.create(answerDTO));
     }

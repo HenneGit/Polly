@@ -1,37 +1,32 @@
 package com.hahrens.controller.implementation.model;
 
-import com.hahrens.controller.api.model.container.AnswerContainer;
 import com.hahrens.controller.api.model.dto.QuestionDTO;
+
+import java.util.UUID;
 
 public class QuestionDTOImpl implements QuestionDTO {
 
-    private Comparable<?> primaryKey;
+    private UUID primaryKey;
     private String name;
     private String description;
     private String question;
-    private AnswerContainer answerContainer;
-    private Comparable<?> surveyPk;
+    private UUID surveyPk;
 
-    public QuestionDTOImpl(Comparable<?> primaryKey, String name, String description, String question,  AnswerContainer answerContainer, Comparable<?> surveyPk) {
+    public QuestionDTOImpl(UUID primaryKey, String name, String description, String question, UUID surveyPk) {
         this.primaryKey = primaryKey;
         this.name = name;
         this.description = description;
         this.question = question;
-        this.answerContainer = answerContainer;
         this.surveyPk = surveyPk;
     }
 
     @Override
-    public Comparable<?> getPrimaryKey() {
+    public UUID getPrimaryKey() {
         return primaryKey;
     }
 
     @Override
-    public AnswerContainer getAnswerContainer() {
-        return answerContainer;
-    }
-    @Override
-    public Comparable<?> getSurveyPk() {
+    public UUID getSurveyPk() {
         return surveyPk;
     }
 

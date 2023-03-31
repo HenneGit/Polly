@@ -22,7 +22,6 @@ public class AnswerServiceImpl implements AnswerService {
     public AnswerServiceImpl(DTOMapping dtoMapping) {
         this.dtoMapping = dtoMapping;
         answerDTOS = new ArrayList<>();
-        answerDTOS.addAll(dtoMapping.getAnswers());
     }
 
     @PreDestroy
@@ -34,7 +33,10 @@ public class AnswerServiceImpl implements AnswerService {
 
     @Override
     public Collection<AnswerDTO> findAll() {
-          return answerDTOS;
+        if (answerDTOS.isEmpty()) {
+            answerDTOS.addAll(dtoMapping.getAnswers());
+        }
+        return answerDTOS;
     }
 
     @Override
@@ -67,7 +69,7 @@ public class AnswerServiceImpl implements AnswerService {
             return null;
         }
         answerDTOS.remove(oldAnswerDTO);
-        AnswerDTOImpl updatedAnswerDTO = new AnswerDTOImpl(answerDTO.getPrimaryKey(), answerDTO.getAnswerText(), answerDTO.getAnswerText());
+        AnswerDTOImpl updatedAnswerDTO = new AnswerDTOImpl(answerDTO.getPrimaryKey(), answerDTO.getQuestionPk(), answerDTO.getAnswerText());
         answerDTOS.add(updatedAnswerDTO);
         return answerDTO;
     }

@@ -45,21 +45,25 @@ public class SurveyServiceImpl implements SurveyService {
 
     @Override
     public SurveyDTO create(final SurveyDTO surveyDTO) {
-        SurveyDTO answerDTO1 = new SurveyDTOImpl(UUID.randomUUID(), surveyDTO.getName(), surveyDTO.getDescription(), surveyDTO.getQuestionContainer());
+        SurveyDTO answerDTO1 = new SurveyDTOImpl(UUID.randomUUID(), surveyDTO.getName(), surveyDTO.getDescription());
         surveyDTOS.add(answerDTO1);
         return answerDTO1;
     }
 
     @Override
     public void remove(final SurveyDTO surveyDTO) {
-        surveyDTOS.remove(surveyDTO);
+        SurveyDTO byId = findById(surveyDTO.getPrimaryKey());
+        surveyDTOS.remove(byId);
     }
 
     @Override
     public SurveyDTO update(final SurveyDTO surveyDTO) {
-        SurveyDTO oldAnswerDTO = surveyDTOS.stream().filter(a -> a.getPrimaryKey().equals(surveyDTO.getPrimaryKey())).findFirst().orElse(null);
+        SurveyDTO oldAnswerDTO = findById(surveyDTO.getPrimaryKey());
+        if (oldAnswerDTO == null) {
+            return null;
+        }
         surveyDTOS.remove(oldAnswerDTO);
-        SurveyDTO updatedAnswerDTO = new SurveyDTOImpl(surveyDTO.getPrimaryKey(), surveyDTO.getName(), surveyDTO.getDescription(), surveyDTO.getQuestionContainer());
+        SurveyDTO updatedAnswerDTO = new SurveyDTOImpl(surveyDTO.getPrimaryKey(), surveyDTO.getName(), surveyDTO.getDescription());
         surveyDTOS.add(updatedAnswerDTO);
         return updatedAnswerDTO;
     }

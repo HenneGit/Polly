@@ -1,12 +1,10 @@
 package com.hahrens.controller.api.model.dto;
 
-import com.hahrens.controller.api.model.container.AnswerContainer;
+import java.util.UUID;
 
 public interface QuestionDTO extends DTOEntityInterface {
 
-    AnswerContainer getAnswerContainer();
-
-    Comparable<?> getSurveyPk();
+    UUID getSurveyPk();
 
     String getName();
 

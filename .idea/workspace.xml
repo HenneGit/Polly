@@ -4,21 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="314eb581-d504-47f3-bc46-b9583dcb124e" name="Changes" comment="setting up a simple rest controller.">
-      <change afterPath="$PROJECT_DIR$/webapp/src/main/java/com/hahrens/webapp/rest/AnswerRestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webapp/src/main/java/com/hahrens/webapp/rest/QuestionRestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webapp/src/test/java/com/hahrens/webapp/rest/AnswerRestControllerTest.java" afterDir="false" />
+    <list default="true" id="314eb581-d504-47f3-bc46-b9583dcb124e" name="Changes" comment="rest controller added and some test adjusting.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/service/DTOService.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/service/DTOService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app.log" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/model/dto/AnswerDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/model/dto/AnswerDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/model/dto/DTOEntityInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/model/dto/DTOEntityInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/model/dto/QuestionDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/model/dto/QuestionDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/model/dto/SurveyDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/model/dto/SurveyDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/model/AnswerDTOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/model/AnswerDTOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/model/QuestionDTOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/model/QuestionDTOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/model/SurveyDTOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/model/SurveyDTOImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/AnswerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/AnswerServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/DTOMappingImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/DTOMappingImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/DTOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/DTOFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/QuestionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/QuestionServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/SurveyServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/SurveyServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/QuestionServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/QuestionServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/SurveyServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/SurveyServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/TestSetup.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/TestSetup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/main/java/com/hahrens/webapp/PollyApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main/java/com/hahrens/webapp/PollyApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/src/main/java/com/hahrens/webapp/rest/AnswerRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main/java/com/hahrens/webapp/rest/AnswerRestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webapp/src/main/java/com/hahrens/webapp/rest/SurveyRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main/java/com/hahrens/webapp/rest/SurveyRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/main/java/com/hahrens/webapp/rest/TestController.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +93,7 @@
       <recent name="$PROJECT_DIR$/controller" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.com.hahrens.controller.service in controller">
+  <component name="RunManager" selected="Spring Boot.PollyApplication">
     <configuration name="StorageTest" type="JUnit" factoryName="JUnit">
       <module name="backend" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -144,7 +147,7 @@
       <workItem from="1679998472062" duration="15415000" />
       <workItem from="1680074175971" duration="26057000" />
       <workItem from="1680161711293" duration="15230000" />
-      <workItem from="1680243775443" duration="3470000" />
+      <workItem from="1680243775443" duration="9404000" />
     </task>
     <task id="LOCAL-00001" summary="init commit.">
       <created>1678887988652</created>
@@ -230,7 +233,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680187577857</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="rest controller added and some test adjusting.">
+      <created>1680248352307</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1680248352307</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,7 +270,8 @@
     <MESSAGE value="update test added in SurveyServiceTest and bug fixed." />
     <MESSAGE value="some cleanUp." />
     <MESSAGE value="setting up a simple rest controller." />
-    <option name="LAST_COMMIT_MESSAGE" value="setting up a simple rest controller." />
+    <MESSAGE value="rest controller added and some test adjusting." />
+    <option name="LAST_COMMIT_MESSAGE" value="rest controller added and some test adjusting." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -276,9 +287,29 @@
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/webapp/src/main/java/com/hahrens/webapp/rest/SurveyRestController.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="98" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/webapp/src/main/java/com/hahrens/webapp/rest/SurveyRestController.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="100" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/webapp/src/main/java/com/hahrens/webapp/rest/SurveyRestController.java</url>
+          <line>41</line>
+          <option name="timeStamp" value="101" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/SurveyServiceTest.java</url>
-          <line>62</line>
-          <option name="timeStamp" value="95" />
+          <line>58</line>
+          <option name="timeStamp" value="103" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/DTOMappingImpl.java</url>
+          <line>86</line>
+          <option name="timeStamp" value="105" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -295,6 +326,7 @@
     </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Polly$com_hahrens_controller_service_in_controller.ic" NAME="com.hahrens.controller.service in controller Coverage Results" MODIFIED="1680255149590" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/Polly$Unnamed.ic" NAME="Unnamed Coverage Results" MODIFIED="1679905040876" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

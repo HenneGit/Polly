@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -17,8 +18,8 @@ public class QuestionServiceTest{
 
     private QuestionService questionService;
     private TestSetup testSetup;
-    private Comparable<?> questionPk;
-    private Comparable<?> surveyPk;
+    private UUID questionPk;
+    private UUID surveyPk;
 
     @BeforeEach
     public void init() {
@@ -59,7 +60,7 @@ public class QuestionServiceTest{
         String name = "Question2";
         String description2 = "Description2";
         String question = "Is Kermit a frog?";
-        QuestionDTO questionDTO = new QuestionDTOImpl(null, name, description2, question,null, surveyPk);
+        QuestionDTO questionDTO = new QuestionDTOImpl(null, name, description2, question,surveyPk);
         QuestionDTO newQuestionDTO = questionService.create(questionDTO);
         QuestionDTO byId = questionService.findById(newQuestionDTO.getPrimaryKey());
         assertNotNull(byId);
@@ -81,7 +82,7 @@ public class QuestionServiceTest{
         String newName = "New Name";
         String newQuestion = "New Question";
         String newDescription = "New Description";
-        QuestionDTO updatedQuestionDto = new QuestionDTOImpl(byId.getPrimaryKey(), newName, newDescription, newQuestion, byId.getAnswerContainer(), byId.getSurveyPk());
+        QuestionDTO updatedQuestionDto = new QuestionDTOImpl(byId.getPrimaryKey(), newName, newDescription, newQuestion, byId.getSurveyPk());
         questionService.update(updatedQuestionDto);
         QuestionDTO updatedDto = questionService.findById(questionPk);
         testPropertiesAfterUpdate(updatedDto, newName, newDescription, newQuestion);

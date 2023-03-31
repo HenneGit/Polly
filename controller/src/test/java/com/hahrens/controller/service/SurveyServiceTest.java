@@ -56,7 +56,6 @@ public class SurveyServiceTest {
     @Test
     public void testRemove() {
         SurveyDTO byId = surveyService.findById(surveyPk);
-        surveyService.remove(byId);
         Collection<QuestionDTO> allBySurvey = questionService.findAllBySurvey(byId);
         assertNotNull(allBySurvey);
         assertFalse(allBySurvey.isEmpty());
@@ -69,9 +68,9 @@ public class SurveyServiceTest {
         answerService.save();
         allBySurvey.forEach(questionService::remove);
         questionService.save();
+        surveyService.remove(surveyService.findById(surveyPk));
         testCollectionSize(1);
         resetServiceAndMapping();
-        surveyService.remove(surveyService.findById(surveyPk));
         testCollectionSize(1);
 
     }
@@ -85,7 +84,7 @@ public class SurveyServiceTest {
     public void testCreate() {
         String description = "My second survey";
         String name = "New Survey";
-        SurveyDTO surveyDTO = new SurveyDTOImpl(null, name, description, null);
+        SurveyDTO surveyDTO = new SurveyDTOImpl(null, name, description);
         surveyService.create(surveyDTO);
         testPropertiesAfterUpdate(description, name);
         testCollectionSize(3);
@@ -99,7 +98,7 @@ public class SurveyServiceTest {
         String description = "New Survey description";
         String name = "New Survey name";
         SurveyDTO byId = surveyService.findById(surveyPk);
-        SurveyDTO surveyDTO = new SurveyDTOImpl(byId.getPrimaryKey(), name, description, null);
+        SurveyDTO surveyDTO = new SurveyDTOImpl(byId.getPrimaryKey(), name, description);
         surveyService.update(surveyDTO);
         testPropertiesAfterUpdate(description, name);
         resetServiceAndMapping();
