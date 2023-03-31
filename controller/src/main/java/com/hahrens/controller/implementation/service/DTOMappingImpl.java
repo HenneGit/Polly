@@ -85,13 +85,13 @@ public class DTOMappingImpl implements DTOMapping {
     public void save(final Collection<? extends DTOEntityInterface> dtoEntityInterfaces, final Class<? extends DTOEntityInterface> clazz) {
         Collection<? extends DTOEntityInterface> cachedDTOs = null;
         if (clazz.equals(AnswerDTO.class)) {
-            cachedDTOs = answerDTOMapping.values();
+            cachedDTOs = getAnswers();
         }
         if (clazz.equals(QuestionDTO.class)) {
-            cachedDTOs = questionDTOMapping.values();
+            cachedDTOs = getQuestions();
         }
         if (clazz.equals(SurveyDTO.class)) {
-            cachedDTOs = surveyDTOMapping.values();
+            cachedDTOs = getSurveys();
         }
         if (cachedDTOs != null) {
             //delete something
@@ -118,7 +118,19 @@ public class DTOMappingImpl implements DTOMapping {
             }
             dtoEntityInterfaces.forEach(this::updateEntity);
         }
+        clear(clazz);
+    }
 
+    private void clear(final Class<? extends DTOEntityInterface> clazz) {
+        if (clazz.equals(AnswerDTO.class)) {
+            answerDTOMapping.clear();
+        }
+        if (clazz.equals(QuestionDTO.class)) {
+            questionDTOMapping.clear();
+        }
+        if (clazz.equals(SurveyDTO.class)) {
+            surveyDTOMapping.clear();
+        }
     }
 
     private void removeEntity(final DTOEntityInterface dtoEntityInterface) {

@@ -27,7 +27,7 @@ public class AnswerServiceImpl implements AnswerService {
 
     @PreDestroy
     @Override
-    public void persistChanges() {
+    public void save() {
         dtoMapping.save(answerDTOS, AnswerDTO.class);
     }
 

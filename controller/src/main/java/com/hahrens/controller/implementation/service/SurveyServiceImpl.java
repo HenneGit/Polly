@@ -25,7 +25,7 @@ public class SurveyServiceImpl implements SurveyService {
 
 
     @PreDestroy
-    public void persistChanges() {
+    public void save() {
         dtoMapping.save(surveyDTOS, SurveyDTO.class);
     }
 

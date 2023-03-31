@@ -25,7 +25,7 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     @PreDestroy
-    public void persistChanges() {
+    public void save() {
         dtoMapping.save(questionDTOS, QuestionDTO.class);
     }
 

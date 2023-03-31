@@ -2,10 +2,8 @@ package com.hahrens.webapp.rest;
 
 import com.hahrens.controller.api.model.dto.SurveyDTO;
 import com.hahrens.controller.api.service.SurveyService;
-import com.hahrens.controller.implementation.model.SurveyDTOImpl;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 
@@ -19,13 +17,25 @@ public class SurveyRestController {
         this.surveyService = surveyService;
     }
 
-
     @GetMapping("/surveys")
-    public ResponseEntity<Collection<SurveyDTO>> getAllTestEntity() {
-        Collection<SurveyDTO> all = surveyService.findAll();
-        surveyService.create(new SurveyDTOImpl(null, "Hello", "Descr", null));
-
+    public ResponseEntity<Collection<SurveyDTO>> getSurveys() {
         return ResponseEntity.ok(surveyService.findAll());
+    }
+
+    @PostMapping("/createSurvey")
+    public ResponseEntity<SurveyDTO> createSurvey(@RequestBody SurveyDTO surveyDTO) {
+        return ResponseEntity.ok(surveyService.create(surveyDTO));
+    }
+
+    @DeleteMapping("/deleteSurvey")
+    public ResponseEntity<String> deleteSurvey(@RequestBody SurveyDTO surveyDTO) {
+        surveyService.remove(surveyDTO);
+        return ResponseEntity.ok("deleted");
+    }
+
+    @PutMapping("/updateSurvey")
+    public ResponseEntity<SurveyDTO> updateSurvey(@RequestBody SurveyDTO surveyDTO) {
+        return ResponseEntity.ok(surveyService.update(surveyDTO));
     }
 }
 

@@ -42,7 +42,7 @@ public class TestSetup {
      * @param dtoService the service to persist.
      */
     public void resetDtoMapping(final DTOService<?> dtoService) {
-        dtoService.persistChanges();
+        dtoService.save();
         dtoMapping.load();
 
     }

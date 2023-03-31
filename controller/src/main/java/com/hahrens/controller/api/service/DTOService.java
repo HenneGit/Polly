@@ -46,7 +46,7 @@ public interface DTOService<DTO> {
      * persist changes when bean is destroyed.
      */
     @PreDestroy
-    void persistChanges();
+    void save();
 
 
 }

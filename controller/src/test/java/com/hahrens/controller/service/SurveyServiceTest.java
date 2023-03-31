@@ -66,9 +66,9 @@ public class SurveyServiceTest {
                 allByQuestion.forEach(answerService::remove);
             }
         }
-        answerService.persistChanges();
+        answerService.save();
         allBySurvey.forEach(questionService::remove);
-        questionService.persistChanges();
+        questionService.save();
         testCollectionSize(1);
         resetServiceAndMapping();
         surveyService.remove(surveyService.findById(surveyPk));
