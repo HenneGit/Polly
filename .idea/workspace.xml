@@ -4,24 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="314eb581-d504-47f3-bc46-b9583dcb124e" name="Changes" comment="rest controller added and some test adjusting.">
+    <list default="true" id="314eb581-d504-47f3-bc46-b9583dcb124e" name="Changes" comment="comparable removed from dto as jackson has problems deserializing. All restcontrollers added.">
+      <change afterPath="$PROJECT_DIR$/frontend/src/main/resources/reactapp/polly-frontend/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/main/resources/reactapp/polly-frontend/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/main/resources/reactapp/polly-frontend/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/main/resources/reactapp/polly-frontend/src/App.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/main/resources/reactapp/polly-frontend/src/App.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/main/resources/reactapp/polly-frontend/src/component/input/InputField.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/main/resources/reactapp/polly-frontend/src/component/input/InputField.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/main/resources/reactapp/polly-frontend/src/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/main/resources/reactapp/polly-frontend/src/main.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/main/resources/reactapp/polly-frontend/src/model/models.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/main/resources/reactapp/polly-frontend/src/vite-env.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/main/resources/reactapp/polly-frontend/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/main/resources/reactapp/polly-frontend/tsconfig.node.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/main/resources/reactapp/polly-frontend/vite.config.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app.log" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/model/dto/AnswerDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/model/dto/AnswerDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/model/dto/DTOEntityInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/model/dto/DTOEntityInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/model/dto/QuestionDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/model/dto/QuestionDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/model/dto/SurveyDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/model/dto/SurveyDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/model/AnswerDTOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/model/AnswerDTOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/model/QuestionDTOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/model/QuestionDTOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/model/SurveyDTOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/model/SurveyDTOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/AnswerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/AnswerServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/DTOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/DTOFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/QuestionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/QuestionServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/SurveyServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/SurveyServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/QuestionServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/QuestionServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/SurveyServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/SurveyServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/main/java/com/hahrens/webapp/rest/AnswerRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main/java/com/hahrens/webapp/rest/AnswerRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/main/java/com/hahrens/webapp/rest/SurveyRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main/java/com/hahrens/webapp/rest/SurveyRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/DTOMappingImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/DTOMappingImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,7 +72,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../beginning-spring-boot-3" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -82,6 +81,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/frontend/src/main/resources/reactapp/polly-frontend/node_modules/typescript/lib" />
   </component>
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
@@ -91,6 +91,10 @@
       <recent name="$PROJECT_DIR$/webapp" />
       <recent name="$PROJECT_DIR$/frontend" />
       <recent name="$PROJECT_DIR$/controller" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/src/main/resources/reactapp/polly-frontend/src/model" />
+      <recent name="$PROJECT_DIR$/frontend/src/main/resources/reactapp/polly-frontend/src/hooks/survey/survey" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.PollyApplication">
@@ -147,7 +151,11 @@
       <workItem from="1679998472062" duration="15415000" />
       <workItem from="1680074175971" duration="26057000" />
       <workItem from="1680161711293" duration="15230000" />
-      <workItem from="1680243775443" duration="9404000" />
+      <workItem from="1680243775443" duration="14204000" />
+      <workItem from="1680275968629" duration="1531000" />
+      <workItem from="1680336915393" duration="1483000" />
+      <workItem from="1680419960724" duration="5021000" />
+      <workItem from="1680448026080" duration="752000" />
     </task>
     <task id="LOCAL-00001" summary="init commit.">
       <created>1678887988652</created>
@@ -240,7 +248,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680248352307</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="comparable removed from dto as jackson has problems deserializing. All restcontrollers added.">
+      <created>1680266770169</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1680266770169</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -271,7 +286,8 @@
     <MESSAGE value="some cleanUp." />
     <MESSAGE value="setting up a simple rest controller." />
     <MESSAGE value="rest controller added and some test adjusting." />
-    <option name="LAST_COMMIT_MESSAGE" value="rest controller added and some test adjusting." />
+    <MESSAGE value="comparable removed from dto as jackson has problems deserializing. All restcontrollers added." />
+    <option name="LAST_COMMIT_MESSAGE" value="comparable removed from dto as jackson has problems deserializing. All restcontrollers added." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -285,21 +301,6 @@
           <url>file://$PROJECT_DIR$/backend/src/test/java/com/hahrens/backend/repository/AnswerEntityRepositoryTest.java</url>
           <line>87</line>
           <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/webapp/src/main/java/com/hahrens/webapp/rest/SurveyRestController.java</url>
-          <line>28</line>
-          <option name="timeStamp" value="98" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/webapp/src/main/java/com/hahrens/webapp/rest/SurveyRestController.java</url>
-          <line>35</line>
-          <option name="timeStamp" value="100" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/webapp/src/main/java/com/hahrens/webapp/rest/SurveyRestController.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="101" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/SurveyServiceTest.java</url>
