@@ -36,7 +36,8 @@ public class AnswerRestControllerTest {
 
     private MockMvc mvc;
 
-    private JacksonTester<List<AnswerDTOImpl>> jsonAnswerDTO;
+    private JacksonTester<List<AnswerDTOImpl>> jsonListWriter;
+    private JacksonTester<AnswerDTOImpl> jsonObjectWriter;
 
     private UUID primaryKey;
     private UUID questionPk;
@@ -49,6 +50,7 @@ public class AnswerRestControllerTest {
         JacksonTester.initFields(this, new ObjectMapper());
         AnswerDTO answerDTO = new AnswerDTOImpl(primaryKey, questionPk, "New Answer");
         lenient().when(answerService.findAll()).thenReturn(List.of(answerDTO));
+        lenient().when(answerService.findById(primaryKey.toString())).thenReturn(answerDTO);
         mvc = MockMvcBuilders.standaloneSetup(restController)
                 .build();
     }
@@ -57,7 +59,31 @@ public class AnswerRestControllerTest {
     public void testGetAnswers() throws Exception {
         MockHttpServletResponse response = mvc.perform(get("/answer/get").accept(MediaType.APPLICATION_JSON))
                 .andReturn().getResponse();
-        assertEquals(response.getStatus(),HttpStatus.OK.value());
-        assertEquals(response.getContentAsString(), jsonAnswerDTO.write(List.of(new AnswerDTOImpl(primaryKey, questionPk, "New Answer"))).getJson());
+        assertEquals(response.getStatus(), HttpStatus.OK.value());
+        assertEquals(response.getContentAsString(), jsonListWriter.write(List.of(new AnswerDTOImpl(primaryKey, questionPk, "New Answer"))).getJson());
     }
+
+    @Test
+    public void testFindById() throws Exception {
+        MockHttpServletResponse response = mvc.perform(get("/answer/" +primaryKey.toString()).accept(MediaType.APPLICATION_JSON))
+                .andReturn().getResponse();
+        assertEquals(response.getStatus(), HttpStatus.OK.value());
+        assertEquals(response.getContentAsString(), jsonObjectWriter.write(new AnswerDTOImpl(primaryKey, questionPk, "New Answer")).getJson());
+        MockHttpServletResponse nullResponse = mvc.perform(get("/answer/").accept(MediaType.APPLICATION_JSON))
+                .andReturn().getResponse();
+        assertEquals(nullResponse.getStatus(), HttpStatus.NOT_FOUND.value());
+        MockHttpServletResponse wrongIdResponse = mvc.perform(get("/answer/asdasd").accept(MediaType.APPLICATION_JSON))
+                .andReturn().getResponse();
+        assertEquals(wrongIdResponse.getStatus(), HttpStatus.NOT_FOUND.value());
+    }
+
+    @Test
+    public void testDelete() {
+
+
+
+    }
+
+
+
 }
