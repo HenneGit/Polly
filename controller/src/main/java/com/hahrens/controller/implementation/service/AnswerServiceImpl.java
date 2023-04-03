@@ -76,6 +76,9 @@ public class AnswerServiceImpl implements AnswerService {
 
     @Override
     public Collection<AnswerDTO> findAllByQuestion(final QuestionDTO questionDTO) {
-       return answerDTOS.stream().filter(a -> a.getQuestionPk().equals(questionDTO.getPrimaryKey())).toList();
+        if (questionDTO == null) {
+            return null;
+        }
+        return answerDTOS.stream().filter(a -> a.getQuestionPk().equals(questionDTO.getPrimaryKey())).toList();
     }
 }

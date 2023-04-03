@@ -2,12 +2,17 @@ package com.hahrens.webapp.rest;
 
 import com.hahrens.controller.api.model.dto.QuestionDTO;
 import com.hahrens.controller.api.service.QuestionService;
+import com.hahrens.controller.implementation.model.QuestionDTOImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 
+/**
+ * rest controller for delivering questions to frontend.
+ */
 @RestController
+@RequestMapping("/question")
 public class QuestionRestController {
 
 
@@ -17,24 +22,43 @@ public class QuestionRestController {
         this.questionService = questionService;
     }
 
-    @GetMapping("/questions")
-    public ResponseEntity<Collection<QuestionDTO>> getSurveys() {
+    /**
+     * get all questions.
+     * @return all questions found.
+     */
+    @GetMapping("/get")
+    public ResponseEntity<Collection<QuestionDTO>> getQuestions() {
         return ResponseEntity.ok(questionService.findAll());
     }
 
-    @PostMapping("/postQuestion")
-    public ResponseEntity<QuestionDTO> createSurvey(@RequestBody QuestionDTO questionDTO) {
+    /**
+     * add a new question.
+     * @param questionDTO the question to add.
+     * @return the created question.
+     */
+    @PostMapping("/add")
+    public ResponseEntity<QuestionDTO> createQuestion(@RequestBody QuestionDTOImpl questionDTO) {
         return ResponseEntity.ok(questionService.create(questionDTO));
     }
 
-    @DeleteMapping("/deleteQuestion")
-    public ResponseEntity<String> deleteSurvey(@RequestBody QuestionDTO questionDTO) {
+    /**
+     * delete the given question.
+     * @param questionDTO the question to delete.
+     * @return a confirmation that the question has been deleted.
+     */
+    @DeleteMapping("/delete")
+    public ResponseEntity<String> deleteQuestion(@RequestBody QuestionDTOImpl questionDTO) {
         questionService.remove(questionDTO);
         return ResponseEntity.ok("deleted");
     }
 
-    @PutMapping("updateQuestion")
-    public ResponseEntity<QuestionDTO> updateSurvey(@RequestBody QuestionDTO questionDTO) {
+    /**
+     * update the given question.
+     * @param questionDTO the question to update.
+     * @return the updated question.
+     */
+    @PutMapping("update")
+    public ResponseEntity<QuestionDTO> updateQuestion(@RequestBody QuestionDTOImpl questionDTO) {
         return ResponseEntity.ok(questionService.update(questionDTO));
     }
 }
