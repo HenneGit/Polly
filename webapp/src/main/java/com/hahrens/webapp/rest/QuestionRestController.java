@@ -1,6 +1,5 @@
 package com.hahrens.webapp.rest;
 
-import com.hahrens.controller.api.model.dto.AnswerDTO;
 import com.hahrens.controller.api.model.dto.QuestionDTO;
 import com.hahrens.controller.api.service.QuestionService;
 import com.hahrens.controller.implementation.model.QuestionDTOImpl;
