@@ -48,7 +48,7 @@ public class SurveyRestController {
      */
     @DeleteMapping("/delete")
     public ResponseEntity<String> deleteSurvey(@RequestBody SurveyDTOImpl surveyDTO) {
-        surveyService.remove(surveyDTO);
+        surveyService.delete(surveyDTO);
         return ResponseEntity.ok("deleted");
     }
 

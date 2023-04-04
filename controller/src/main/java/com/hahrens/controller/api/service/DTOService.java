@@ -26,7 +26,13 @@ public interface DTOService<DTO> {
      * remove the given dto.
      * @param dto the dto to remove.
      */
-    void remove(DTO dto);
+    void delete(DTO dto);
+
+    /**
+     * remove the given dto.
+     * @param dto the dto to remove.
+     */
+    void deleteById(Comparable<?> primaryKey);
 
     /**
      * create the given dto.

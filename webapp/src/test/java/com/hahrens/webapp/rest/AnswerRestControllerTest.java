@@ -1,9 +1,9 @@
 package com.hahrens.webapp.rest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.hahrens.controller.api.model.dto.AnswerDTO;
 import com.hahrens.controller.api.service.AnswerService;
 import com.hahrens.controller.implementation.model.AnswerDTOImpl;
+import com.hahrens.controller.implementation.model.QuestionDTOImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -17,12 +17,14 @@ import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.lenient;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 
 
 @ExtendWith(MockitoExtension.class)
@@ -37,10 +39,14 @@ public class AnswerRestControllerTest {
     private MockMvc mvc;
 
     private JacksonTester<List<AnswerDTOImpl>> jsonListWriter;
-    private JacksonTester<AnswerDTOImpl> jsonObjectWriter;
+    private JacksonTester<AnswerDTOImpl> answerDTOJsonObjectWriter;
+    private JacksonTester<QuestionDTOImpl> questionDTOJsonObjectWriter;
 
     private UUID primaryKey;
     private UUID questionPk;
+    private AnswerDTOImpl answerDTO;
+    private AnswerDTOImpl updatedAnswerDTO;
+    private QuestionDTOImpl questionDTO;
 
 
     @BeforeEach
@@ -48,9 +54,14 @@ public class AnswerRestControllerTest {
         primaryKey = UUID.randomUUID();
         questionPk = UUID.randomUUID();
         JacksonTester.initFields(this, new ObjectMapper());
-        AnswerDTO answerDTO = new AnswerDTOImpl(primaryKey, questionPk, "New Answer");
+        answerDTO = new AnswerDTOImpl(primaryKey, questionPk, "New Answer");
+        updatedAnswerDTO = new AnswerDTOImpl(primaryKey, questionPk, "New Answer_updated");
+        questionDTO = new QuestionDTOImpl(primaryKey, "name", "desc", "question", questionPk);
         lenient().when(answerService.findAll()).thenReturn(List.of(answerDTO));
         lenient().when(answerService.findById(primaryKey.toString())).thenReturn(answerDTO);
+        lenient().when(answerService.update(any(AnswerDTOImpl.class))).thenReturn(updatedAnswerDTO);
+        lenient().when(answerService.create(any(AnswerDTOImpl.class))).thenReturn(updatedAnswerDTO);
+        lenient().when(answerService.findAllByQuestion(any(QuestionDTOImpl.class))).thenReturn(List.of(updatedAnswerDTO));
         mvc = MockMvcBuilders.standaloneSetup(restController)
                 .build();
     }
@@ -59,31 +70,84 @@ public class AnswerRestControllerTest {
     public void testGetAnswers() throws Exception {
         MockHttpServletResponse response = mvc.perform(get("/answer/get").accept(MediaType.APPLICATION_JSON))
                 .andReturn().getResponse();
-        assertEquals(response.getStatus(), HttpStatus.OK.value());
-        assertEquals(response.getContentAsString(), jsonListWriter.write(List.of(new AnswerDTOImpl(primaryKey, questionPk, "New Answer"))).getJson());
+        assertEquals(HttpStatus.OK.value(), response.getStatus());
+        String contentAsString = response.getContentAsString();
+        assertEquals(jsonListWriter.parseObject(contentAsString).get(0).getAnswerText(), List.of(answerDTO).get(0).getAnswerText());
     }
 
     @Test
     public void testFindById() throws Exception {
         MockHttpServletResponse response = mvc.perform(get("/answer/" +primaryKey.toString()).accept(MediaType.APPLICATION_JSON))
                 .andReturn().getResponse();
-        assertEquals(response.getStatus(), HttpStatus.OK.value());
-        assertEquals(response.getContentAsString(), jsonObjectWriter.write(new AnswerDTOImpl(primaryKey, questionPk, "New Answer")).getJson());
+        assertEquals(HttpStatus.OK.value(), response.getStatus());
+        assertEquals(response.getContentAsString(), answerDTOJsonObjectWriter.write(answerDTO).getJson());
         MockHttpServletResponse nullResponse = mvc.perform(get("/answer/").accept(MediaType.APPLICATION_JSON))
                 .andReturn().getResponse();
-        assertEquals(nullResponse.getStatus(), HttpStatus.NOT_FOUND.value());
+        assertEquals(HttpStatus.NOT_FOUND.value(), nullResponse.getStatus());
         MockHttpServletResponse wrongIdResponse = mvc.perform(get("/answer/asdasd").accept(MediaType.APPLICATION_JSON))
                 .andReturn().getResponse();
-        assertEquals(wrongIdResponse.getStatus(), HttpStatus.NOT_FOUND.value());
+        assertEquals(HttpStatus.NOT_FOUND.value(), wrongIdResponse.getStatus());
     }
 
     @Test
-    public void testDelete() {
+    public void testDelete() throws Exception {
+        MockHttpServletResponse response = mvc.perform(delete("/answer/delete/" + primaryKey.toString()).accept(MediaType.APPLICATION_JSON))
+                .andReturn().getResponse();
+        assertEquals(HttpStatus.NO_CONTENT.value(), response.getStatus());
+    }
 
 
+    @Test
+    public void testUpdate() throws Exception {
+        MockHttpServletResponse response = mvc.perform(put("/answer/update")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(answerDTOJsonObjectWriter.write(updatedAnswerDTO).getJson())
+                        .accept(MediaType.APPLICATION_JSON_VALUE))
+                .andReturn().getResponse();
+        assertEquals(HttpStatus.OK.value(), response.getStatus());
+        testIfResponseObjectIsValid(response);
+        MockHttpServletResponse nullResponse = mvc.perform(put("/answer/update")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("")
+                        .accept(MediaType.APPLICATION_JSON_VALUE))
+                .andReturn().getResponse();
+        assertEquals(HttpStatus.BAD_REQUEST.value(), nullResponse.getStatus());
+    }
+
+    @Test
+    public void testAdd() throws Exception {
+        MockHttpServletResponse response = mvc.perform(post("/answer/add")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(answerDTOJsonObjectWriter.write(updatedAnswerDTO).getJson())
+                        .accept(MediaType.APPLICATION_JSON_VALUE))
+                .andReturn().getResponse();
+        assertEquals(HttpStatus.CREATED.value(), response.getStatus());
+        testIfResponseObjectIsValid(response);
+        MockHttpServletResponse nullResponse = mvc.perform(post("/answer/add")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content("")
+                        .accept(MediaType.APPLICATION_JSON_VALUE))
+                .andReturn().getResponse();
+        assertEquals(HttpStatus.BAD_REQUEST.value(), nullResponse.getStatus());
+    }
+
+    @Test
+    public void testFindByQuestionId() throws Exception {
+        MockHttpServletResponse response = mvc.perform(get("/answer/getByQuestion")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(questionDTOJsonObjectWriter.write(questionDTO).getJson())
+                        .accept(MediaType.APPLICATION_JSON_VALUE))
+                .andReturn().getResponse();
+        assertEquals(HttpStatus.OK.value(), response.getStatus());
+        assertEquals(jsonListWriter.parseObject( response.getContentAsString()).get(0).getAnswerText(), List.of(updatedAnswerDTO).get(0).getAnswerText());
 
     }
 
+    private void testIfResponseObjectIsValid(MockHttpServletResponse response) throws IOException {
+        String contentAsString = response.getContentAsString();
+        AnswerDTOImpl answerDTO = answerDTOJsonObjectWriter.parseObject(contentAsString);
+        assertEquals(updatedAnswerDTO.getAnswerText(), answerDTO.getAnswerText());
+    }
 
 
 }

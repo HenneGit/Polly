@@ -48,7 +48,7 @@ public class QuestionRestController {
      */
     @DeleteMapping("/delete")
     public ResponseEntity<String> deleteQuestion(@RequestBody QuestionDTOImpl questionDTO) {
-        questionService.remove(questionDTO);
+        questionService.delete(questionDTO);
         return ResponseEntity.ok("deleted");
     }
 

@@ -50,7 +50,7 @@ public class QuestionServiceTest{
     @Test
     public void testRemove() {
         QuestionDTO byId = questionService.findById(questionPk);
-        questionService.remove(byId);
+        questionService.delete(byId);
         Collection<QuestionDTO> all = questionService.findAll();
         assertEquals(3, all.size());
     }

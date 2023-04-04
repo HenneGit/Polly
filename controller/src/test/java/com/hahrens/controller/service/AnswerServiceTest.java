@@ -48,7 +48,7 @@ public class AnswerServiceTest {
     public void testRemove() {
         AnswerDTO byId = answerService.findById(answerId);
         assertNotNull(byId);
-        answerService.remove(byId);
+        answerService.delete(byId);
         AnswerDTO nullDto = answerService.findById(answerId);
         assertNull(nullDto);
         testSetup.resetDtoMapping(answerService);

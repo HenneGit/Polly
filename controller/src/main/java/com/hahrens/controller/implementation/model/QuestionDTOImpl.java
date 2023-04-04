@@ -20,6 +20,12 @@ public class QuestionDTOImpl implements QuestionDTO {
         this.surveyPk = surveyPk;
     }
 
+    /**
+     * default constructor for deserialization.
+     */
+    public QuestionDTOImpl() {
+    }
+
     @Override
     public UUID getPrimaryKey() {
         return primaryKey;

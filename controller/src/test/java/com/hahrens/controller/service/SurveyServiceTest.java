@@ -62,13 +62,13 @@ public class SurveyServiceTest {
         for (QuestionDTO questionDTO : allBySurvey) {
             Collection<AnswerDTO> allByQuestion = answerService.findAllByQuestion(questionDTO);
             if (!allByQuestion.isEmpty()) {
-                allByQuestion.forEach(answerService::remove);
+                allByQuestion.forEach(answerService::delete);
             }
         }
         answerService.save();
-        allBySurvey.forEach(questionService::remove);
+        allBySurvey.forEach(questionService::delete);
         questionService.save();
-        surveyService.remove(surveyService.findById(surveyPk));
+        surveyService.delete(surveyService.findById(surveyPk));
         testCollectionSize(1);
         resetServiceAndMapping();
         testCollectionSize(1);

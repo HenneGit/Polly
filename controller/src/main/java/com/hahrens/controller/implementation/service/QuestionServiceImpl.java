@@ -1,5 +1,6 @@
 package com.hahrens.controller.implementation.service;
 
+import com.hahrens.controller.api.model.dto.AnswerDTO;
 import com.hahrens.controller.api.model.dto.QuestionDTO;
 import com.hahrens.controller.api.model.dto.SurveyDTO;
 import com.hahrens.controller.api.service.DTOMapping;
@@ -58,8 +59,17 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     @Override
-    public void remove(final QuestionDTO questionDTO) {
+    public void delete(final QuestionDTO questionDTO) {
         load();
+        questionDTOS.remove(questionDTO);
+    }
+
+    @Override
+    public void deleteById(Comparable<?> primaryKey) {
+        QuestionDTO questionDTO = questionDTOS.stream().filter(q -> q.getPrimaryKey().equals(primaryKey)).findFirst().orElse(null);
+        if (questionDTO == null) {
+            return;
+        }
         questionDTOS.remove(questionDTO);
     }
 

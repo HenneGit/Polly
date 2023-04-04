@@ -16,6 +16,9 @@ public class AnswerDTOImpl implements AnswerDTO {
         this.answerText = answerText;
     }
 
+    public AnswerDTOImpl() {
+    }
+
     @Override
     public UUID getPrimaryKey() {
         return primaryKey;
@@ -31,4 +34,15 @@ public class AnswerDTOImpl implements AnswerDTO {
         return answerText;
     }
 
+    public void setPrimaryKey(UUID primaryKey) {
+        this.primaryKey = primaryKey;
+    }
+
+    public void setQuestionPk(UUID questionPk) {
+        this.questionPk = questionPk;
+    }
+
+    public void setAnswerText(String answerText) {
+        this.answerText = answerText;
+    }
 }

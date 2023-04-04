@@ -55,7 +55,16 @@ public class AnswerServiceImpl implements AnswerService {
     }
 
     @Override
-    public void remove(final AnswerDTO answerDTO) {
+    public void delete(final AnswerDTO answerDTO) {
+        answerDTOS.remove(answerDTO);
+    }
+
+    @Override
+    public void deleteById(Comparable<?> primaryKey) {
+        AnswerDTO answerDTO = answerDTOS.stream().filter(a -> a.getPrimaryKey().equals(primaryKey)).findFirst().orElse(null);
+        if (answerDTO == null) {
+            return;
+        }
         answerDTOS.remove(answerDTO);
     }
 
