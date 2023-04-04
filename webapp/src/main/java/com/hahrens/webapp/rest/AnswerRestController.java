@@ -43,6 +43,7 @@ public class AnswerRestController {
      */
     @RequestMapping(value = "/{answerId}", method = RequestMethod.GET)
     public ResponseEntity<AnswerDTO> getAnswerById(@PathVariable String answerId)    {
+        //todo add pk not found exception.
         if (answerId == null) {
             return ResponseEntity.badRequest().build();
         }
@@ -60,6 +61,7 @@ public class AnswerRestController {
      */
     @GetMapping("/getByQuestion")
     public ResponseEntity<Collection<AnswerDTO>> getAnswersByQuestion(@RequestBody QuestionDTOImpl question)    {
+        //todo add pk not found exception.
         if (question == null) {
             return ResponseEntity.badRequest().build();
         }
@@ -92,6 +94,7 @@ public class AnswerRestController {
      */
     @RequestMapping(value = "/delete/{answerId}", method = RequestMethod.DELETE)
     public ResponseEntity<String> deleteAnswer(@PathVariable String answerId) {
+        //todo add pk not found exception.
         answerService.deleteById(answerId);
         return ResponseEntity.noContent().build();
     }

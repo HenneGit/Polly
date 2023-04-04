@@ -15,6 +15,11 @@ public class SurveyDTOImpl implements SurveyDTO {
         this.name = name;
         this.description = description;
     }
+    /**
+     * default constructor for deserialization.
+     */
+    public SurveyDTOImpl() {
+    }
 
     @Override
     public UUID getPrimaryKey() {

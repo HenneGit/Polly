@@ -15,7 +15,9 @@ public class AnswerDTOImpl implements AnswerDTO {
         this.questionPk = questionPk;
         this.answerText = answerText;
     }
-
+    /**
+     * default constructor for deserialization.
+     */
     public AnswerDTOImpl() {
     }
 
@@ -34,15 +36,4 @@ public class AnswerDTOImpl implements AnswerDTO {
         return answerText;
     }
 
-    public void setPrimaryKey(UUID primaryKey) {
-        this.primaryKey = primaryKey;
-    }
-
-    public void setQuestionPk(UUID questionPk) {
-        this.questionPk = questionPk;
-    }
-
-    public void setAnswerText(String answerText) {
-        this.answerText = answerText;
-    }
 }
