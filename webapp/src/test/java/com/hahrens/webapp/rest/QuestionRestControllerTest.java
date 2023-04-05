@@ -2,7 +2,6 @@ package com.hahrens.webapp.rest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hahrens.controller.api.service.QuestionService;
-import com.hahrens.controller.implementation.model.AnswerDTOImpl;
 import com.hahrens.controller.implementation.model.QuestionDTOImpl;
 import com.hahrens.controller.implementation.model.SurveyDTOImpl;
 import org.junit.jupiter.api.BeforeEach;
@@ -58,7 +57,7 @@ public class QuestionRestControllerTest {
         lenient().when(questionService.findById(primaryKey.toString())).thenReturn(questionDTO);
         lenient().when(questionService.update(any(QuestionDTOImpl.class))).thenReturn(questionDTO);
         lenient().when(questionService.create(any(QuestionDTOImpl.class))).thenReturn(questionDTO);
-        lenient().when(questionService.findAllBySurvey(any(SurveyDTOImpl.class))).thenReturn(List.of(questionDTO));
+        lenient().when(questionService.findAllBySurveyId(any(Comparable.class))).thenReturn(List.of(questionDTO));
         mvc = MockMvcBuilders.standaloneSetup(restController)
                 .build();
     }
@@ -73,7 +72,7 @@ public class QuestionRestControllerTest {
 
     @Test
     public void testFindById() throws Exception {
-        MockHttpServletResponse response = mvc.perform(get(QUESTION_ROUTE +primaryKey.toString()).accept(MediaType.APPLICATION_JSON))
+        MockHttpServletResponse response = mvc.perform(get(QUESTION_ROUTE + "getById/" +primaryKey.toString()).accept(MediaType.APPLICATION_JSON))
                 .andReturn().getResponse();
         assertEquals(HttpStatus.OK.value(), response.getStatus());
         assertEquals(response.getContentAsString(), questionDTOJacksonTester.write(questionDTO).getJson());
@@ -129,7 +128,7 @@ public class QuestionRestControllerTest {
 
     @Test
     public void testFindBySurvey() throws Exception {
-        MockHttpServletResponse response = mvc.perform(get(QUESTION_ROUTE + "getBySurvey")
+        MockHttpServletResponse response = mvc.perform(get(QUESTION_ROUTE + "getBySurveyId/" + "surveyId")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(surveyDTOJacksonTester.write(surveyDTO).getJson())
                         .accept(MediaType.APPLICATION_JSON_VALUE))

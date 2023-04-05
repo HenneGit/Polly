@@ -55,12 +55,11 @@ public class SurveyServiceTest {
 
     @Test
     public void testRemove() {
-        SurveyDTO byId = surveyService.findById(surveyPk);
-        Collection<QuestionDTO> allBySurvey = questionService.findAllBySurvey(byId);
+        Collection<QuestionDTO> allBySurvey = questionService.findAllBySurveyId(surveyPk);
         assertNotNull(allBySurvey);
         assertFalse(allBySurvey.isEmpty());
         for (QuestionDTO questionDTO : allBySurvey) {
-            Collection<AnswerDTO> allByQuestion = answerService.findAllByQuestion(questionDTO);
+            Collection<AnswerDTO> allByQuestion = answerService.findAllByQuestionId(questionDTO.getPrimaryKey());
             if (!allByQuestion.isEmpty()) {
                 allByQuestion.forEach(answerService::delete);
             }

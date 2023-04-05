@@ -177,7 +177,6 @@ public class DTOMappingImpl implements DTOMapping {
             }
         }
         if (dtoEntityInterface instanceof SurveyDTO surveyDTO) {
-            System.out.println(surveyDTO.getName());
             Long entityIdForDTOPk = getEntityIdForDTOPk(surveyDTO.getPrimaryKey(), surveyDTOMapping);
             SurveyEntity surveyEntity = surveyEntityRepository.findById(entityIdForDTOPk).orElse(null);
             if (surveyEntity != null) {

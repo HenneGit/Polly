@@ -61,7 +61,7 @@ public class AnswerRestControllerTest {
         lenient().when(answerService.findById(primaryKey.toString())).thenReturn(answerDTO);
         lenient().when(answerService.update(any(AnswerDTOImpl.class))).thenReturn(updatedAnswerDTO);
         lenient().when(answerService.create(any(AnswerDTOImpl.class))).thenReturn(updatedAnswerDTO);
-        lenient().when(answerService.findAllByQuestion(any(QuestionDTOImpl.class))).thenReturn(List.of(updatedAnswerDTO));
+        lenient().when(answerService.findAllByQuestionId(any(Comparable.class))).thenReturn(List.of(updatedAnswerDTO));
         mvc = MockMvcBuilders.standaloneSetup(restController)
                 .build();
     }
@@ -77,14 +77,14 @@ public class AnswerRestControllerTest {
 
     @Test
     public void testFindById() throws Exception {
-        MockHttpServletResponse response = mvc.perform(get("/answer/" +primaryKey.toString()).accept(MediaType.APPLICATION_JSON))
+        MockHttpServletResponse response = mvc.perform(get("/answer/getById/" +primaryKey.toString()).accept(MediaType.APPLICATION_JSON))
                 .andReturn().getResponse();
         assertEquals(HttpStatus.OK.value(), response.getStatus());
         assertEquals(response.getContentAsString(), answerDTOJsonObjectWriter.write(answerDTO).getJson());
-        MockHttpServletResponse nullResponse = mvc.perform(get("/answer/").accept(MediaType.APPLICATION_JSON))
+        MockHttpServletResponse nullResponse = mvc.perform(get("/answer/getById/").accept(MediaType.APPLICATION_JSON))
                 .andReturn().getResponse();
         assertEquals(HttpStatus.NOT_FOUND.value(), nullResponse.getStatus());
-        MockHttpServletResponse wrongIdResponse = mvc.perform(get("/answer/asdasd").accept(MediaType.APPLICATION_JSON))
+        MockHttpServletResponse wrongIdResponse = mvc.perform(get("/answer/getById/asdasd").accept(MediaType.APPLICATION_JSON))
                 .andReturn().getResponse();
         assertEquals(HttpStatus.NOT_FOUND.value(), wrongIdResponse.getStatus());
     }
@@ -133,7 +133,7 @@ public class AnswerRestControllerTest {
 
     @Test
     public void testFindByQuestionId() throws Exception {
-        MockHttpServletResponse response = mvc.perform(get("/answer/getByQuestion")
+        MockHttpServletResponse response = mvc.perform(get("/answer/getByQuestionId/" + "someId")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(questionDTOJsonObjectWriter.write(questionDTO).getJson())
                         .accept(MediaType.APPLICATION_JSON_VALUE))

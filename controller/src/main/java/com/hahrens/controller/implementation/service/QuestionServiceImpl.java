@@ -86,9 +86,9 @@ public class QuestionServiceImpl implements QuestionService {
     }
 
     @Override
-    public Collection<QuestionDTO> findAllBySurvey(final SurveyDTO surveyDTO) {
+    public Collection<QuestionDTO> findAllBySurveyId(final Comparable<?> surveyId) {
         load();
-        return questionDTOS.stream().filter(q -> q.getSurveyPk().equals(surveyDTO.getPrimaryKey())).toList();
+        return questionDTOS.stream().filter(q -> q.getSurveyPk().equals(surveyId)).toList();
     }
 
 }

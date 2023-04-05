@@ -84,10 +84,10 @@ public class AnswerServiceImpl implements AnswerService {
     }
 
     @Override
-    public Collection<AnswerDTO> findAllByQuestion(final QuestionDTO questionDTO) {
-        if (questionDTO == null) {
+    public Collection<AnswerDTO> findAllByQuestionId(final Comparable<?> questionId) {
+        if (questionId == null) {
             return null;
         }
-        return answerDTOS.stream().filter(a -> a.getQuestionPk().equals(questionDTO.getPrimaryKey())).toList();
+        return answerDTOS.stream().filter(a -> a.getQuestionPk().equals(questionId)).toList();
     }
 }

@@ -15,6 +15,7 @@ import java.util.Collection;
  */
 @RestController
 @RequestMapping("/answer")
+@CrossOrigin(origins = "http://localhost:5173")
 public class AnswerRestController {
 
 
@@ -41,7 +42,7 @@ public class AnswerRestController {
      * find answer by id.
      * @return the answer found for that id.
      */
-    @RequestMapping(value = "/{answerId}", method = RequestMethod.GET)
+    @RequestMapping(value = "getById/{answerId}", method = RequestMethod.GET)
     public ResponseEntity<AnswerDTO> getAnswerById(@PathVariable String answerId)    {
         //todo add pk not found exception.
         if (answerId == null) {
@@ -59,13 +60,13 @@ public class AnswerRestController {
      * get all answers for a given question.
      * @return all found answers.
      */
-    @GetMapping("/getByQuestion")
-    public ResponseEntity<Collection<AnswerDTO>> getAnswersByQuestion(@RequestBody QuestionDTOImpl question)    {
-        //todo add pk not found exception.
-        if (question == null) {
+    @RequestMapping(value = "getByQuestionId/{questionId}", method = RequestMethod.GET)
+    public ResponseEntity<Collection<AnswerDTO>> getAnswersByQuestion(@PathVariable String questionId)    {
+        if (questionId == null) {
             return ResponseEntity.badRequest().build();
         }
-        Collection<AnswerDTO> allByQuestion = answerService.findAllByQuestion(question);
+        //todo add pk not found exception.
+        Collection<AnswerDTO> allByQuestion = answerService.findAllByQuestionId(questionId);
         if (allByQuestion == null) {
             return ResponseEntity.notFound().build();
         }

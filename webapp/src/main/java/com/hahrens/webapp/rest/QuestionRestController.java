@@ -3,7 +3,6 @@ package com.hahrens.webapp.rest;
 import com.hahrens.controller.api.model.dto.QuestionDTO;
 import com.hahrens.controller.api.service.QuestionService;
 import com.hahrens.controller.implementation.model.QuestionDTOImpl;
-import com.hahrens.controller.implementation.model.SurveyDTOImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,6 +13,7 @@ import java.util.Collection;
  */
 @RestController
 @RequestMapping("/question")
+@CrossOrigin(origins = "http://localhost:5173")
 public class QuestionRestController {
 
 
@@ -40,7 +40,7 @@ public class QuestionRestController {
      * find question by id.
      * @return the question found for that id.
      */
-    @RequestMapping(value = "/{questionId}", method = RequestMethod.GET)
+    @RequestMapping(value = "getById/{questionId}", method = RequestMethod.GET)
     public ResponseEntity<QuestionDTO> getQuestionById(@PathVariable String questionId)    {
         if (questionId == null) {
             return ResponseEntity.badRequest().build();
@@ -57,13 +57,13 @@ public class QuestionRestController {
      * get all answers for a given question.
      * @return all found answers.
      */
-    @GetMapping("/getBySurvey")
-    public ResponseEntity<Collection<QuestionDTO>> getAnswersByQuestion(@RequestBody SurveyDTOImpl surveyDTO)    {
+    @RequestMapping(value = "getBySurveyId/{surveyId}", method = RequestMethod.GET)
+    public ResponseEntity<Collection<QuestionDTO>> getQuestionBySurveyId(@PathVariable String surveyId)    {
         //todo add pk not found exception.
-        if (surveyDTO == null) {
+        if (surveyId == null) {
             return ResponseEntity.badRequest().build();
         }
-        Collection<QuestionDTO> allByQuestion = questionService.findAllBySurvey(surveyDTO);
+        Collection<QuestionDTO> allByQuestion = questionService.findAllBySurveyId(surveyId);
         if (allByQuestion == null) {
             return ResponseEntity.notFound().build();
         }

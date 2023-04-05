@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import InputField from './component/input/InputField';
 import './App.css'
+import SurveyService from "./services/SurveyService";
 import {Survey} from "./model/models";
 
 const App: React.FC = () => {
@@ -8,9 +9,8 @@ const App: React.FC = () => {
     const [survey, setSurvey] = useState<string>("")
     const [surveys, setSurveys] = useState<Survey[]>([])
 
-    let mySurveys = fetch("http://localhost:8080/survey/get").then(resp => resp.json()).then(resp => {
-        for (let s of resp) {
-        }
+    let surveys1 = SurveyService.getAll().then((resp :any) => {
+        console.log(resp.data);
     });
     const handleAddSurvey = (e: React.FormEvent) => {
         e.preventDefault();
@@ -19,7 +19,8 @@ const App: React.FC = () => {
             setSurvey("");
         }
     };
-    console.log(surveys);
+
+
     return (
         <div className='app'>
             <span className='header'>Polly</span>
