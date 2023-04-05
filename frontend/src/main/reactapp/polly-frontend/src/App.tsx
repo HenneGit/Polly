@@ -14,10 +14,6 @@ const App: React.FC = () => {
     });
     const handleAddSurvey = (e: React.FormEvent) => {
         e.preventDefault();
-        if (survey) {
-            setSurveys([...surveys, {id: "", name: survey, description: ""}])
-            setSurvey("");
-        }
     };
 
 

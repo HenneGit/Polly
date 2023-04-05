@@ -3,6 +3,9 @@ package com.hahrens.backend.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+/**
+ * A db entity representing an answer option for a question.
+ */
 @Entity
 @Table(name="tb_answer")
 @NoArgsConstructor

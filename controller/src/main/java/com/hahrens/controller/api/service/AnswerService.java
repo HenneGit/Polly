@@ -5,6 +5,9 @@ import com.hahrens.controller.api.model.dto.QuestionDTO;
 
 import java.util.Collection;
 
+/**
+ * a service for managing answers.
+ */
 public interface AnswerService extends DTOService<AnswerDTO>{
 
 

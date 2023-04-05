@@ -6,6 +6,9 @@ import lombok.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * db entity representing a survey.
+ */
 @Entity
 @Table(name="tb_survey")
 @NoArgsConstructor

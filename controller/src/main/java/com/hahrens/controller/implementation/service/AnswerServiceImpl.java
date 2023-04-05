@@ -1,7 +1,6 @@
 package com.hahrens.controller.implementation.service;
 
 import com.hahrens.controller.api.model.dto.AnswerDTO;
-import com.hahrens.controller.api.model.dto.QuestionDTO;
 import com.hahrens.controller.api.service.AnswerService;
 import com.hahrens.controller.api.service.DTOMapping;
 import com.hahrens.controller.implementation.model.AnswerDTOImpl;

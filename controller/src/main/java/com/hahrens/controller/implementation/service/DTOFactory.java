@@ -8,7 +8,6 @@ import com.hahrens.controller.api.model.dto.AnswerDTO;
 import com.hahrens.controller.api.model.dto.QuestionDTO;
 import com.hahrens.controller.api.model.dto.SurveyDTO;
 import com.hahrens.controller.implementation.model.AnswerDTOImpl;
-import com.hahrens.controller.implementation.model.QuestionContainerImpl;
 import com.hahrens.controller.implementation.model.QuestionDTOImpl;
 import com.hahrens.controller.implementation.model.SurveyDTOImpl;
 
