@@ -1,0 +1,8 @@
+.survey__single {
+    display: flex;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 15px;
+    background-color: gold;
+    transition: 0.2s;
+}

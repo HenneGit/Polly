@@ -3,6 +3,7 @@ import InputField from './component/input/InputField';
 import './App.css'
 import SurveyService from "./services/SurveyService";
 import {Survey} from "./model/models";
+import SurveyList from "./component/surveyList/SurveyList";
 
 const App: React.FC = () => {
 
@@ -10,7 +11,7 @@ const App: React.FC = () => {
     const [surveys, setSurveys] = useState<Survey[]>([])
 
     let surveys1 = SurveyService.getAll().then((resp :any) => {
-        console.log(resp.data);
+        setSurveys(resp.data);
     });
     const handleAddSurvey = (e: React.FormEvent) => {
         e.preventDefault();
@@ -21,9 +22,7 @@ const App: React.FC = () => {
         <div className='app'>
             <span className='header'>Polly</span>
             <InputField survey={survey} setSurvey={setSurvey} handleAddSurvey={handleAddSurvey}/>
-            {surveys.map((s) => (
-                <li>{s.name}</li>
-            ))}
+            <SurveyList surveys={surveys} setSurveys={setSurveys}/>
         </div>
     )
 }

@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="314eb581-d504-47f3-bc46-b9583dcb124e" name="Changes" comment="some comments.">
+    <list default="true" id="314eb581-d504-47f3-bc46-b9583dcb124e" name="Changes" comment="cleanup and comments.">
+      <change afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/survey/SingleSurvey.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/survey/SingleSurvey.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/surveyList/SurveyList.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/surveyList/SurveyList.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/DTOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/DTOFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/services/QuestionService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/services/QuestionService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/services/http-common.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/services/http-common.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/App.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +165,7 @@
       <workItem from="1680591858373" duration="9525000" />
       <workItem from="1680674434868" duration="3912000" />
       <workItem from="1680678382070" duration="6140000" />
-      <workItem from="1680845084509" duration="1524000" />
+      <workItem from="1680845084509" duration="5971000" />
     </task>
     <task id="LOCAL-00001" summary="init commit.">
       <created>1678887988652</created>
@@ -317,7 +321,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680680070710</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="cleanup and comments.">
+      <created>1680846781966</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1680846781966</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -357,7 +368,8 @@
     <MESSAGE value="RestControllerTests completed." />
     <MESSAGE value="change find by question/survey to id. React app moved. React services started." />
     <MESSAGE value="some comments." />
-    <option name="LAST_COMMIT_MESSAGE" value="some comments." />
+    <MESSAGE value="cleanup and comments." />
+    <option name="LAST_COMMIT_MESSAGE" value="cleanup and comments." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
