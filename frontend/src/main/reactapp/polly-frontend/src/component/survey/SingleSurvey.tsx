@@ -1,8 +1,8 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, {useEffect, useReducer, useRef, useState} from "react";
 import {Survey} from "../../model/models";
-import {AiFillEdit, AiFillDelete} from "react-icons/ai";
-import SurveyService from "../../services/SurveyService";
+import {AiFillDelete, AiFillEdit} from "react-icons/ai";
 import "./SingleSurvey.css"
+import {ReducerAction, SURVEY_ACTION_TYPE, surveyReducer} from "./SurveyReducer";
 
 type Props = {
     survey: Survey
@@ -10,25 +10,10 @@ type Props = {
     setSurveys: React.Dispatch<React.SetStateAction<Array<Survey>>>;
 }
 
-
 const SingleSurvey = ({survey, surveys, setSurveys}: Props) => {
+    const [state, dispatch] = useReducer(surveyReducer, surveys);
     const [edit, setEdit] = useState<boolean>(false);
-    const [editSurvey, setEditSurvey] = useState<string>(survey.name);
 
-    const handleDelete = async (id: string) => {
-        await SurveyService.remove(id);
-    };
-
-    const handleEdit = async (e: React.FormEvent, updatedSurvey: Survey) => {
-        let resp = await SurveyService.update(updatedSurvey);
-        console.log(resp);
-        setSurveys(
-            surveys.map(survey => (
-                survey.primaryKey === updatedSurvey.primaryKey ? {...survey, survey: editSurvey} : survey
-            )));
-        setEdit(false);
-
-    };
     const inputRef = useRef<HTMLInputElement>(null);
 
     useEffect(() => {
@@ -37,12 +22,12 @@ const SingleSurvey = ({survey, surveys, setSurveys}: Props) => {
 
 
     return (
-        <form className='survey__single' onSubmit={(e) => handleEdit(e, survey)}>
+        <form className='survey__single' onSubmit={(e) => dispatch({type: SURVEY_ACTION_TYPE.ADD, payload : survey})}>
             {edit ? (
                 <input
                     ref={inputRef}
-                    value={editSurvey}
-                    onChange={(e) => setEditSurvey(e.target.value)}
+                    value={survey.name}
+                    onChange={(e) => dispatch({type: SURVEY_ACTION_TYPE.UPDATE, payload : survey})}
                     className="survey__single--text"
                 />
             ) : (
@@ -59,7 +44,7 @@ const SingleSurvey = ({survey, surveys, setSurveys}: Props) => {
             >
               <AiFillEdit/>
             </span>
-                <span className="icon" onClick={() => handleDelete(survey.primaryKey)}>
+                <span className="icon" onClick={() => dispatch({type: SURVEY_ACTION_TYPE.REMOVE, payload : survey})}>
               <AiFillDelete/>
             </span>
             </div>
