@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="314eb581-d504-47f3-bc46-b9583dcb124e" name="Changes" comment="cleanup and comments.">
-      <change afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/survey/SurveyReducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/survey/SingleSurvey.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/survey/SingleSurvey.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/survey/SurveyReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/survey/SurveyReducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/surveyList/SurveyList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/surveyList/SurveyList.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,6 +164,7 @@
       <workItem from="1680678382070" duration="6140000" />
       <workItem from="1680845084509" duration="5971000" />
       <workItem from="1680868139501" duration="12552000" />
+      <workItem from="1680929835771" duration="11123000" />
     </task>
     <task id="LOCAL-00001" summary="init commit.">
       <created>1678887988652</created>
@@ -404,11 +407,6 @@
           <url>file://$PROJECT_DIR$/webapp/src/test/java/com/hahrens/webapp/rest/AnswerRestControllerTest.java</url>
           <line>141</line>
           <option name="timeStamp" value="117" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/webapp/src/main/java/com/hahrens/webapp/rest/SurveyRestController.java</url>
-          <line>31</line>
-          <option name="timeStamp" value="118" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
