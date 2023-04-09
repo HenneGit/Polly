@@ -5,4 +5,25 @@
     margin-top: 15px;
     background-color: gold;
     transition: 0.2s;
+    justify-content: space-between;
+}
+
+.survey__single--text {
+    font-weight: bold;
+}
+
+.survey__single--icons {
+    align-self: start;
+}
+
+.survey__single--description {
+    margin-top: 10px;
+    font-style: italic;
+    background-color: antiquewhite;
+}
+
+.survey__single--details {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
 }

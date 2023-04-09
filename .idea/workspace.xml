@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="314eb581-d504-47f3-bc46-b9583dcb124e" name="Changes" comment="async dispatching working.">
+    <list default="true" id="314eb581-d504-47f3-bc46-b9583dcb124e" name="Changes" comment="update and edit working.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/survey/SingleSurvey.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/survey/SingleSurvey.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/survey/SingleSurvey.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/survey/SingleSurvey.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/surveyList/SurveyList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/surveyList/SurveyList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/services/SurveyService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/services/SurveyService.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,7 +164,7 @@
       <workItem from="1680868139501" duration="12552000" />
       <workItem from="1680929835771" duration="11280000" />
       <workItem from="1680946620063" duration="1501000" />
-      <workItem from="1681013161499" duration="5222000" />
+      <workItem from="1681013161499" duration="8514000" />
     </task>
     <task id="LOCAL-00001" summary="init commit.">
       <created>1678887988652</created>
@@ -342,7 +341,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681017091211</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="update and edit working.">
+      <created>1681018467426</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1681018467426</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -360,7 +366,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="init commit." />
     <MESSAGE value="basic data storing working." />
     <MESSAGE value="dto objects started" />
     <MESSAGE value="somewhat reasonable mapping of storage objects to dto objects. test setup started." />
@@ -385,7 +390,8 @@
     <MESSAGE value="cleanup and comments." />
     <MESSAGE value="reducer for all survey actions. Async loading not working yet." />
     <MESSAGE value="async dispatching working." />
-    <option name="LAST_COMMIT_MESSAGE" value="async dispatching working." />
+    <MESSAGE value="update and edit working." />
+    <option name="LAST_COMMIT_MESSAGE" value="update and edit working." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -424,11 +430,6 @@
           <url>file://$PROJECT_DIR$/webapp/src/test/java/com/hahrens/webapp/rest/AnswerRestControllerTest.java</url>
           <line>141</line>
           <option name="timeStamp" value="117" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/webapp/src/main/java/com/hahrens/webapp/rest/SurveyRestController.java</url>
-          <line>87</line>
-          <option name="timeStamp" value="119" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
