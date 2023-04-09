@@ -7,21 +7,22 @@ import SurveyService from "../../services/SurveyService";
 
 type Props = {
     survey: Survey
-    surveys: Survey[],
     dispatch: any
 }
 
-const SingleSurvey = ({survey, surveys, dispatch}: Props) => {
+const SingleSurvey = ({survey, dispatch}: Props) => {
     const [edit, setEdit] = useState<boolean>(false);
+    const [editSurvey, setEditSurvey] = useState<Survey>(survey);
     const inputRef = useRef<HTMLInputElement>(null);
 
 
     return (
-        <form className='survey__single' onSubmit={(e) => {SurveyService.update(survey, dispatch)}}>
+        <form className='survey__single' onSubmit={(e) => {SurveyService.update(editSurvey, dispatch)}}>
             {edit ? (
                 <input
                     ref={inputRef}
-                    value={survey.name}
+                    value={editSurvey.name}
+                    onChange={(e) => setEditSurvey({primaryKey: survey.primaryKey, name:e.target.value, description:survey.description})}
                     className="survey__single--text"
                 />
             ) : (

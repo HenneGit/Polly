@@ -14,7 +14,7 @@ const SurveyList: React.FC<Props> = ({surveys, dispatch}) => {
     return <div className='surveys'>
         {surveys.map((survey) =>
             <SingleSurvey survey={survey}
-                          surveys={surveys} dispatch={dispatch}/>
+                          dispatch={dispatch}/>
         )}
 
     </div>
