@@ -3,8 +3,8 @@ import InputField from './component/input/InputField';
 import './App.css'
 import {Survey} from "./model/models";
 import SurveyList from "./component/surveyList/SurveyList";
-import {SURVEY_ACTION_TYPE, surveyReducer} from "./component/survey/SurveyReducer";
-import SurveyService from "./services/SurveyService";
+import {surveyReducer} from "./component/survey/SurveyReducer";
+import surveyService from "./services/SurveyService";
 
 
 const App: React.FC = () => {
@@ -14,21 +14,15 @@ const App: React.FC = () => {
     const [surveys, dispatch] = useReducer(surveyReducer, initState);
 
     useEffect(() => {
-        dispatch({
-            type: SURVEY_ACTION_TYPE.GET,
-            payload: {primaryKey: "", name: survey, description: ""}
-        })
+        surveyService.getAll(dispatch);
     }, []);
 
     return (
         <div className='app'>
             <span className='header'>Polly</span>
             <InputField survey={survey} setSurvey={setSurvey}
-                        handleAddSurvey={(e) => dispatch({
-                            type: SURVEY_ACTION_TYPE.ADD,
-                            payload: {primaryKey: "", name: survey, description: ""}
-                        })}/>
-            <SurveyList surveys={surveys}/>
+                        handleAddSurvey={(e) => surveyService.add({primaryKey:"", name:survey, description: ""}, dispatch)}/>
+            <SurveyList surveys={surveys} dispatch={dispatch}/>
         </div>
     )
 }

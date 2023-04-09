@@ -3,20 +3,21 @@ import {Survey} from "../../model/models";
 import {AiFillDelete, AiFillEdit} from "react-icons/ai";
 import "./SingleSurvey.css"
 import {SURVEY_ACTION_TYPE, surveyReducer} from "./SurveyReducer";
+import SurveyService from "../../services/SurveyService";
 
 type Props = {
     survey: Survey
     surveys: Survey[],
+    dispatch: any
 }
 
-const SingleSurvey = ({survey, surveys}: Props) => {
+const SingleSurvey = ({survey, surveys, dispatch}: Props) => {
     const [edit, setEdit] = useState<boolean>(false);
     const inputRef = useRef<HTMLInputElement>(null);
-    const [state, dispatch] = useReducer(surveyReducer, surveys);
 
 
     return (
-        <form className='survey__single' onSubmit={(e) => {dispatch({type: SURVEY_ACTION_TYPE.UPDATE, payload: survey})}}>
+        <form className='survey__single' onSubmit={(e) => {SurveyService.update(survey, dispatch)}}>
             {edit ? (
                 <input
                     ref={inputRef}
@@ -37,7 +38,7 @@ const SingleSurvey = ({survey, surveys}: Props) => {
             >
               <AiFillEdit/>
             </span>
-                <span className="icon" onClick={() => dispatch({type: SURVEY_ACTION_TYPE.REMOVE, payload: survey})}>
+                <span className="icon" onClick={() => SurveyService.remove(survey.primaryKey, dispatch)}>
               <AiFillDelete/>
             </span>
             </div>

@@ -6,15 +6,15 @@ import {SURVEY_ACTION_TYPE, surveyReducer} from "../survey/SurveyReducer";
 
 interface Props {
     surveys: Survey[];
+    dispatch: any
 }
 
-const SurveyList: React.FC<Props> = ({surveys}) => {
-    const [state, dispatch] = useReducer(surveyReducer, surveys)
+const SurveyList: React.FC<Props> = ({surveys, dispatch}) => {
 
     return <div className='surveys'>
         {surveys.map((survey) =>
             <SingleSurvey survey={survey}
-                          surveys={state}/>
+                          surveys={surveys} dispatch={dispatch}/>
         )}
 
     </div>

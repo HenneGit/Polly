@@ -59,7 +59,7 @@ public class SurveyServiceImpl implements SurveyService {
 
     @Override
     public void deleteById(Comparable<?> primaryKey) {
-        SurveyDTO surveyDTO = surveyDTOS.stream().filter(s -> s.getPrimaryKey().equals(primaryKey)).findFirst().orElse(null);
+        SurveyDTO surveyDTO = surveyDTOS.stream().filter(s -> s.getPrimaryKey().toString().equals(primaryKey)).findFirst().orElse(null);
         if (surveyDTO == null) {
             return;
         }

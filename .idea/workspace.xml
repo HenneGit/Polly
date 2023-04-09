@@ -4,12 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="314eb581-d504-47f3-bc46-b9583dcb124e" name="Changes" comment="cleanup and comments.">
+    <list default="true" id="314eb581-d504-47f3-bc46-b9583dcb124e" name="Changes" comment="reducer for all survey actions. Async loading not working yet.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/SurveyServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/SurveyServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/App.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/survey/SingleSurvey.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/survey/SingleSurvey.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/survey/SurveyReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/survey/SurveyReducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/surveyList/SurveyList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/surveyList/SurveyList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/services/SurveyService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/services/SurveyService.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +166,9 @@
       <workItem from="1680678382070" duration="6140000" />
       <workItem from="1680845084509" duration="5971000" />
       <workItem from="1680868139501" duration="12552000" />
-      <workItem from="1680929835771" duration="11123000" />
+      <workItem from="1680929835771" duration="11280000" />
+      <workItem from="1680946620063" duration="1501000" />
+      <workItem from="1681013161499" duration="3858000" />
     </task>
     <task id="LOCAL-00001" summary="init commit.">
       <created>1678887988652</created>
@@ -327,7 +331,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680846781966</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="reducer for all survey actions. Async loading not working yet.">
+      <created>1680941474565</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1680941474565</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -368,7 +379,8 @@
     <MESSAGE value="change find by question/survey to id. React app moved. React services started." />
     <MESSAGE value="some comments." />
     <MESSAGE value="cleanup and comments." />
-    <option name="LAST_COMMIT_MESSAGE" value="cleanup and comments." />
+    <MESSAGE value="reducer for all survey actions. Async loading not working yet." />
+    <option name="LAST_COMMIT_MESSAGE" value="reducer for all survey actions. Async loading not working yet." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -407,6 +419,11 @@
           <url>file://$PROJECT_DIR$/webapp/src/test/java/com/hahrens/webapp/rest/AnswerRestControllerTest.java</url>
           <line>141</line>
           <option name="timeStamp" value="117" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/webapp/src/main/java/com/hahrens/webapp/rest/SurveyRestController.java</url>
+          <line>75</line>
+          <option name="timeStamp" value="118" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
