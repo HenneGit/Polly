@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="314eb581-d504-47f3-bc46-b9583dcb124e" name="Changes" comment="update and edit working.">
+    <list default="true" id="314eb581-d504-47f3-bc46-b9583dcb124e" name="Changes" comment="description editing added. Correct update not working yet.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/survey/SingleSurvey.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/survey/SingleSurvey.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/survey/SingleSurvey.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/survey/SingleSurvey.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/survey/SurveyReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/survey/SurveyReducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/surveyList/SurveyList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/surveyList/SurveyList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/services/SurveyService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/services/SurveyService.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,7 +166,8 @@
       <workItem from="1680868139501" duration="12552000" />
       <workItem from="1680929835771" duration="11280000" />
       <workItem from="1680946620063" duration="1501000" />
-      <workItem from="1681013161499" duration="8514000" />
+      <workItem from="1681013161499" duration="8651000" />
+      <workItem from="1681104245487" duration="2033000" />
     </task>
     <task id="LOCAL-00001" summary="init commit.">
       <created>1678887988652</created>
@@ -348,7 +351,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681018467426</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="description editing added. Correct update not working yet.">
+      <created>1681024102811</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1681024102811</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -366,7 +376,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="basic data storing working." />
     <MESSAGE value="dto objects started" />
     <MESSAGE value="somewhat reasonable mapping of storage objects to dto objects. test setup started." />
     <MESSAGE value="AnswerServiceTest finished. Some comments." />
@@ -391,7 +400,8 @@
     <MESSAGE value="reducer for all survey actions. Async loading not working yet." />
     <MESSAGE value="async dispatching working." />
     <MESSAGE value="update and edit working." />
-    <option name="LAST_COMMIT_MESSAGE" value="update and edit working." />
+    <MESSAGE value="description editing added. Correct update not working yet." />
+    <option name="LAST_COMMIT_MESSAGE" value="description editing added. Correct update not working yet." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

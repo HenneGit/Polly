@@ -12,14 +12,11 @@ interface Props {
 const SurveyList: React.FC<Props> = ({surveys, dispatch}) => {
 
     return <div className='surveys'>
-        {surveys.map((survey) =>
+        {surveys.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0)).map((survey) =>
             <SingleSurvey survey={survey}
                           dispatch={dispatch}/>
         )}
-
     </div>
-
-
 }
 
 export default SurveyList;

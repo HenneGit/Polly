@@ -17,6 +17,8 @@ const SingleSurvey = ({survey, dispatch}: Props) => {
     const inputRef = useRef<HTMLInputElement>(null);
 
     const handleUpdate = () => {
+        console.log(newName);
+        console.log(newDescription);
         SurveyService.update({primaryKey: survey.primaryKey, name: newName, description: newDescription}, dispatch)
         setEdit(false);
     }

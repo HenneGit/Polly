@@ -26,13 +26,12 @@ const add = async (data: Survey, dispatch: any) => {
 };
 
 const update = async (data: Survey, dispatch: any) => {
-    console.log(data);
     let resp = await http.put<any>(`/survey/update`, data).then(resp => resp.data);
     dispatch({type: SURVEY_ACTION_TYPE.UPDATE, payload: resp})
 };
 
 const remove = async (id: string, dispatch : any) => {
-    let resp = await http.delete<any>(`/survey/delete/${id}`).then(resp => resp.data);
+    await http.delete<any>(`/survey/delete/${id}`).then(resp => resp.data);
     dispatch({type: SURVEY_ACTION_TYPE.REMOVE, payload: id})
 };
 
