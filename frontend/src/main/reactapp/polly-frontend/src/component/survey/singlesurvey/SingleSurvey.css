@@ -6,11 +6,18 @@
     background-color: gold;
     transition: 0.2s;
     justify-content: space-between;
+    width: 25vw;
 }
 
 .survey__single--text {
     font-weight: bold;
 }
+
+.survey__single--details input {
+    margin-bottom: 5px;
+
+}
+
 
 .survey__single--icons {
     align-self: start;
@@ -19,7 +26,7 @@
 .survey__single--description {
     margin-top: 10px;
     font-style: italic;
-    background-color: antiquewhite;
+    background-color: gold;
 }
 
 .survey__single--details {

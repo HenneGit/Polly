@@ -1,32 +1,38 @@
 import React, {useRef, useState} from "react";
-import {Survey} from "../../model/models";
 import {AiFillDelete, AiFillEdit} from "react-icons/ai";
-import {MdDone} from "react-icons/md";
+import {MdDone, MdOutlineAddchart} from "react-icons/md";
+import {RxCross2} from "react-icons/rx";
 import "./SingleSurvey.css"
-import SurveyService from "../../services/SurveyService";
+import {Survey} from "../../../model/models";
+import SurveyService from "../../../services/SurveyService";
+import QuestionService from "../../../services/QuestionService";
+import {SurveyReducerAction} from "../SurveyReducer";
+import {QuestionReducerAction} from "../../question/QuestionReducer";
 
 type Props = {
-    survey: Survey
-    dispatch: any
+    survey: Survey,
+    dispatchSurveys: React.Dispatch<SurveyReducerAction>,
+    dispatchQuestions: React.Dispatch<QuestionReducerAction>;
 }
 
-const SingleSurvey = ({survey, dispatch}: Props) => {
+const SingleSurvey = ({survey, dispatchSurveys, dispatchQuestions}: Props) => {
     const [edit, setEdit] = useState<boolean>(false);
     const [newName, setEditSurveyName] = useState<string>(survey.name);
     const [newDescription, setEditSurveyDescription] = useState<string>(survey.description);
     const inputRef = useRef<HTMLInputElement>(null);
 
     const handleUpdate = () => {
-        console.log(newName);
-        console.log(newDescription);
-        SurveyService.update({primaryKey: survey.primaryKey, name: newName, description: newDescription}, dispatch)
+        SurveyService.update({primaryKey: survey.primaryKey, name: newName, description: newDescription}, dispatchSurveys)
         setEdit(false);
     }
 
+    const handleEditQuestions = () => {
+        QuestionService.getBySurveyId(survey.primaryKey, dispatchSurveys, dispatchQuestions);
+    };
+
 
     return (
-        <form className='survey__single' onSubmit={(e) => {
-        }}>
+        <form className='survey__single'>
             {edit ? (
                 <div className='survey__single--details'>
                     <input
@@ -41,9 +47,14 @@ const SingleSurvey = ({survey, dispatch}: Props) => {
                         onChange={(e) => setEditSurveyDescription(e.target.value)}
                         className="survey__single--text"
                     />
-                    <span className="icon" onClick={() => handleUpdate()}>
-                    <MdDone/>
-                </span>
+                    <div className='survey__single--icons'>
+                        <span className="icon" onClick={() => handleUpdate()}>
+                            <MdDone/>
+                        </span>
+                        <span className="icon" onClick={() => setEdit(false)}>
+                            <RxCross2/>
+                        </span>
+                    </div>
                 </div>
             ) : (
                 <div className='survey__single--details'>
@@ -62,8 +73,11 @@ const SingleSurvey = ({survey, dispatch}: Props) => {
             >
               <AiFillEdit/>
             </span>
-                <span className="icon" onClick={() => SurveyService.remove(survey.primaryKey, dispatch)}>
+                <span className="icon" onClick={() => SurveyService.remove(survey.primaryKey, dispatchSurveys)}>
                     <AiFillDelete/>
+                </span>
+                <span className="icon" onClick={() => handleEditQuestions()}>
+                    <MdOutlineAddchart/>
                 </span>
             </div>
         </form>
