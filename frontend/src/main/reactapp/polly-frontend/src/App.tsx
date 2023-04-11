@@ -15,6 +15,7 @@ const App: React.FC = () => {
     const [survey, setSurvey] = useState<string>("")
     const [surveys, dispatchSurveys] = useReducer(surveyReducer, initState);
     const [questions, dispatchQuestions] = useReducer(questionReducer, initQuestionState);
+    const [isQuestionEdit, setQuestionEdit] = useState<boolean>(false)
 
     useEffect(() => {
         surveyService.getAll(dispatchSurveys);
@@ -29,8 +30,8 @@ const App: React.FC = () => {
                             name: survey,
                             description: ""
                         }, dispatchSurveys)}/>
-            <SurveyList surveys={surveys} dispatchSurveys={dispatchSurveys} dispatchQuestions={dispatchQuestions}/>
-            <QuestionList questions={questions} dispatchQuestions={dispatchQuestions}/>
+            <SurveyList surveys={surveys} dispatchSurveys={dispatchSurveys} dispatchQuestions={dispatchQuestions} setQuestionEdit={setQuestionEdit}/>
+            <QuestionList questions={questions} dispatchQuestions={dispatchQuestions} isQuestionEdit={isQuestionEdit}/>
         </div>
     );
 }

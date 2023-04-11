@@ -28,7 +28,7 @@ const remove = async (id: string, dispatch: React.Dispatch<any>) => {
 const getBySurveyId = async (id: string, dispatchSurveys: React.Dispatch<SurveyReducerAction>, dispatchQuestions: React.Dispatch<QuestionReducerAction>) => {
     let data = await http.get<Question>(`/question/getBySurveyId/${id}`).then(resp => resp.data);
     dispatchSurveys({
-        type: SURVEY_ACTION_TYPE.ADD,
+        type: SURVEY_ACTION_TYPE.CLEAR,
         payload: null,
     });
     dispatchQuestions({

@@ -13,9 +13,11 @@ type Props = {
     survey: Survey,
     dispatchSurveys: React.Dispatch<SurveyReducerAction>,
     dispatchQuestions: React.Dispatch<QuestionReducerAction>;
+    setQuestionEdit:  React.Dispatch<React.SetStateAction<boolean>>;
+
 }
 
-const SingleSurvey = ({survey, dispatchSurveys, dispatchQuestions}: Props) => {
+const SingleSurvey = ({survey, dispatchSurveys, dispatchQuestions, setQuestionEdit}: Props) => {
     const [edit, setEdit] = useState<boolean>(false);
     const [newName, setEditSurveyName] = useState<string>(survey.name);
     const [newDescription, setEditSurveyDescription] = useState<string>(survey.description);
@@ -27,6 +29,7 @@ const SingleSurvey = ({survey, dispatchSurveys, dispatchQuestions}: Props) => {
     }
 
     const handleEditQuestions = () => {
+        setQuestionEdit(true);
         QuestionService.getBySurveyId(survey.primaryKey, dispatchSurveys, dispatchQuestions);
     };
 

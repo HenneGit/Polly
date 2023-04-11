@@ -7,18 +7,18 @@ import {QuestionReducerAction} from "../../question/QuestionReducer";
 
 interface Props {
     surveys: Survey[];
-    dispatchSurveys: React.Dispatch<SurveyReducerAction>
-    dispatchQuestions: React.Dispatch<QuestionReducerAction>
+    dispatchSurveys: React.Dispatch<SurveyReducerAction>;
+    dispatchQuestions: React.Dispatch<QuestionReducerAction>;
+    setQuestionEdit: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const SurveyList: React.FC<Props> = ({surveys, dispatchSurveys, dispatchQuestions}) => {
-
+const SurveyList: React.FC<Props> = ({surveys, dispatchSurveys, dispatchQuestions, setQuestionEdit}) => {
     return <div className='surveys'>
-        {surveys.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0)).map((survey) =>
+        {surveys.length !== 0 ? surveys.sort((a, b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0)).map((survey) =>
             <SingleSurvey survey={survey}
-                          dispatchSurveys={dispatchSurveys} dispatchQuestions={dispatchQuestions}/>
-        )}
-    </div>
+                          dispatchSurveys={dispatchSurveys} dispatchQuestions={dispatchQuestions} setQuestionEdit={setQuestionEdit}/>
+        ) : null}
+    </div>;
 }
 
 export default SurveyList;

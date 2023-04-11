@@ -8,7 +8,7 @@ type Props = {
     dispatch: React.Dispatch<QuestionReducerAction>;
 }
 
-const SingleSurvey = ({question, dispatch}: Props) => {
+const SingleQuestion = ({question, dispatch}: Props) => {
 
 
     return (
@@ -18,4 +18,4 @@ const SingleSurvey = ({question, dispatch}: Props) => {
 }
 
 
-export default SingleSurvey;
+export default SingleQuestion;
