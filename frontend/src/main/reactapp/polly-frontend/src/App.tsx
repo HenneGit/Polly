@@ -31,7 +31,7 @@ const App: React.FC = () => {
                             description: ""
                         }, dispatchSurveys)}/>
             <SurveyList surveys={surveys} dispatchSurveys={dispatchSurveys} dispatchQuestions={dispatchQuestions} setQuestionEdit={setQuestionEdit}/>
-            <QuestionList questions={questions} dispatchQuestions={dispatchQuestions} isQuestionEdit={isQuestionEdit}/>
+            <QuestionList questions={questions} dispatchQuestions={dispatchQuestions} isQuestionEdit={isQuestionEdit} setQuestionEdit={setQuestionEdit} dispatchSurveys={dispatchSurveys}/>
         </div>
     );
 }
