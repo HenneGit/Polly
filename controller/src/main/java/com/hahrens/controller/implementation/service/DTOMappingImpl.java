@@ -151,7 +151,7 @@ public class DTOMappingImpl implements DTOMapping {
             addAnswer(answerDTO);
         }
         if (dtoEntityInterface instanceof QuestionDTO questionDTO) {
-            System.out.println(questionDTO.getName() + " created (theoretically");
+            addQuestion(questionDTO);
             addQuestion(questionDTO);
         }
         if (dtoEntityInterface instanceof SurveyDTO surveyDTO) {
