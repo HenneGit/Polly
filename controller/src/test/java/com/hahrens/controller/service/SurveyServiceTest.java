@@ -15,6 +15,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Collection;
+import java.util.UUID;
 
 public class SurveyServiceTest {
 
@@ -23,7 +24,7 @@ public class SurveyServiceTest {
     private QuestionService questionService;
     private SurveyService surveyService;
     private TestSetup testSetup;
-    private Comparable<?> surveyPk;
+    private UUID surveyPk;
 
 
     @BeforeEach

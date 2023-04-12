@@ -58,7 +58,7 @@ public class AnswerRestControllerTest {
         updatedAnswerDTO = new AnswerDTOImpl(primaryKey, questionPk, "New Answer_updated");
         questionDTO = new QuestionDTOImpl(primaryKey, "name", "desc", "question", questionPk);
         lenient().when(answerService.findAll()).thenReturn(List.of(answerDTO));
-        lenient().when(answerService.findById(primaryKey.toString())).thenReturn(answerDTO);
+        lenient().when(answerService.findById(primaryKey)).thenReturn(answerDTO);
         lenient().when(answerService.update(any(AnswerDTOImpl.class))).thenReturn(updatedAnswerDTO);
         lenient().when(answerService.create(any(AnswerDTOImpl.class))).thenReturn(updatedAnswerDTO);
         lenient().when(answerService.findAllByQuestionId(any(Comparable.class))).thenReturn(List.of(updatedAnswerDTO));
@@ -77,21 +77,21 @@ public class AnswerRestControllerTest {
 
     @Test
     public void testFindById() throws Exception {
-        MockHttpServletResponse response = mvc.perform(get("/answer/getById/" +primaryKey.toString()).accept(MediaType.APPLICATION_JSON))
+        MockHttpServletResponse response = mvc.perform(get("/answer/getById/" +primaryKey).accept(MediaType.APPLICATION_JSON))
                 .andReturn().getResponse();
         assertEquals(HttpStatus.OK.value(), response.getStatus());
         assertEquals(response.getContentAsString(), answerDTOJsonObjectWriter.write(answerDTO).getJson());
         MockHttpServletResponse nullResponse = mvc.perform(get("/answer/getById/").accept(MediaType.APPLICATION_JSON))
                 .andReturn().getResponse();
         assertEquals(HttpStatus.NOT_FOUND.value(), nullResponse.getStatus());
-        MockHttpServletResponse wrongIdResponse = mvc.perform(get("/answer/getById/asdasd").accept(MediaType.APPLICATION_JSON))
+        MockHttpServletResponse wrongIdResponse = mvc.perform(get("/answer/getById/"+ UUID.randomUUID()).accept(MediaType.APPLICATION_JSON))
                 .andReturn().getResponse();
         assertEquals(HttpStatus.NOT_FOUND.value(), wrongIdResponse.getStatus());
     }
 
     @Test
     public void testDelete() throws Exception {
-        MockHttpServletResponse response = mvc.perform(delete("/answer/delete/" + primaryKey.toString()).accept(MediaType.APPLICATION_JSON))
+        MockHttpServletResponse response = mvc.perform(delete("/answer/delete/" + primaryKey).accept(MediaType.APPLICATION_JSON))
                 .andReturn().getResponse();
         assertEquals(HttpStatus.NO_CONTENT.value(), response.getStatus());
     }

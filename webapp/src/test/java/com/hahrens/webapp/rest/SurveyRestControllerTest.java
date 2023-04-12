@@ -50,7 +50,7 @@ public class SurveyRestControllerTest {
         JacksonTester.initFields(this, new ObjectMapper());
         surveyDTO = new SurveyDTOImpl(UUID.randomUUID(), "Survey", "Desc");
         lenient().when(questionService.findAll()).thenReturn(List.of(surveyDTO));
-        lenient().when(questionService.findById(primaryKey.toString())).thenReturn(surveyDTO);
+        lenient().when(questionService.findById(primaryKey)).thenReturn(surveyDTO);
         lenient().when(questionService.update(any(SurveyDTOImpl.class))).thenReturn(surveyDTO);
         lenient().when(questionService.create(any(SurveyDTOImpl.class))).thenReturn(surveyDTO);
         mvc = MockMvcBuilders.standaloneSetup(restController)
@@ -74,7 +74,7 @@ public class SurveyRestControllerTest {
         MockHttpServletResponse nullResponse = mvc.perform(get(SURVEY_ROUTE).accept(MediaType.APPLICATION_JSON))
                 .andReturn().getResponse();
         assertEquals(HttpStatus.NOT_FOUND.value(), nullResponse.getStatus());
-        MockHttpServletResponse wrongIdResponse = mvc.perform(get(SURVEY_ROUTE + "asdasd").accept(MediaType.APPLICATION_JSON))
+        MockHttpServletResponse wrongIdResponse = mvc.perform(get(SURVEY_ROUTE + UUID.randomUUID()).accept(MediaType.APPLICATION_JSON))
                 .andReturn().getResponse();
         assertEquals(HttpStatus.NOT_FOUND.value(), wrongIdResponse.getStatus());
     }

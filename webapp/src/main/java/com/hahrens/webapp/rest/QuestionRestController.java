@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.UUID;
 
 /**
  * rest controller for delivering questions to frontend.
@@ -41,7 +42,7 @@ public class QuestionRestController {
      * @return the question found for that id.
      */
     @RequestMapping(value = "getById/{questionId}", method = RequestMethod.GET)
-    public ResponseEntity<QuestionDTO> getQuestionById(@PathVariable String questionId)    {
+    public ResponseEntity<QuestionDTO> getQuestionById(@PathVariable UUID questionId)    {
         if (questionId == null) {
             return ResponseEntity.badRequest().build();
         }
@@ -58,7 +59,7 @@ public class QuestionRestController {
      * @return all found answers.
      */
     @RequestMapping(value = "getBySurveyId/{surveyId}", method = RequestMethod.GET)
-    public ResponseEntity<Collection<QuestionDTO>> getQuestionBySurveyId(@PathVariable String surveyId)    {
+    public ResponseEntity<Collection<QuestionDTO>> getQuestionBySurveyId(@PathVariable UUID surveyId)    {
         //todo add pk not found exception.
         if (surveyId == null) {
             return ResponseEntity.badRequest().build();
@@ -93,7 +94,7 @@ public class QuestionRestController {
      * @return confirmation that question has been deleted.
      */
     @RequestMapping(value = "/delete/{questionId}", method = RequestMethod.DELETE)
-    public ResponseEntity<String> deleteQuestion(@PathVariable String questionId) {
+    public ResponseEntity<String> deleteQuestion(@PathVariable UUID questionId) {
         //todo add pk not found exception.
         questionService.deleteById(questionId);
         return ResponseEntity.noContent().build();

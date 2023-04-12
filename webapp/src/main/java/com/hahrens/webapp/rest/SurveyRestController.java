@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.UUID;
 
 /**
  * rest controller for delivering surveys.
@@ -41,7 +42,7 @@ public class SurveyRestController {
      * @return the survey found for that id.
      */
     @RequestMapping(value = "/{surveyId}", method = RequestMethod.GET)
-    public ResponseEntity<SurveyDTO> getSurveyById(@PathVariable String surveyId)    {
+    public ResponseEntity<SurveyDTO> getSurveyById(@PathVariable UUID surveyId)    {
         if (surveyId == null) {
             return ResponseEntity.badRequest().build();
         }
@@ -71,7 +72,7 @@ public class SurveyRestController {
      * @param surveyId the surveyId to delete.
      */
     @RequestMapping(value = "/delete/{surveyId}", method = RequestMethod.DELETE)
-    public ResponseEntity<String> deleteSurvey(@PathVariable String surveyId) {
+    public ResponseEntity<String> deleteSurvey(@PathVariable UUID surveyId) {
         //todo add pk not found exception.
         surveyService.deleteById(surveyId);
         return ResponseEntity.noContent().build();

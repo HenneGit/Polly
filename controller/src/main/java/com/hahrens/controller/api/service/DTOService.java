@@ -3,6 +3,7 @@ package com.hahrens.controller.api.service;
 import jakarta.annotation.PreDestroy;
 
 import java.util.Collection;
+import java.util.UUID;
 
 /**
  * generic implementation of a service that converts storage objects to dtos.
@@ -20,7 +21,7 @@ public interface DTOService<DTO> {
      * @param primaryKey the pk to find dto for.
      * @return the found dto.
      */
-    DTO findById(Comparable<?> primaryKey);
+    DTO findById(UUID primaryKey);
 
     /**
      * remove the given dto.
@@ -30,9 +31,9 @@ public interface DTOService<DTO> {
 
     /**
      * remove the given dto.
-     * @param dto the dto to remove.
+     * @param primaryKey the dto to remove.
      */
-    void deleteById(Comparable<?> primaryKey);
+    void deleteById(UUID primaryKey);
 
     /**
      * create the given dto.

@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class AnswerServiceTest {
 
     private AnswerServiceImpl answerService;
-    private Comparable<?> answerId;
+    private UUID answerId;
     private String answerText;
     private TestSetup testSetup;
 

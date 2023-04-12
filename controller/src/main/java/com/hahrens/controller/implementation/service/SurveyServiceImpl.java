@@ -1,6 +1,5 @@
 package com.hahrens.controller.implementation.service;
 
-import com.hahrens.controller.api.model.dto.QuestionDTO;
 import com.hahrens.controller.api.model.dto.SurveyDTO;
 import com.hahrens.controller.api.service.DTOMapping;
 import com.hahrens.controller.api.service.SurveyService;
@@ -40,7 +39,7 @@ public class SurveyServiceImpl implements SurveyService {
     }
 
     @Override
-    public SurveyDTO findById(final Comparable<?> primaryKey) {
+    public SurveyDTO findById(final UUID primaryKey) {
         return surveyDTOS.stream().filter(a -> a.getPrimaryKey().equals(primaryKey)).findFirst().orElse(null);
     }
 
@@ -58,8 +57,8 @@ public class SurveyServiceImpl implements SurveyService {
     }
 
     @Override
-    public void deleteById(Comparable<?> primaryKey) {
-        SurveyDTO surveyDTO = surveyDTOS.stream().filter(s -> s.getPrimaryKey().toString().equals(primaryKey)).findFirst().orElse(null);
+    public void deleteById(UUID primaryKey) {
+        SurveyDTO surveyDTO = surveyDTOS.stream().filter(s -> s.getPrimaryKey().equals(primaryKey)).findFirst().orElse(null);
         if (surveyDTO == null) {
             return;
         }

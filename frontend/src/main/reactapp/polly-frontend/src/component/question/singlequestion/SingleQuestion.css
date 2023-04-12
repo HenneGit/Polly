@@ -1,5 +1,11 @@
-.question--single__details {
+.question--single {
+    display: flex;
     background-color: burlywood;
     width: 20vw;
     height: 20vh;
+}
+
+.question--single__edit__details {
+    display: flex;
+    flex-direction: column;
 }

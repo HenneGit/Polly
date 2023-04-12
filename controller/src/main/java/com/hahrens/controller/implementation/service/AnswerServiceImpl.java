@@ -39,7 +39,7 @@ public class AnswerServiceImpl implements AnswerService {
     }
 
     @Override
-    public AnswerDTO findById(final Comparable<?> primaryKey) {
+    public AnswerDTO findById(final UUID primaryKey) {
         return answerDTOS.stream().filter(a -> a.getPrimaryKey().equals(primaryKey)).findFirst().orElse(null);
     }
 
@@ -59,7 +59,7 @@ public class AnswerServiceImpl implements AnswerService {
     }
 
     @Override
-    public void deleteById(Comparable<?> primaryKey) {
+    public void deleteById(final UUID primaryKey) {
         AnswerDTO answerDTO = answerDTOS.stream().filter(a -> a.getPrimaryKey().equals(primaryKey)).findFirst().orElse(null);
         if (answerDTO == null) {
             return;

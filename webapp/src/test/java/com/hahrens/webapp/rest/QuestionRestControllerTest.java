@@ -54,7 +54,7 @@ public class QuestionRestControllerTest {
         questionDTO = new QuestionDTOImpl(primaryKey, "name", "desc", "question", surveyPk);
         surveyDTO = new SurveyDTOImpl(UUID.randomUUID(), "Survey", "Desc");
         lenient().when(questionService.findAll()).thenReturn(List.of(questionDTO));
-        lenient().when(questionService.findById(primaryKey.toString())).thenReturn(questionDTO);
+        lenient().when(questionService.findById(primaryKey)).thenReturn(questionDTO);
         lenient().when(questionService.update(any(QuestionDTOImpl.class))).thenReturn(questionDTO);
         lenient().when(questionService.create(any(QuestionDTOImpl.class))).thenReturn(questionDTO);
         lenient().when(questionService.findAllBySurveyId(any(Comparable.class))).thenReturn(List.of(questionDTO));
@@ -72,7 +72,7 @@ public class QuestionRestControllerTest {
 
     @Test
     public void testFindById() throws Exception {
-        MockHttpServletResponse response = mvc.perform(get(QUESTION_ROUTE + "getById/" +primaryKey.toString()).accept(MediaType.APPLICATION_JSON))
+        MockHttpServletResponse response = mvc.perform(get(QUESTION_ROUTE + "getById/" +primaryKey).accept(MediaType.APPLICATION_JSON))
                 .andReturn().getResponse();
         assertEquals(HttpStatus.OK.value(), response.getStatus());
         assertEquals(response.getContentAsString(), questionDTOJacksonTester.write(questionDTO).getJson());
@@ -86,7 +86,7 @@ public class QuestionRestControllerTest {
 
     @Test
     public void testDelete() throws Exception {
-        MockHttpServletResponse response = mvc.perform(delete(QUESTION_ROUTE + "delete/" + primaryKey.toString()).accept(MediaType.APPLICATION_JSON))
+        MockHttpServletResponse response = mvc.perform(delete(QUESTION_ROUTE + "delete/" + primaryKey).accept(MediaType.APPLICATION_JSON))
                 .andReturn().getResponse();
         assertEquals(HttpStatus.NO_CONTENT.value(), response.getStatus());
     }
@@ -128,7 +128,7 @@ public class QuestionRestControllerTest {
 
     @Test
     public void testFindBySurvey() throws Exception {
-        MockHttpServletResponse response = mvc.perform(get(QUESTION_ROUTE + "getBySurveyId/" + "surveyId")
+        MockHttpServletResponse response = mvc.perform(get(QUESTION_ROUTE + "getBySurveyId/" + UUID.randomUUID())
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(surveyDTOJacksonTester.write(surveyDTO).getJson())
                         .accept(MediaType.APPLICATION_JSON_VALUE))

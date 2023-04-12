@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
+import java.util.UUID;
 
 /**
  * a rest controller for delivering answerDtos to the frontend.
@@ -43,7 +44,7 @@ public class AnswerRestController {
      * @return the answer found for that id.
      */
     @RequestMapping(value = "getById/{answerId}", method = RequestMethod.GET)
-    public ResponseEntity<AnswerDTO> getAnswerById(@PathVariable String answerId)    {
+    public ResponseEntity<AnswerDTO> getAnswerById(@PathVariable UUID answerId)    {
         //todo add pk not found exception.
         if (answerId == null) {
             return ResponseEntity.badRequest().build();
@@ -94,7 +95,7 @@ public class AnswerRestController {
      * @return confirmation that answer has been deleted.
      */
     @RequestMapping(value = "/delete/{answerId}", method = RequestMethod.DELETE)
-    public ResponseEntity<String> deleteAnswer(@PathVariable String answerId) {
+    public ResponseEntity<String> deleteAnswer(@PathVariable UUID answerId) {
         //todo add pk not found exception.
         answerService.deleteById(answerId);
         return ResponseEntity.noContent().build();
