@@ -57,7 +57,7 @@ public class QuestionRestControllerTest {
         lenient().when(questionService.findById(primaryKey)).thenReturn(questionDTO);
         lenient().when(questionService.update(any(QuestionDTOImpl.class))).thenReturn(questionDTO);
         lenient().when(questionService.create(any(QuestionDTOImpl.class))).thenReturn(questionDTO);
-        lenient().when(questionService.findAllBySurveyId(any(Comparable.class))).thenReturn(List.of(questionDTO));
+        lenient().when(questionService.findAllBySurveyId(any(UUID.class))).thenReturn(List.of(questionDTO));
         mvc = MockMvcBuilders.standaloneSetup(restController)
                 .build();
     }

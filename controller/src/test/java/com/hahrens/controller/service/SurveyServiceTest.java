@@ -56,7 +56,7 @@ public class SurveyServiceTest {
 
     @Test
     public void testRemove() {
-        Collection<QuestionDTO> allBySurvey = questionService.findAllBySurveyId(surveyPk.toString());
+        Collection<QuestionDTO> allBySurvey = questionService.findAllBySurveyId(surveyPk);
         assertNotNull(allBySurvey);
         assertFalse(allBySurvey.isEmpty());
         for (QuestionDTO questionDTO : allBySurvey) {

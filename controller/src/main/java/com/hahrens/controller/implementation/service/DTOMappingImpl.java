@@ -39,6 +39,7 @@ public class DTOMappingImpl implements DTOMapping {
         answerDTOMapping = new HashMap<>();
         surveyDTOMapping = new HashMap<>();
         questionDTOMapping = new HashMap<>();
+        load();
     }
 
     @Override
@@ -59,7 +60,7 @@ public class DTOMappingImpl implements DTOMapping {
 
     @Override
     public Collection<AnswerDTO> getAnswers() {
-        if (surveyDTOMapping.isEmpty()) {
+        if (answerDTOMapping.isEmpty()) {
             load();
         }
         return answerDTOMapping.values();
@@ -67,7 +68,7 @@ public class DTOMappingImpl implements DTOMapping {
 
     @Override
     public Collection<QuestionDTO> getQuestions() {
-        if (surveyDTOMapping.isEmpty()) {
+        if (questionDTOMapping.isEmpty()) {
             load();
         }
         return questionDTOMapping.values();
@@ -150,6 +151,7 @@ public class DTOMappingImpl implements DTOMapping {
             addAnswer(answerDTO);
         }
         if (dtoEntityInterface instanceof QuestionDTO questionDTO) {
+            System.out.println(questionDTO.getName() + " created (theoretically");
             addQuestion(questionDTO);
         }
         if (dtoEntityInterface instanceof SurveyDTO surveyDTO) {
@@ -203,6 +205,8 @@ public class DTOMappingImpl implements DTOMapping {
             QuestionEntity newQuestion = questionEntityRepository.save(question);
             newQuestion.setSurveyEntity(surveyEntity);
             surveyEntity.addQuestion(question);
+            QuestionEntity save = questionEntityRepository.save(newQuestion);
+
 
         }
     }
@@ -218,6 +222,7 @@ public class DTOMappingImpl implements DTOMapping {
             AnswerEntity newAnswer = answerEntityRepository.save(answer);
             newAnswer.setQuestionEntity(question);
             question.addAnswer(newAnswer);
+            answerEntityRepository.save(newAnswer);
         }
     }
 

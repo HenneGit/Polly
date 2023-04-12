@@ -20,7 +20,7 @@ public class QuestionServiceImpl implements QuestionService {
 
     public QuestionServiceImpl(DTOMapping dtoMapping) {
         this.dtoMapping = dtoMapping;
-        questionDTOS = new ArrayList<>();
+        questionDTOS = new ArrayList<>(dtoMapping.getQuestions());
     }
 
     @PreDestroy
@@ -31,26 +31,16 @@ public class QuestionServiceImpl implements QuestionService {
 
     @Override
     public Collection<QuestionDTO> findAll() {
-        load();
         return questionDTOS;
-    }
-
-    private void load() {
-        if (questionDTOS.isEmpty()) {
-            questionDTOS.addAll(dtoMapping.getQuestions());
-        }
     }
 
     @Override
     public QuestionDTO findById(final UUID primaryKey) {
-        load();
-
         return questionDTOS.stream().filter(a -> a.getPrimaryKey().equals(primaryKey)).findFirst().orElse(null);
     }
 
     @Override
     public QuestionDTO create(final QuestionDTO questionDTO) {
-        load();
         QuestionDTO answerDTO1 = new QuestionDTOImpl(UUID.randomUUID(), questionDTO.getName(), questionDTO.getDescription(), questionDTO.getQuestion(), questionDTO.getSurveyPk());
         questionDTOS.add(answerDTO1);
         return answerDTO1;
@@ -58,7 +48,6 @@ public class QuestionServiceImpl implements QuestionService {
 
     @Override
     public void delete(final QuestionDTO questionDTO) {
-        load();
         questionDTOS.remove(questionDTO);
     }
 
@@ -73,20 +62,17 @@ public class QuestionServiceImpl implements QuestionService {
 
     @Override
     public QuestionDTO update(final QuestionDTO questionDTO) {
-        load();
         QuestionDTO oldAnswerDTO = questionDTOS.stream().filter(a -> a.getPrimaryKey().equals(questionDTO.getPrimaryKey())).findFirst().orElse(null);
         questionDTOS.remove(oldAnswerDTO);
         QuestionDTO updatedAnswerDTO = new QuestionDTOImpl(questionDTO.getPrimaryKey(), questionDTO.getName(), questionDTO.getDescription(), questionDTO.getQuestion(), questionDTO.getSurveyPk());
         questionDTOS.add(updatedAnswerDTO);
         save();
-        load();
         return updatedAnswerDTO;
     }
 
     @Override
-    public Collection<QuestionDTO> findAllBySurveyId(final Comparable<?> surveyId) {
-        load();
-        return questionDTOS.stream().filter(q -> q.getSurveyPk().toString().equals(surveyId)).toList();
+    public Collection<QuestionDTO> findAllBySurveyId(final UUID surveyId) {
+        return questionDTOS.stream().filter(q -> q.getSurveyPk().equals(surveyId)).toList();
     }
 
 }

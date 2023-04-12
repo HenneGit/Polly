@@ -20,7 +20,7 @@ public class AnswerServiceImpl implements AnswerService {
 
     public AnswerServiceImpl(DTOMapping dtoMapping) {
         this.dtoMapping = dtoMapping;
-        answerDTOS = new ArrayList<>();
+        answerDTOS = new ArrayList<>(dtoMapping.getAnswers());
     }
 
     @PreDestroy
@@ -32,9 +32,6 @@ public class AnswerServiceImpl implements AnswerService {
 
     @Override
     public Collection<AnswerDTO> findAll() {
-        if (answerDTOS.isEmpty()) {
-            answerDTOS.addAll(dtoMapping.getAnswers());
-        }
         return answerDTOS;
     }
 

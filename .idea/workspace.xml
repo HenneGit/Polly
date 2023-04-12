@@ -4,23 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="314eb581-d504-47f3-bc46-b9583dcb124e" name="Changes" comment="question editing started.">
+    <list default="true" id="314eb581-d504-47f3-bc46-b9583dcb124e" name="Changes" comment="now using UUID everywhere to prevent toString call.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app.log" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/service/DTOService.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/service/DTOService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/service/QuestionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/service/QuestionService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/AnswerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/AnswerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/DTOMappingImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/DTOMappingImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/QuestionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/QuestionServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/SurveyServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/SurveyServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/AnswerServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/AnswerServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/SurveyServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/SurveyServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/question/singlequestion/SingleQuestion.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/question/singlequestion/SingleQuestion.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/question/singlequestion/SingleQuestion.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/question/singlequestion/SingleQuestion.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/main/java/com/hahrens/webapp/rest/AnswerRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main/java/com/hahrens/webapp/rest/AnswerRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/main/java/com/hahrens/webapp/rest/QuestionRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main/java/com/hahrens/webapp/rest/QuestionRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/main/java/com/hahrens/webapp/rest/SurveyRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main/java/com/hahrens/webapp/rest/SurveyRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/test/java/com/hahrens/webapp/rest/AnswerRestControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/test/java/com/hahrens/webapp/rest/AnswerRestControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webapp/src/test/java/com/hahrens/webapp/rest/QuestionRestControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/test/java/com/hahrens/webapp/rest/QuestionRestControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/test/java/com/hahrens/webapp/rest/SurveyRestControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/test/java/com/hahrens/webapp/rest/SurveyRestControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +95,7 @@
       <recent name="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/services" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.RestControllerTests">
+  <component name="RunManager" selected="JUnit.com.hahrens.controller.service in controller">
     <configuration name="RestControllerTests" type="JUnit" factoryName="JUnit">
       <module name="webapp" />
       <option name="PACKAGE_NAME" value="com.hahrens.webapp.rest" />
@@ -183,7 +177,7 @@
       <workItem from="1681104245487" duration="2033000" />
       <workItem from="1681209505274" duration="5290000" />
       <workItem from="1681216926930" duration="5267000" />
-      <workItem from="1681282314151" duration="10209000" />
+      <workItem from="1681282314151" duration="13976000" />
     </task>
     <task id="LOCAL-00001" summary="init commit.">
       <created>1678887988652</created>
@@ -395,7 +389,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681297584338</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="now using UUID everywhere to prevent toString call.">
+      <created>1681300365121</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1681300365121</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -413,7 +414,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="SurveyEntityRepositoryTest setup complete." />
     <MESSAGE value="Storagetests done." />
     <MESSAGE value="Different approach for dto mapping. AnswerServiceTest working." />
     <MESSAGE value="SurveyServiceTest and QuestionServiceTest completed." />
@@ -438,7 +438,8 @@
     <MESSAGE value="display of questions added." />
     <MESSAGE value="display of question edit view." />
     <MESSAGE value="question editing started." />
-    <option name="LAST_COMMIT_MESSAGE" value="question editing started." />
+    <MESSAGE value="now using UUID everywhere to prevent toString call." />
+    <option name="LAST_COMMIT_MESSAGE" value="now using UUID everywhere to prevent toString call." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -454,11 +455,6 @@
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/SurveyServiceTest.java</url>
-          <line>58</line>
-          <option name="timeStamp" value="103" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/webapp/src/main/java/com/hahrens/webapp/rest/AnswerRestController.java</url>
           <line>110</line>
           <option name="timeStamp" value="113" />
@@ -469,14 +465,27 @@
           <option name="timeStamp" value="117" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/webapp/src/main/java/com/hahrens/webapp/rest/QuestionRestController.java</url>
-          <line>82</line>
-          <option name="timeStamp" value="126" />
+          <url>file://$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/AnswerServiceTest.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="140" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/webapp/src/main/java/com/hahrens/webapp/rest/QuestionRestController.java</url>
-          <line>109</line>
-          <option name="timeStamp" value="127" />
+          <url>file://$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/QuestionServiceImpl.java</url>
+          <line>68</line>
+          <option name="timeStamp" value="144" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/DTOMappingImpl.java</url>
+          <line>86</line>
+          <option name="timeStamp" value="145" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/QuestionServiceImpl.java</url>
+          <line>74</line>
+          <properties>
+            <option name="lambda-ordinal" value="-1" />
+          </properties>
+          <option name="timeStamp" value="146" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/App.tsx</url>
@@ -498,9 +507,8 @@
         <watch expression="jsonObjectWriter.write(answerDTO).getJson()" language="JAVA" />
       </configuration>
       <configuration name="SpringBootApplicationConfigurationType">
-        <watch expression="surveyDTOS.stream().filter(a -&gt; a.getPrimaryKey().toString().equals(primaryKey)).findFirst().orElse(null)" language="JAVA" />
+        <watch expression="dtoMapping.getSurveys()" language="JAVA" />
         <watch expression="questionDTOS.stream().filter(q -&gt; q.getSurveyPk().equals(surveyId)).toList()" language="JAVA" />
-        <watch expression="questionService.findAllBySurveyId(surveyId)" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>
