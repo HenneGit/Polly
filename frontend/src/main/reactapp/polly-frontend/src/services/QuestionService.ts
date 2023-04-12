@@ -13,16 +13,19 @@ const get = async (id: string, dispatch: React.Dispatch<any>) => {
     return await http.get<Question>(`/question/${id}`);
 };
 
-const add = async (data: Question, dispatch: React.Dispatch<any>) => {
-    return await http.post<Question>("/question/add", data);
+const add = async (data: Question, dispatch: React.Dispatch<QuestionReducerAction>) => {
+    let newQuestion = await http.post<Question>("/question/add", data).then(resp => resp.data);
+    dispatch({type: QUESTION_ACTION_TYPE.ADD, payload: newQuestion})
 };
 
 const update = async (data: Question, dispatch: React.Dispatch<any>) => {
-    return await http.put<Question>(`/question/update`, data);
+    let updatedQuestion = await http.put<Question>(`/question/update`, data).then(resp => resp.data);
+    dispatch({type: QUESTION_ACTION_TYPE.UPDATE, payload: updatedQuestion})
 };
 
 const remove = async (id: string, dispatch: React.Dispatch<any>) => {
-    return await http.delete<any>(`/question/delete/${id}`);
+    await http.delete<any>(`/question/delete/${id}`);
+    dispatch({type:QUESTION_ACTION_TYPE.REMOVE, payload: id} )
 };
 
 const getBySurveyId = async (id: string, dispatchSurveys: React.Dispatch<SurveyReducerAction>, dispatchQuestions: React.Dispatch<QuestionReducerAction>) => {

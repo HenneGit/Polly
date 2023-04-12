@@ -5,9 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="314eb581-d504-47f3-bc46-b9583dcb124e" name="Changes" comment="display of question edit view.">
+      <change afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/answer/AnswerReducer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/answer/answerlist/AnswerList.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/answer/answerlist/AnswerList.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/answer/singleanswer/SingleAnswer.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/answer/singleanswer/SingleAnswer.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app.log" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/QuestionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/QuestionServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/SurveyServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/SurveyServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/question/QuestionReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/question/QuestionReducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/question/questionlist/QuestionList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/question/questionlist/QuestionList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/question/singlequestion/SingleQuestion.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/question/singlequestion/SingleQuestion.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/question/singlequestion/SingleQuestion.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/question/singlequestion/SingleQuestion.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/survey/singlesurvey/SingleSurvey.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/survey/singlesurvey/SingleSurvey.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/survey/surveyList/SurveyList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/survey/surveyList/SurveyList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/services/QuestionService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/services/QuestionService.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,14 +95,14 @@
       <recent name="$PROJECT_DIR$/controller" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/answer/answerlist" />
       <recent name="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/question" />
       <recent name="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/survey/singlesurvey" />
       <recent name="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/survey" />
       <recent name="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/services" />
-      <recent name="$PROJECT_DIR$/frontend/src/main/resources/reactapp/polly-frontend/src/model" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.PollyApplication">
+  <component name="RunManager" selected="JUnit.com.hahrens.controller.service in controller">
     <configuration name="RestControllerTests" type="JUnit" factoryName="JUnit">
       <module name="webapp" />
       <option name="PACKAGE_NAME" value="com.hahrens.webapp.rest" />
@@ -170,6 +184,7 @@
       <workItem from="1681104245487" duration="2033000" />
       <workItem from="1681209505274" duration="5290000" />
       <workItem from="1681216926930" duration="5267000" />
+      <workItem from="1681282314151" duration="7489000" />
     </task>
     <task id="LOCAL-00001" summary="init commit.">
       <created>1678887988652</created>
@@ -438,11 +453,6 @@
           <option name="timeStamp" value="103" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/DTOMappingImpl.java</url>
-          <line>86</line>
-          <option name="timeStamp" value="105" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/webapp/src/main/java/com/hahrens/webapp/rest/AnswerRestController.java</url>
           <line>109</line>
           <option name="timeStamp" value="113" />
@@ -459,7 +469,6 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/App.tsx</url>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="118" />
         </line-breakpoint>
       </breakpoints>
@@ -479,6 +488,8 @@
       </configuration>
       <configuration name="SpringBootApplicationConfigurationType">
         <watch expression="surveyDTOS.stream().filter(a -&gt; a.getPrimaryKey().toString().equals(primaryKey)).findFirst().orElse(null)" language="JAVA" />
+        <watch expression="questionDTOS.stream().filter(q -&gt; q.getSurveyPk().equals(surveyId)).toList()" language="JAVA" />
+        <watch expression="questionService.findAllBySurveyId(surveyId)" language="JAVA" />
       </configuration>
     </watches-manager>
   </component>

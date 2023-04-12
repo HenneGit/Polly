@@ -24,6 +24,7 @@ export type QuestionReducerAction = {
 export const questionReducer = (state: Question[], action: QuestionReducerAction): Question[] => {
     switch (action.type) {
         case QUESTION_ACTION_TYPE.GET:
+            console.log(action.payload)
             return action.payload;
         case QUESTION_ACTION_TYPE.ADD:
             return [...state, action.payload];

@@ -14,6 +14,7 @@ const App: React.FC = () => {
     let initQuestionState: Question[] = [];
     const [survey, setSurvey] = useState<string>("")
     const [surveys, dispatchSurveys] = useReducer(surveyReducer, initState);
+    const [activeSurvey, setActiveSurvey] = useState<Survey>({primaryKey:"", name:"", description:""});
     const [questions, dispatchQuestions] = useReducer(questionReducer, initQuestionState);
     const [isQuestionEdit, setQuestionEdit] = useState<boolean>(false)
 
@@ -30,8 +31,8 @@ const App: React.FC = () => {
                             name: survey,
                             description: ""
                         }, dispatchSurveys)}/>
-            <SurveyList surveys={surveys} dispatchSurveys={dispatchSurveys} dispatchQuestions={dispatchQuestions} setQuestionEdit={setQuestionEdit}/>
-            <QuestionList questions={questions} dispatchQuestions={dispatchQuestions} isQuestionEdit={isQuestionEdit} setQuestionEdit={setQuestionEdit} dispatchSurveys={dispatchSurveys}/>
+            <SurveyList surveys={surveys} dispatchSurveys={dispatchSurveys} dispatchQuestions={dispatchQuestions} setQuestionEdit={setQuestionEdit} setActiveSurvey={setActiveSurvey}/>
+            <QuestionList questions={questions} dispatchQuestions={dispatchQuestions} isQuestionEdit={isQuestionEdit} setQuestionEdit={setQuestionEdit} dispatchSurveys={dispatchSurveys} survey={activeSurvey}/>
         </div>
     );
 }
