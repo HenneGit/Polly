@@ -13,8 +13,6 @@ import java.util.Collection;
  */
 public interface DTOMapping {
 
-    void load();
-
     /**
      * get all answers.
      * @return collection of all answers.
@@ -33,10 +31,23 @@ public interface DTOMapping {
      */
     Collection<SurveyDTO> getSurveys();
 
-
+    /**
+     * remove an entity from storage.
+     * @param dtoEntityInterface the entity to remove.
+     */
     void removeEntity(DTOEntityInterface dtoEntityInterface);
 
+    /**
+     * add an entity to storage.
+     * @param dtoEntityInterface the entity to add.
+     * @return the new dto object.
+     */
     DTOEntityInterface addEntity(DTOEntityInterface dtoEntityInterface);
 
+    /**
+     * update the given dto entity.
+     * @param dtoEntityInterface the entity to update.
+     * @return the updated dto entity.
+     */
     DTOEntityInterface updateEntity(DTOEntityInterface dtoEntityInterface);
 }

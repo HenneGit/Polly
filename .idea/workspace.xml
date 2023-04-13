@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="314eb581-d504-47f3-bc46-b9583dcb124e" name="Changes" comment="dto mapping without caching.">
+    <list default="true" id="314eb581-d504-47f3-bc46-b9583dcb124e" name="Changes" comment="bug in update entity fixed.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/DTOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/DTOFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/question/QuestionReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/question/QuestionReducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/service/DTOMapping.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/service/DTOMapping.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/DTOMappingImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/DTOMappingImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +172,7 @@
       <workItem from="1681216926930" duration="5267000" />
       <workItem from="1681282314151" duration="14901000" />
       <workItem from="1681366300876" duration="13736000" />
-      <workItem from="1681411002147" duration="3780000" />
+      <workItem from="1681411002147" duration="4175000" />
     </task>
     <task id="LOCAL-00001" summary="init commit.">
       <created>1678887988652</created>
@@ -433,7 +433,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681413541608</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="bug in update entity fixed.">
+      <created>1681415058050</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1681415058050</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -451,7 +458,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="rest controller added and some test adjusting." />
     <MESSAGE value="comparable removed from dto as jackson has problems deserializing. All restcontrollers added." />
     <MESSAGE value="react app started." />
     <MESSAGE value="rest testing setup working." />
@@ -476,7 +482,8 @@
     <MESSAGE value="save when bean is destoyed working till session scope is implemented." />
     <MESSAGE value="system outs removed." />
     <MESSAGE value="dto mapping without caching." />
-    <option name="LAST_COMMIT_MESSAGE" value="dto mapping without caching." />
+    <MESSAGE value="bug in update entity fixed." />
+    <option name="LAST_COMMIT_MESSAGE" value="bug in update entity fixed." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

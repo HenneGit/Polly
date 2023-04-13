@@ -41,7 +41,6 @@ public class DTOMappingImpl implements DTOMapping {
         load();
     }
 
-    @Override
     public void load() {
         List<SurveyEntity> surveyEntities = surveyEntityRepository.findAll();
         for (SurveyEntity surveyEntity : surveyEntities) {
