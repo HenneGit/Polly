@@ -29,7 +29,7 @@ final class DTOFactory {
      */
     static QuestionDTO getQuestionDTO(final QuestionEntity questionEntity, final UUID surveyPk) {
         UUID primaryKey = UUID.randomUUID();
-        return new QuestionDTOImpl(primaryKey, questionEntity.getName(), questionEntity.getDescription(), questionEntity.getQuestion(), surveyPk);
+        return new QuestionDTOImpl(primaryKey, questionEntity.getName(), questionEntity.getDescription(), questionEntity.getQuestion(), surveyPk, questionEntity.getOrderNumber());
     }
 
     /**

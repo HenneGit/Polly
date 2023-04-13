@@ -30,5 +30,11 @@ public interface QuestionDTO extends DTOEntityInterface {
      */
     String getQuestion();
 
+    /**
+     * get the order number representing in which order the questions are asked.
+     * @return the order number.
+     */
+    Integer getOrderNumber();
+
 
 }

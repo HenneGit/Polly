@@ -10,6 +10,7 @@ export interface Question {
     description: string;
     question: string;
     surveyPk: string;
+    orderNumber: number;
 
 }
 

@@ -5,6 +5,7 @@ import {MdDone, MdDelete} from "react-icons/md";
 import {RxCross2} from "react-icons/rx";
 import QuestionService from "../../../services/QuestionService";
 import {AiFillEdit} from "react-icons/ai";
+import "./SingleQuestion.css";
 
 
 type Props = {
@@ -56,8 +57,8 @@ const SingleQuestion = ({question, dispatch, isEditQuestion}: Props) => {
 
     return (
         <form>
-            {isEdit ? (<div>
-                <div className="question--single__edit__details">
+            {isEdit ? (<div className="question--single">
+                <div className="question--single__details">
                     <input ref={inputRef} className="survey__single--input" onChange={(e) => setEditQuestionName(e.target.value)}
                            placeholder="Name"
                            value={newName}/>

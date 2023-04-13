@@ -51,7 +51,7 @@ public class QuestionRestControllerTest {
         primaryKey = UUID.randomUUID();
         surveyPk = UUID.randomUUID();
         JacksonTester.initFields(this, new ObjectMapper());
-        questionDTO = new QuestionDTOImpl(primaryKey, "name", "desc", "question", surveyPk);
+        questionDTO = new QuestionDTOImpl(primaryKey, "name", "desc", "question", surveyPk, Integer.valueOf(10));
         surveyDTO = new SurveyDTOImpl(UUID.randomUUID(), "Survey", "Desc");
         lenient().when(questionService.findAll()).thenReturn(List.of(questionDTO));
         lenient().when(questionService.findById(primaryKey)).thenReturn(questionDTO);

@@ -4,16 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="314eb581-d504-47f3-bc46-b9583dcb124e" name="Changes" comment="now using UUID everywhere to prevent toString call.">
+    <list default="true" id="314eb581-d504-47f3-bc46-b9583dcb124e" name="Changes" comment="system out removed.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app.log" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/service/QuestionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/service/QuestionService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/AnswerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/AnswerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/hahrens/backend/model/QuestionEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/hahrens/backend/model/QuestionEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/hahrens/backend/repository/QuestionEntityRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/test/java/com/hahrens/backend/repository/QuestionEntityRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/model/container/AnswerContainer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/model/container/QuestionContainer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/model/container/SurveyContainer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/model/dto/QuestionDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/model/dto/QuestionDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/model/QuestionDTOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/model/QuestionDTOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/DTOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/DTOFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/DTOMappingImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/DTOMappingImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/QuestionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/QuestionServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/SurveyServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/SurveyServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/SurveyServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/SurveyServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/QuestionServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/QuestionServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/question/singlequestion/SingleQuestion.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/question/singlequestion/SingleQuestion.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/question/singlequestion/SingleQuestion.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/question/singlequestion/SingleQuestion.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/model/models.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/model/models.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/src/test/java/com/hahrens/webapp/rest/AnswerRestControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/test/java/com/hahrens/webapp/rest/AnswerRestControllerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webapp/src/test/java/com/hahrens/webapp/rest/QuestionRestControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/test/java/com/hahrens/webapp/rest/QuestionRestControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -177,7 +185,8 @@
       <workItem from="1681104245487" duration="2033000" />
       <workItem from="1681209505274" duration="5290000" />
       <workItem from="1681216926930" duration="5267000" />
-      <workItem from="1681282314151" duration="13976000" />
+      <workItem from="1681282314151" duration="14901000" />
+      <workItem from="1681366300876" duration="3377000" />
     </task>
     <task id="LOCAL-00001" summary="init commit.">
       <created>1678887988652</created>
@@ -396,7 +405,21 @@
       <option name="project" value="LOCAL" />
       <updated>1681300365121</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="some issues with dto mapping solved. Final setup when scope implementation is complete.">
+      <created>1681310523163</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1681310523163</updated>
+    </task>
+    <task id="LOCAL-00033" summary="system out removed.">
+      <created>1681310559296</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1681310559296</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -414,8 +437,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Storagetests done." />
-    <MESSAGE value="Different approach for dto mapping. AnswerServiceTest working." />
     <MESSAGE value="SurveyServiceTest and QuestionServiceTest completed." />
     <MESSAGE value="update test added in SurveyServiceTest and bug fixed." />
     <MESSAGE value="some cleanUp." />
@@ -439,7 +460,9 @@
     <MESSAGE value="display of question edit view." />
     <MESSAGE value="question editing started." />
     <MESSAGE value="now using UUID everywhere to prevent toString call." />
-    <option name="LAST_COMMIT_MESSAGE" value="now using UUID everywhere to prevent toString call." />
+    <MESSAGE value="some issues with dto mapping solved. Final setup when scope implementation is complete." />
+    <MESSAGE value="system out removed." />
+    <option name="LAST_COMMIT_MESSAGE" value="system out removed." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -465,26 +488,8 @@
           <option name="timeStamp" value="117" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/AnswerServiceTest.java</url>
-          <line>53</line>
-          <option name="timeStamp" value="140" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/QuestionServiceImpl.java</url>
-          <line>68</line>
-          <option name="timeStamp" value="144" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/DTOMappingImpl.java</url>
-          <line>86</line>
-          <option name="timeStamp" value="145" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/QuestionServiceImpl.java</url>
-          <line>74</line>
-          <properties>
-            <option name="lambda-ordinal" value="-1" />
-          </properties>
+          <url>file://$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/QuestionServiceTest.java</url>
+          <line>85</line>
           <option name="timeStamp" value="146" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">

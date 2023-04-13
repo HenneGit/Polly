@@ -60,7 +60,7 @@ public class QuestionServiceTest{
         String name = "Question2";
         String description2 = "Description2";
         String question = "Is Kermit a frog?";
-        QuestionDTO questionDTO = new QuestionDTOImpl(null, name, description2, question,surveyPk);
+        QuestionDTO questionDTO = new QuestionDTOImpl(null, name, description2, question,surveyPk, Integer.valueOf(1));
         QuestionDTO newQuestionDTO = questionService.create(questionDTO);
         QuestionDTO byId = questionService.findById(newQuestionDTO.getPrimaryKey());
         assertNotNull(byId);
@@ -82,21 +82,23 @@ public class QuestionServiceTest{
         String newName = "New Name";
         String newQuestion = "New Question";
         String newDescription = "New Description";
-        QuestionDTO updatedQuestionDto = new QuestionDTOImpl(byId.getPrimaryKey(), newName, newDescription, newQuestion, byId.getSurveyPk());
+        Integer newOderNumber = Integer.valueOf(10);
+        QuestionDTO updatedQuestionDto = new QuestionDTOImpl(byId.getPrimaryKey(), newName, newDescription, newQuestion, byId.getSurveyPk(), newOderNumber);
         questionService.update(updatedQuestionDto);
         QuestionDTO updatedDto = questionService.findById(questionPk);
-        testPropertiesAfterUpdate(updatedDto, newName, newDescription, newQuestion);
+        testPropertiesAfterUpdate(updatedDto, newName, newDescription, newQuestion, newOderNumber);
         testSetup.resetDtoMapping(questionService);
         questionService = new QuestionServiceImpl(testSetup.getDtoMapping());
         QuestionDTO updatedDtoAfterPersist = questionService.findAll().stream().filter(q -> q.getName().equals(newName)).findFirst().orElse(null);
-        testPropertiesAfterUpdate(updatedDtoAfterPersist, newName, newDescription, newQuestion);
+        testPropertiesAfterUpdate(updatedDtoAfterPersist, newName, newDescription, newQuestion, newOderNumber);
     }
 
-    private void testPropertiesAfterUpdate(QuestionDTO updatedDtoAfterPersist, String newName, String newDescription, String newQuestion) {
+    private void testPropertiesAfterUpdate(QuestionDTO updatedDtoAfterPersist, String newName, String newDescription, String newQuestion, Integer orderNumber) {
         assertNotNull(updatedDtoAfterPersist);
         assertEquals(newName, updatedDtoAfterPersist.getName());
         assertEquals(newDescription, updatedDtoAfterPersist.getDescription());
         assertEquals(newQuestion, updatedDtoAfterPersist.getQuestion());
+        assertEquals(orderNumber, updatedDtoAfterPersist.getOrderNumber());
     }
 
 

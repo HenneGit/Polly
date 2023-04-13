@@ -34,7 +34,7 @@ public class QuestionEntityRepositoryTest {
     public void setup() {
         surveyEntity = new SurveyEntity(null, "Name", "Desc", null);
         surveyEntityRepository.save(surveyEntity);
-        QuestionEntity questionEntity = new QuestionEntity(null, NAME, QUESTION, DESCRIPTION, null, surveyEntity);
+        QuestionEntity questionEntity = new QuestionEntity(null, NAME, QUESTION, DESCRIPTION, Integer.valueOf(1),null, surveyEntity);
         entityRepository.save(questionEntity);
         surveyEntity.addQuestion(questionEntity);
     }

@@ -56,7 +56,7 @@ public class AnswerRestControllerTest {
         JacksonTester.initFields(this, new ObjectMapper());
         answerDTO = new AnswerDTOImpl(primaryKey, questionPk, "New Answer");
         updatedAnswerDTO = new AnswerDTOImpl(primaryKey, questionPk, "New Answer_updated");
-        questionDTO = new QuestionDTOImpl(primaryKey, "name", "desc", "question", questionPk);
+        questionDTO = new QuestionDTOImpl(primaryKey, "name", "desc", "question", questionPk, Integer.valueOf(10));
         lenient().when(answerService.findAll()).thenReturn(List.of(answerDTO));
         lenient().when(answerService.findById(primaryKey)).thenReturn(answerDTO);
         lenient().when(answerService.update(any(AnswerDTOImpl.class))).thenReturn(updatedAnswerDTO);

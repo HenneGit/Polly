@@ -152,7 +152,6 @@ public class DTOMappingImpl implements DTOMapping {
         }
         if (dtoEntityInterface instanceof QuestionDTO questionDTO) {
             addQuestion(questionDTO);
-            addQuestion(questionDTO);
         }
         if (dtoEntityInterface instanceof SurveyDTO surveyDTO) {
             surveyEntityRepository.save(SurveyEntity.builder().name(surveyDTO.getName()).description(surveyDTO.getDescription()).build());
@@ -175,6 +174,7 @@ public class DTOMappingImpl implements DTOMapping {
                 questionEntity.setQuestion(questionDTO.getQuestion());
                 questionEntity.setDescription(questionDTO.getDescription());
                 questionEntity.setName(questionDTO.getName());
+                questionEntity.setOrderNumber(questionDTO.getOrderNumber());
                 questionEntityRepository.save(questionEntity);
             }
         }

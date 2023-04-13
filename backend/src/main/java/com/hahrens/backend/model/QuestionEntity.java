@@ -32,6 +32,9 @@ public class QuestionEntity {
     @Column(name = "descriptopn")
     private String description;
 
+    @Column(name = "order_number")
+    private Integer orderNumber;
+
     @OneToMany(mappedBy = "questionEntity", fetch = FetchType.LAZY,
             cascade = CascadeType.ALL)
     private List<AnswerEntity> answers = new ArrayList<>();

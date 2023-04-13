@@ -1,11 +1,28 @@
-.question--single {
+.question--single{
+    padding: 5px 5px 5px 5px;
     display: flex;
+    flex-direction: column;
     background-color: burlywood;
     width: 20vw;
     height: 20vh;
 }
 
-.question--single__edit__details {
+
+.question--single__details {
     display: flex;
     flex-direction: column;
+}
+
+.question--single__details span {
+    margin-bottom: 5px;
+    background-color: antiquewhite;
+}
+
+.question--single__details input {
+    padding: 2px 2px 2px 2px;
+    margin-bottom: 5px;
+    height: 2em;
+    border-radius: 10px;
+    font-size: .9em;
+    background-color: ghostwhite;
 }

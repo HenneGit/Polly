@@ -1,6 +1,7 @@
 package com.hahrens.controller.implementation.model;
 
 import com.hahrens.controller.api.model.dto.QuestionDTO;
+import jakarta.persistence.criteria.CriteriaBuilder;
 
 import java.util.UUID;
 
@@ -11,13 +12,15 @@ public class QuestionDTOImpl implements QuestionDTO {
     private String description;
     private String question;
     private UUID surveyPk;
+    private Integer orderNumber;
 
-    public QuestionDTOImpl(UUID primaryKey, String name, String description, String question, UUID surveyPk) {
+    public QuestionDTOImpl(UUID primaryKey, String name, String description, String question, UUID surveyPk, Integer orderNumber) {
         this.primaryKey = primaryKey;
         this.name = name;
         this.description = description;
         this.question = question;
         this.surveyPk = surveyPk;
+        this.orderNumber = orderNumber;
     }
 
     /**
@@ -49,5 +52,10 @@ public class QuestionDTOImpl implements QuestionDTO {
     @Override
     public String getQuestion() {
         return question;
+    }
+
+    @Override
+    public Integer getOrderNumber() {
+        return orderNumber;
     }
 }

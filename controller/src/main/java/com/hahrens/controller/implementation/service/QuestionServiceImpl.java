@@ -41,7 +41,7 @@ public class QuestionServiceImpl implements QuestionService {
 
     @Override
     public QuestionDTO create(final QuestionDTO questionDTO) {
-        QuestionDTO answerDTO1 = new QuestionDTOImpl(UUID.randomUUID(), questionDTO.getName(), questionDTO.getDescription(), questionDTO.getQuestion(), questionDTO.getSurveyPk());
+        QuestionDTO answerDTO1 = new QuestionDTOImpl(UUID.randomUUID(), questionDTO.getName(), questionDTO.getDescription(), questionDTO.getQuestion(), questionDTO.getSurveyPk(), questionDTO.getOrderNumber());
         questionDTOS.add(answerDTO1);
         return answerDTO1;
     }
@@ -64,7 +64,7 @@ public class QuestionServiceImpl implements QuestionService {
     public QuestionDTO update(final QuestionDTO questionDTO) {
         QuestionDTO oldAnswerDTO = questionDTOS.stream().filter(a -> a.getPrimaryKey().equals(questionDTO.getPrimaryKey())).findFirst().orElse(null);
         questionDTOS.remove(oldAnswerDTO);
-        QuestionDTO updatedAnswerDTO = new QuestionDTOImpl(questionDTO.getPrimaryKey(), questionDTO.getName(), questionDTO.getDescription(), questionDTO.getQuestion(), questionDTO.getSurveyPk());
+        QuestionDTO updatedAnswerDTO = new QuestionDTOImpl(questionDTO.getPrimaryKey(), questionDTO.getName(), questionDTO.getDescription(), questionDTO.getQuestion(), questionDTO.getSurveyPk(), questionDTO.getOrderNumber());
         questionDTOS.add(updatedAnswerDTO);
         save();
         return updatedAnswerDTO;
