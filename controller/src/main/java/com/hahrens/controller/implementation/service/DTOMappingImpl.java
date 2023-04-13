@@ -112,9 +112,8 @@ public class DTOMappingImpl implements DTOMapping {
             if (answerEntity != null) {
                 answerEntity.setAnswerText(answerDTO.getAnswerText());
                 answerEntityRepository.save(answerEntity);
-                AnswerDTO answerDTO1 = DTOFactory.getAnswerDTO(answerEntity, answerDTO.getQuestionPk());
-                answerDTOMapping.replace(entityIdForDTOPk, answerDTO1);
-                return answerDTO1;
+                answerDTOMapping.replace(entityIdForDTOPk, answerDTO);
+                return answerDTO;
             }
         }
         if (dtoEntityInterface instanceof QuestionDTO questionDTO) {
@@ -130,9 +129,8 @@ public class DTOMappingImpl implements DTOMapping {
                 questionEntity.setName(questionDTO.getName());
                 questionEntity.setOrderNumber(questionDTO.getOrderNumber());
                 questionEntityRepository.save(questionEntity);
-                QuestionDTO questionDTO1 = DTOFactory.getQuestionDTO(questionEntity, questionDTO.getSurveyPk());
-                questionDTOMapping.replace(entityIdForDTOPk, questionDTO1);
-                return questionDTO1;
+                questionDTOMapping.replace(entityIdForDTOPk, questionDTO);
+                return questionDTO;
             }
         }
         if (dtoEntityInterface instanceof SurveyDTO surveyDTO) {
@@ -146,9 +144,8 @@ public class DTOMappingImpl implements DTOMapping {
                 surveyEntity.setDescription(surveyDTO.getDescription());
                 surveyEntity.setName(surveyDTO.getName());
                 surveyEntityRepository.save(surveyEntity);
-                SurveyDTO surveyDTO1 = DTOFactory.getSurveyDTO(surveyEntity);
-                surveyDTOMapping.replace(entityIdForDTOPk, surveyDTO1);
-                return surveyDTO1;
+                surveyDTOMapping.replace(entityIdForDTOPk, surveyDTO);
+                return surveyDTO;
             }
         }
         return null;

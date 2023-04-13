@@ -40,7 +40,6 @@ final class DTOFactory {
      */
     static AnswerDTO getAnswerDTO(final AnswerEntity answerEntity, final UUID questionPk) {
         return new AnswerDTOImpl(UUID.randomUUID(), questionPk, answerEntity.getAnswerText());
-
     }
 
     /**
@@ -52,6 +51,4 @@ final class DTOFactory {
         UUID primaryKey = UUID.randomUUID();
         return new SurveyDTOImpl(primaryKey, surveyEntity.getName(), surveyEntity.getDescription());
     }
-
-
 }

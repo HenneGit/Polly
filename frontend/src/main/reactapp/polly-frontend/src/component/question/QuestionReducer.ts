@@ -4,14 +4,14 @@
 import {Question} from "../../model/models";
 
 export const enum QUESTION_ACTION_TYPE {
-    GET, ADD, REMOVE, ADD_QUESTION, UPDATE
+    GET, ADD, REMOVE, ADD_ANSWER, UPDATE
 }
 
 /**
  * the reducer action indicating what action to perform with a given payload.
  */
 export type QuestionReducerAction = {
-    type: QUESTION_ACTION_TYPE.GET | QUESTION_ACTION_TYPE.ADD | QUESTION_ACTION_TYPE.REMOVE | QUESTION_ACTION_TYPE.ADD_QUESTION | QUESTION_ACTION_TYPE.UPDATE;
+    type: QUESTION_ACTION_TYPE.GET | QUESTION_ACTION_TYPE.ADD | QUESTION_ACTION_TYPE.REMOVE | QUESTION_ACTION_TYPE.ADD_ANSWER | QUESTION_ACTION_TYPE.UPDATE;
     payload: any;
 
 }
@@ -24,11 +24,10 @@ export type QuestionReducerAction = {
 export const questionReducer = (state: Question[], action: QuestionReducerAction): Question[] => {
     switch (action.type) {
         case QUESTION_ACTION_TYPE.GET:
-            console.log(action.payload)
             return action.payload;
         case QUESTION_ACTION_TYPE.ADD:
             return [...state, action.payload];
-        case QUESTION_ACTION_TYPE.ADD_QUESTION:
+        case QUESTION_ACTION_TYPE.ADD_ANSWER:
         case QUESTION_ACTION_TYPE.REMOVE:
             return state.filter(question => question.primaryKey !== action.payload);
         case QUESTION_ACTION_TYPE.UPDATE:
