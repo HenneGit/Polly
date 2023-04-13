@@ -19,6 +19,7 @@ const SingleQuestion = ({question, dispatch, isEditQuestion}: Props) => {
     const [newName, setEditQuestionName] = useState<string>(question.name);
     const [newDescription, setEditDescription] = useState<string>(question.description);
     const [newQuestion, setEditQuestion] = useState<string>(question.question);
+    const [newOrderNumber, setOrderNumber] = useState<number>(question.orderNumber);
     const [isEdit, setEdit] = useState<boolean>(isEditQuestion);
     const inputRef = useRef<HTMLInputElement>(null);
 
@@ -28,7 +29,8 @@ const SingleQuestion = ({question, dispatch, isEditQuestion}: Props) => {
             question: newQuestion,
             name: newName,
             description: newDescription,
-            surveyPk: question.surveyPk
+            surveyPk: question.surveyPk,
+            orderNumber: question.orderNumber
         }, dispatch);
         setEdit(false);
     }
@@ -40,6 +42,7 @@ const SingleQuestion = ({question, dispatch, isEditQuestion}: Props) => {
     const StaticQuestion = () => {
         return (<div className="question--single">
             <div className="question--single__details">
+                <span>{question.orderNumber}</span>
                 <span>{question.name}</span>
                 <span>{question.description}</span>
                 <span>{question.question}</span>
@@ -59,13 +62,20 @@ const SingleQuestion = ({question, dispatch, isEditQuestion}: Props) => {
         <form>
             {isEdit ? (<div className="question--single">
                 <div className="question--single__details">
-                    <input ref={inputRef} className="survey__single--input" onChange={(e) => setEditQuestionName(e.target.value)}
+                    <input ref={inputRef} className="survey__single--input"
+                           onChange={(e) => setOrderNumber(parseInt(e.target.value))}
+                           placeholder="Question Number"
+                           value={newOrderNumber}/>
+                    <input ref={inputRef} className="survey__single--input"
+                           onChange={(e) => setEditQuestionName(e.target.value)}
                            placeholder="Name"
                            value={newName}/>
-                    <input ref={inputRef} className="survey__single--input" onChange={(e) => setEditDescription(e.target.value)}
+                    <input ref={inputRef} className="survey__single--input"
+                           onChange={(e) => setEditDescription(e.target.value)}
                            placeholder="Description"
                            value={newDescription}/>
-                    <input ref={inputRef} className="survey__single--input" onChange={(e) => setEditQuestion(e.target.value)}
+                    <input ref={inputRef} className="survey__single--input"
+                           onChange={(e) => setEditQuestion(e.target.value)}
                            placeholder="Question"
                            value={newQuestion}/>
                 </div>

@@ -28,7 +28,6 @@ public class QuestionServiceImpl implements QuestionService {
         dtoMapping.save(questionDTOS, QuestionDTO.class);
     }
 
-
     @Override
     public Collection<QuestionDTO> findAll() {
         return questionDTOS;
@@ -66,7 +65,6 @@ public class QuestionServiceImpl implements QuestionService {
         questionDTOS.remove(oldAnswerDTO);
         QuestionDTO updatedAnswerDTO = new QuestionDTOImpl(questionDTO.getPrimaryKey(), questionDTO.getName(), questionDTO.getDescription(), questionDTO.getQuestion(), questionDTO.getSurveyPk(), questionDTO.getOrderNumber());
         questionDTOS.add(updatedAnswerDTO);
-        save();
         return updatedAnswerDTO;
     }
 

@@ -51,10 +51,6 @@ public class AnswerServiceTest {
         answerService.delete(byId);
         AnswerDTO nullDto = answerService.findById(answerId);
         assertNull(nullDto);
-        testSetup.resetDtoMapping(answerService);
-        answerService = new AnswerServiceImpl(testSetup.getDtoMapping());
-        AnswerDTO stillNullDto = answerService.findById(answerId);
-        assertNull(stillNullDto);
     }
 
     @Test

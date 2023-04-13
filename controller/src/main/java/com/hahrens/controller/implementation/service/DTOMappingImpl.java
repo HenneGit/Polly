@@ -60,30 +60,22 @@ public class DTOMappingImpl implements DTOMapping {
 
     @Override
     public Collection<AnswerDTO> getAnswers() {
-        if (answerDTOMapping.isEmpty()) {
-            load();
-        }
         return answerDTOMapping.values();
     }
 
     @Override
     public Collection<QuestionDTO> getQuestions() {
-        if (questionDTOMapping.isEmpty()) {
-            load();
-        }
         return questionDTOMapping.values();
     }
 
     @Override
     public Collection<SurveyDTO> getSurveys() {
-        if (surveyDTOMapping.isEmpty()) {
-            load();
-        }
         return surveyDTOMapping.values();
     }
 
     @Override
     public void save(final Collection<? extends DTOEntityInterface> dtoEntityInterfaces, final Class<? extends DTOEntityInterface> clazz) {
+        System.out.println("So viele: " + surveyDTOMapping.size());
         Collection<? extends DTOEntityInterface> cachedDTOs = null;
         if (clazz.equals(AnswerDTO.class)) {
             cachedDTOs = getAnswers();
@@ -119,19 +111,7 @@ public class DTOMappingImpl implements DTOMapping {
             }
             dtoEntityInterfaces.forEach(this::updateEntity);
         }
-        clear(clazz);
-    }
 
-    private void clear(final Class<? extends DTOEntityInterface> clazz) {
-        if (clazz.equals(AnswerDTO.class)) {
-            answerDTOMapping.clear();
-        }
-        if (clazz.equals(QuestionDTO.class)) {
-            questionDTOMapping.clear();
-        }
-        if (clazz.equals(SurveyDTO.class)) {
-            surveyDTOMapping.clear();
-        }
     }
 
     private void removeEntity(final DTOEntityInterface dtoEntityInterface) {
@@ -194,20 +174,20 @@ public class DTOMappingImpl implements DTOMapping {
         if (questionDTO == null) {
             return;
         }
+        System.out.println("QuestionPk " + questionDTO.getSurveyPk());
+        surveyDTOMapping.values().stream().map(s -> s.getPrimaryKey().toString()).forEach(System.out::println);
         Long surveyPk = getEntityIdForDTOPk(questionDTO.getSurveyPk(), surveyDTOMapping);
         SurveyEntity surveyEntity = surveyEntityRepository.findById(surveyPk).orElse(null);
         if (surveyEntity != null) {
             QuestionEntity question = QuestionEntity.builder() //
                     .question(questionDTO.getQuestion()) //
                     .description(questionDTO.getDescription()) //
-                    .name(questionDTO.getName()) //
+                    .name(questionDTO.getName())
+                    .orderNumber(questionDTO.getOrderNumber())//
                     .surveyEntity(surveyEntity).build();
             QuestionEntity newQuestion = questionEntityRepository.save(question);
             newQuestion.setSurveyEntity(surveyEntity);
             surveyEntity.addQuestion(question);
-            QuestionEntity save = questionEntityRepository.save(newQuestion);
-
-
         }
     }
 

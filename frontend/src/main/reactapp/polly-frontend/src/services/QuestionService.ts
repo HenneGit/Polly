@@ -42,14 +42,13 @@ const getBySurveyId = async (id: string, dispatchSurveys: React.Dispatch<SurveyR
 };
 
 
-
 const QuestionService = {
     getAll,
     get,
     add,
     update,
     remove,
-    getBySurveyId
+    getBySurveyId,
 };
 
 export default QuestionService;

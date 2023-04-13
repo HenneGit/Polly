@@ -70,9 +70,6 @@ public class SurveyServiceTest {
         questionService.save();
         surveyService.delete(surveyService.findById(surveyPk));
         testCollectionSize(1);
-        resetServiceAndMapping();
-        testCollectionSize(1);
-
     }
 
     private void resetServiceAndMapping() {

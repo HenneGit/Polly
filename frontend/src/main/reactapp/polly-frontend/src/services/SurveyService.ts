@@ -35,6 +35,8 @@ const remove = async (id: string, dispatch : React.Dispatch<SurveyReducerAction>
     dispatch({type: SURVEY_ACTION_TYPE.REMOVE, payload: id})
 };
 
+
+
 const SurveyService = {
     getAll,
     get,

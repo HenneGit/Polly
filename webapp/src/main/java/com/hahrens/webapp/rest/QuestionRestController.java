@@ -42,7 +42,8 @@ public class QuestionRestController {
      * @return the question found for that id.
      */
     @RequestMapping(value = "getById/{questionId}", method = RequestMethod.GET)
-    public ResponseEntity<QuestionDTO> getQuestionById(@PathVariable UUID questionId)    {
+    public ResponseEntity<QuestionDTO> getQuestionById(@PathVariable UUID questionId) {
+
         if (questionId == null) {
             return ResponseEntity.badRequest().build();
         }

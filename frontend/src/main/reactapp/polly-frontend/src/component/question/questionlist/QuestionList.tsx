@@ -6,6 +6,7 @@ import {MdAdd, MdOutlineKeyboardBackspace} from "react-icons/md";
 import {SurveyReducerAction} from "../../survey/SurveyReducer";
 import surveyService from "../../../services/SurveyService";
 import questionService from "../../../services/QuestionService";
+import QuestionService from "../../../services/QuestionService";
 
 interface QuestionProps {
     questions: Question[];
@@ -28,13 +29,14 @@ const QuestionList: React.FC<QuestionProps> = ({questions, dispatchQuestions, di
             question: "",
             name: "New Question",
             description: "",
-            surveyPk: survey.primaryKey
+            surveyPk: survey.primaryKey,
+            orderNumber: questions.length + 1
         }, dispatchQuestions);
     }
 
     return (
         <div className='question--list'>
-            {isQuestionEdit ? (questions.map((question) =>
+            {isQuestionEdit ? (questions.sort((a, b) => (a.orderNumber > b.orderNumber) ? 1 : ((b.orderNumber > a.orderNumber) ? -1 : 0)).map((question) =>
                     <SingleQuestion question={question}
                                     dispatch={dispatchQuestions} isEditQuestion={question.question === ""}/>
                 )
