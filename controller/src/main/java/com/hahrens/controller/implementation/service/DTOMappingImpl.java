@@ -75,7 +75,6 @@ public class DTOMappingImpl implements DTOMapping {
 
     @Override
     public void save(final Collection<? extends DTOEntityInterface> dtoEntityInterfaces, final Class<? extends DTOEntityInterface> clazz) {
-        System.out.println("So viele: " + surveyDTOMapping.size());
         Collection<? extends DTOEntityInterface> cachedDTOs = null;
         if (clazz.equals(AnswerDTO.class)) {
             cachedDTOs = getAnswers();
@@ -174,8 +173,6 @@ public class DTOMappingImpl implements DTOMapping {
         if (questionDTO == null) {
             return;
         }
-        System.out.println("QuestionPk " + questionDTO.getSurveyPk());
-        surveyDTOMapping.values().stream().map(s -> s.getPrimaryKey().toString()).forEach(System.out::println);
         Long surveyPk = getEntityIdForDTOPk(questionDTO.getSurveyPk(), surveyDTOMapping);
         SurveyEntity surveyEntity = surveyEntityRepository.findById(surveyPk).orElse(null);
         if (surveyEntity != null) {
