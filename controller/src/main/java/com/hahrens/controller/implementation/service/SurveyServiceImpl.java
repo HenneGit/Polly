@@ -15,12 +15,11 @@ import java.util.UUID;
 @Service
 public class SurveyServiceImpl implements SurveyService {
 
-    private DTOMapping dtoMapping;
+    private final DTOMapping dtoMapping;
 
     public SurveyServiceImpl(DTOMapping dtoMapping) {
         this.dtoMapping = dtoMapping;
     }
-
 
     @Override
     public Collection<SurveyDTO> findAll() {

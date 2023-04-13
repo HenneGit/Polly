@@ -30,7 +30,6 @@ public class DTOMappingImpl implements DTOMapping {
 
     private final Map<Long, QuestionDTO> questionDTOMapping;
 
-
     public DTOMappingImpl(QuestionEntityRepository questionEntityRepository, AnswerEntityRepository answerEntityRepository, SurveyEntityRepository surveyEntityRepository) {
         this.questionEntityRepository = questionEntityRepository;
         this.answerEntityRepository = answerEntityRepository;
@@ -41,6 +40,7 @@ public class DTOMappingImpl implements DTOMapping {
         load();
     }
 
+    //public for testing.
     public void load() {
         List<SurveyEntity> surveyEntities = surveyEntityRepository.findAll();
         for (SurveyEntity surveyEntity : surveyEntities) {
@@ -83,6 +83,7 @@ public class DTOMappingImpl implements DTOMapping {
             removeSurvey(surveyDTO);
         }
     }
+
     @Override
     public DTOEntityInterface addEntity(final DTOEntityInterface dtoEntityInterface) {
         if (dtoEntityInterface instanceof AnswerDTO answerDTO) {
@@ -99,6 +100,7 @@ public class DTOMappingImpl implements DTOMapping {
         }
         return null;
     }
+
     @Override
     public DTOEntityInterface updateEntity(final DTOEntityInterface dtoEntityInterface) {
         if (dtoEntityInterface instanceof AnswerDTO answerDTO) {
@@ -149,7 +151,6 @@ public class DTOMappingImpl implements DTOMapping {
         }
         return null;
     }
-
 
     private QuestionDTO addQuestion(final QuestionDTO questionDTO) {
         if (questionDTO == null) {
@@ -210,7 +211,6 @@ public class DTOMappingImpl implements DTOMapping {
         surveyEntityRepository.deleteById(entityIdForDTOPk);
         surveyDTOMapping.remove(entityIdForDTOPk);
     }
-
 
     private Long getEntityIdForDTOPk(final Comparable<?> primaryKey, Map<Long, ? extends
             DTOEntityInterface> mapping) {

@@ -12,7 +12,7 @@ import java.util.UUID;
 @Service
 public class AnswerServiceImpl implements AnswerService {
 
-    private DTOMapping dtoMapping;
+    private final DTOMapping dtoMapping;
 
     public AnswerServiceImpl(DTOMapping dtoMapping) {
         this.dtoMapping = dtoMapping;

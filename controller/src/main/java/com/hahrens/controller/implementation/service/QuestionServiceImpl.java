@@ -1,16 +1,11 @@
 package com.hahrens.controller.implementation.service;
 
-import com.hahrens.controller.api.model.dto.DTOEntityInterface;
 import com.hahrens.controller.api.model.dto.QuestionDTO;
 import com.hahrens.controller.api.service.DTOMapping;
 import com.hahrens.controller.api.service.QuestionService;
-import com.hahrens.controller.implementation.model.QuestionDTOImpl;
-import jakarta.annotation.PreDestroy;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 import java.util.UUID;
 
 @Service
