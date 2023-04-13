@@ -9,6 +9,7 @@ import com.hahrens.controller.service.mocks.AnswerEntityRepositoryMock;
 import com.hahrens.controller.service.mocks.QuestionEntityRepositoryMock;
 import com.hahrens.controller.service.mocks.SurveyEntityRepositoryMock;
 
+
 import java.util.List;
 
 /**
@@ -42,8 +43,6 @@ public class TestSetup {
      * @param dtoService the service to persist.
      */
     public void resetDtoMapping(final DTOService<?> dtoService) {
-        dtoService.save();
         dtoMapping.load();
-
     }
 }

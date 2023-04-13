@@ -33,10 +33,10 @@ public interface DTOMapping {
      */
     Collection<SurveyDTO> getSurveys();
 
-    /**
-     * save changes of given DTOEntityInterface objects in db.
-     * @param dtoEntityInterfaces the dto objects to store.
-     * @param clazz the class of the objects.
-     */
-    void save(Collection<? extends DTOEntityInterface> dtoEntityInterfaces, Class<? extends DTOEntityInterface> clazz);
+
+    void removeEntity(DTOEntityInterface dtoEntityInterface);
+
+    DTOEntityInterface addEntity(DTOEntityInterface dtoEntityInterface);
+
+    DTOEntityInterface updateEntity(DTOEntityInterface dtoEntityInterface);
 }

@@ -4,40 +4,29 @@ import com.hahrens.controller.api.model.dto.AnswerDTO;
 import com.hahrens.controller.api.service.AnswerService;
 import com.hahrens.controller.api.service.DTOMapping;
 import com.hahrens.controller.implementation.model.AnswerDTOImpl;
-import jakarta.annotation.PreDestroy;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 import java.util.UUID;
 
 @Service
 public class AnswerServiceImpl implements AnswerService {
 
     private DTOMapping dtoMapping;
-    private List<AnswerDTO> answerDTOS;
 
     public AnswerServiceImpl(DTOMapping dtoMapping) {
         this.dtoMapping = dtoMapping;
-        answerDTOS = new ArrayList<>(dtoMapping.getAnswers());
-    }
-
-    @PreDestroy
-    @Override
-    public void save() {
-        dtoMapping.save(answerDTOS, AnswerDTO.class);
     }
 
 
     @Override
     public Collection<AnswerDTO> findAll() {
-        return answerDTOS;
+        return dtoMapping.getAnswers();
     }
 
     @Override
     public AnswerDTO findById(final UUID primaryKey) {
-        return answerDTOS.stream().filter(a -> a.getPrimaryKey().equals(primaryKey)).findFirst().orElse(null);
+        return dtoMapping.getAnswers().stream().filter(a -> a.getPrimaryKey().equals(primaryKey)).findFirst().orElse(null);
     }
 
     @Override
@@ -46,22 +35,23 @@ public class AnswerServiceImpl implements AnswerService {
             return null;
         }
         AnswerDTOImpl answerDTO1 = new AnswerDTOImpl(UUID.randomUUID(), answerDTO.getQuestionPk(), answerDTO.getAnswerText());
-        answerDTOS.add(answerDTO1);
+        dtoMapping.addEntity(answerDTO1);
         return answerDTO1;
     }
 
     @Override
     public void delete(final AnswerDTO answerDTO) {
-        answerDTOS.remove(answerDTO);
+        dtoMapping.removeEntity(answerDTO);
     }
 
     @Override
     public void deleteById(final UUID primaryKey) {
-        AnswerDTO answerDTO = answerDTOS.stream().filter(a -> a.getPrimaryKey().equals(primaryKey)).findFirst().orElse(null);
+        AnswerDTO answerDTO = dtoMapping.getAnswers().stream().filter(a -> a.getPrimaryKey().equals(primaryKey)).findFirst().orElse(null);
         if (answerDTO == null) {
             return;
         }
-        answerDTOS.remove(answerDTO);
+        //todo remove by id.
+        dtoMapping.removeEntity(answerDTO);
     }
 
     @Override
@@ -69,14 +59,7 @@ public class AnswerServiceImpl implements AnswerService {
         if (answerDTO == null) {
             return null;
         }
-        AnswerDTO oldAnswerDTO = answerDTOS.stream().filter(a -> a.getPrimaryKey().equals(answerDTO.getPrimaryKey())).findFirst().orElse(null);
-        if (oldAnswerDTO == null) {
-            return null;
-        }
-        answerDTOS.remove(oldAnswerDTO);
-        AnswerDTOImpl updatedAnswerDTO = new AnswerDTOImpl(answerDTO.getPrimaryKey(), answerDTO.getQuestionPk(), answerDTO.getAnswerText());
-        answerDTOS.add(updatedAnswerDTO);
-        return answerDTO;
+        return (AnswerDTO) dtoMapping.updateEntity(answerDTO);
     }
 
     @Override
@@ -84,6 +67,6 @@ public class AnswerServiceImpl implements AnswerService {
         if (questionId == null) {
             return null;
         }
-        return answerDTOS.stream().filter(a -> a.getQuestionPk().equals(questionId)).toList();
+        return findAll().stream().filter(a -> a.getQuestionPk().equals(questionId)).toList();
     }
 }

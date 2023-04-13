@@ -65,9 +65,7 @@ public class SurveyServiceTest {
                 allByQuestion.forEach(answerService::delete);
             }
         }
-        answerService.save();
         allBySurvey.forEach(questionService::delete);
-        questionService.save();
         surveyService.delete(surveyService.findById(surveyPk));
         testCollectionSize(1);
     }

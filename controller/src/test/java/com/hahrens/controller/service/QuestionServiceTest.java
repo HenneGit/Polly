@@ -84,8 +84,8 @@ public class QuestionServiceTest{
         String newDescription = "New Description";
         Integer newOderNumber = Integer.valueOf(10);
         QuestionDTO updatedQuestionDto = new QuestionDTOImpl(byId.getPrimaryKey(), newName, newDescription, newQuestion, byId.getSurveyPk(), newOderNumber);
-        questionService.update(updatedQuestionDto);
-        QuestionDTO updatedDto = questionService.findById(questionPk);
+        QuestionDTO update = questionService.update(updatedQuestionDto);
+        QuestionDTO updatedDto = questionService.findById(update.getPrimaryKey());
         testPropertiesAfterUpdate(updatedDto, newName, newDescription, newQuestion, newOderNumber);
         testSetup.resetDtoMapping(questionService);
         questionService = new QuestionServiceImpl(testSetup.getDtoMapping());

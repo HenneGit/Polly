@@ -16,62 +16,47 @@ import java.util.UUID;
 public class SurveyServiceImpl implements SurveyService {
 
     private DTOMapping dtoMapping;
-    private List<SurveyDTO> surveyDTOS;
 
     public SurveyServiceImpl(DTOMapping dtoMapping) {
         this.dtoMapping = dtoMapping;
-        surveyDTOS = new ArrayList<>(dtoMapping.getSurveys());
-    }
-
-
-    @PreDestroy
-    public void save() {
-        dtoMapping.save(surveyDTOS, SurveyDTO.class);
     }
 
 
     @Override
     public Collection<SurveyDTO> findAll() {
-        return surveyDTOS;
+        return dtoMapping.getSurveys();
     }
 
     @Override
     public SurveyDTO findById(final UUID primaryKey) {
-        return surveyDTOS.stream().filter(a -> a.getPrimaryKey().equals(primaryKey)).findFirst().orElse(null);
+        return findAll().stream().filter(a -> a.getPrimaryKey().equals(primaryKey)).findFirst().orElse(null);
     }
 
     @Override
     public SurveyDTO create(final SurveyDTO surveyDTO) {
         SurveyDTO answerDTO1 = new SurveyDTOImpl(UUID.randomUUID(), surveyDTO.getName(), surveyDTO.getDescription());
-        surveyDTOS.add(answerDTO1);
+        dtoMapping.addEntity(answerDTO1);
         return answerDTO1;
     }
 
     @Override
     public void delete(final SurveyDTO surveyDTO) {
         SurveyDTO byId = findById(surveyDTO.getPrimaryKey());
-        surveyDTOS.remove(byId);
+        dtoMapping.removeEntity(byId);
     }
 
     @Override
     public void deleteById(UUID primaryKey) {
-        SurveyDTO surveyDTO = surveyDTOS.stream().filter(s -> s.getPrimaryKey().equals(primaryKey)).findFirst().orElse(null);
+        SurveyDTO surveyDTO = findAll().stream().filter(s -> s.getPrimaryKey().equals(primaryKey)).findFirst().orElse(null);
         if (surveyDTO == null) {
             return;
         }
-        surveyDTOS.remove(surveyDTO);
+        dtoMapping.removeEntity(surveyDTO);
     }
 
     @Override
     public SurveyDTO update(final SurveyDTO surveyDTO) {
-        SurveyDTO oldAnswerDTO = findById(surveyDTO.getPrimaryKey());
-        if (oldAnswerDTO == null) {
-            return null;
-        }
-        surveyDTOS.remove(oldAnswerDTO);
-        SurveyDTO updatedAnswerDTO = new SurveyDTOImpl(surveyDTO.getPrimaryKey(), surveyDTO.getName(), surveyDTO.getDescription());
-        surveyDTOS.add(updatedAnswerDTO);
-        return updatedAnswerDTO;
+        return (SurveyDTO) dtoMapping.updateEntity(surveyDTO);
     }
 
 }

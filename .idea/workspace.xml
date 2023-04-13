@@ -4,19 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="314eb581-d504-47f3-bc46-b9583dcb124e" name="Changes" comment="questions having an order number now.">
+    <list default="true" id="314eb581-d504-47f3-bc46-b9583dcb124e" name="Changes" comment="system outs removed.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/app.log" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/service/QuestionService.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/service/QuestionService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/service/DTOMapping.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/service/DTOMapping.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/service/DTOService.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/service/DTOService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/AnswerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/AnswerServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/DTOMappingImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/DTOMappingImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/QuestionServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/QuestionServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/AnswerServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/AnswerServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/SurveyServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/SurveyServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/QuestionServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/QuestionServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/SurveyServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/SurveyServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/question/questionlist/QuestionList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/question/questionlist/QuestionList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/question/singlequestion/SingleQuestion.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/question/singlequestion/SingleQuestion.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/services/QuestionService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/services/QuestionService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/services/SurveyService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/services/SurveyService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/main/java/com/hahrens/webapp/rest/QuestionRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main/java/com/hahrens/webapp/rest/QuestionRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/TestSetup.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/TestSetup.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +96,7 @@
       <recent name="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/services" />
     </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.PollyApplication">
+  <component name="RunManager" selected="JUnit.com.hahrens.controller.service in controller">
     <configuration name="RestControllerTests" type="JUnit" factoryName="JUnit">
       <module name="webapp" />
       <option name="PACKAGE_NAME" value="com.hahrens.webapp.rest" />
@@ -180,7 +179,8 @@
       <workItem from="1681209505274" duration="5290000" />
       <workItem from="1681216926930" duration="5267000" />
       <workItem from="1681282314151" duration="14901000" />
-      <workItem from="1681366300876" duration="12132000" />
+      <workItem from="1681366300876" duration="13736000" />
+      <workItem from="1681411002147" duration="2427000" />
     </task>
     <task id="LOCAL-00001" summary="init commit.">
       <created>1678887988652</created>
@@ -420,7 +420,21 @@
       <option name="project" value="LOCAL" />
       <updated>1681370164705</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="save when bean is destoyed working till session scope is implemented.">
+      <created>1681394203453</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1681394203453</updated>
+    </task>
+    <task id="LOCAL-00036" summary="system outs removed.">
+      <created>1681394243735</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1681394243735</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -438,8 +452,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="update test added in SurveyServiceTest and bug fixed." />
-    <MESSAGE value="some cleanUp." />
     <MESSAGE value="setting up a simple rest controller." />
     <MESSAGE value="rest controller added and some test adjusting." />
     <MESSAGE value="comparable removed from dto as jackson has problems deserializing. All restcontrollers added." />
@@ -463,7 +475,9 @@
     <MESSAGE value="some issues with dto mapping solved. Final setup when scope implementation is complete." />
     <MESSAGE value="system out removed." />
     <MESSAGE value="questions having an order number now." />
-    <option name="LAST_COMMIT_MESSAGE" value="questions having an order number now." />
+    <MESSAGE value="save when bean is destoyed working till session scope is implemented." />
+    <MESSAGE value="system outs removed." />
+    <option name="LAST_COMMIT_MESSAGE" value="system outs removed." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -498,16 +512,6 @@
           <line>88</line>
           <option name="timeStamp" value="149" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/DTOMappingImpl.java</url>
-          <line>101</line>
-          <option name="timeStamp" value="150" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/QuestionServiceImpl.java</url>
-          <line>27</line>
-          <option name="timeStamp" value="154" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/App.tsx</url>
           <option name="timeStamp" value="118" />
@@ -527,6 +531,9 @@
         <watch expression="jsonListWriter.parseObject(contentAsString)" language="JAVA" />
         <watch expression="jsonListWriter.parseObject(contentAsString)" language="JAVA" />
         <watch expression="jsonObjectWriter.write(answerDTO).getJson()" language="JAVA" />
+        <watch expression="findAll()" language="JAVA" />
+        <watch expression="byId.getPrimaryKey()" language="JAVA" />
+        <watch expression="findAll()" language="JAVA" />
       </configuration>
       <configuration name="SpringBootApplicationConfigurationType">
         <watch expression="dtoMapping.getSurveys()" language="JAVA" />
