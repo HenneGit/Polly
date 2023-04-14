@@ -34,7 +34,6 @@ export const surveyReducer = (state: Survey[], action: SurveyReducerAction): Sur
             let withoutOldSurvey = state.filter(survey => survey.primaryKey !== action.payload.primaryKey);
             return [...withoutOldSurvey, action.payload];
         case SURVEY_ACTION_TYPE.CLEAR:
-            console.log("Hello");
             return [];
         default:
             return state;

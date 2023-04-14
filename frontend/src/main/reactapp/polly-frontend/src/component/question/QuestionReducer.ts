@@ -1,8 +1,7 @@
+import {Question} from "../../model/models";
 /**
  * type of action to perform in reducer.
  */
-import {Question} from "../../model/models";
-
 export const enum QUESTION_ACTION_TYPE {
     GET, ADD, REMOVE, ADD_ANSWER, UPDATE
 }
@@ -17,7 +16,7 @@ export type QuestionReducerAction = {
 }
 
 /**
- * reducer for performing crud operations on surveys.
+ * reducer for performing crud operations on questions.
  * @param state the old state to carry out the given action on.
  * @param action the action to perform.
  */

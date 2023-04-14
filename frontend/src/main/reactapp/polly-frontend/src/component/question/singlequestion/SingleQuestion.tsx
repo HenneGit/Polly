@@ -1,11 +1,15 @@
-import {Question} from "../../../model/models";
-import React, {useRef, useState} from "react";
+import {Answer, Question} from "../../../model/models";
+import React, {useEffect, useReducer, useRef, useState} from "react";
 import {QuestionReducerAction} from "../QuestionReducer";
 import {MdDone, MdDelete} from "react-icons/md";
 import {RxCross2} from "react-icons/rx";
 import QuestionService from "../../../services/QuestionService";
 import {AiFillEdit} from "react-icons/ai";
 import "./SingleQuestion.css";
+import AnswerList from "../../answer/answerlist/AnswerList";
+import {answerReducer} from "../../answer/AnswerReducer";
+import surveyService from "../../../services/SurveyService";
+import AnswerService from "../../../services/AnswerService";
 
 
 type Props = {
@@ -15,13 +19,18 @@ type Props = {
 }
 
 const SingleQuestion = ({question, dispatch, isEditQuestion}: Props) => {
-
+    let initAnswers: Answer[] = [];
     const [newName, setEditQuestionName] = useState<string>(question.name);
     const [newDescription, setEditDescription] = useState<string>(question.description);
     const [newQuestion, setEditQuestion] = useState<string>(question.question);
     const [newOrderNumber, setOrderNumber] = useState<number>(question.orderNumber);
     const [isEdit, setEdit] = useState<boolean>(isEditQuestion);
     const inputRef = useRef<HTMLInputElement>(null);
+    const [newAnswers, dispatchAnswers] = useReducer(answerReducer, initAnswers);
+
+    useEffect(() => {
+        AnswerService.getByQuestionId(question.primaryKey, dispatchAnswers);
+    }, []);
 
     const handleUpdate = () => {
         QuestionService.update({
@@ -55,6 +64,7 @@ const SingleQuestion = ({question, dispatch, isEditQuestion}: Props) => {
                             <MdDelete/>
                         </span>
             </div>
+            <AnswerList answers={newAnswers} question={question} dispatchAnswers={dispatchAnswers}/>
         </div>)
     }
 
@@ -89,6 +99,7 @@ const SingleQuestion = ({question, dispatch, isEditQuestion}: Props) => {
                     <span className="icon" onClick={() => deleteQuestion()}>
                         <MdDelete/>
                     </span>
+                    <AnswerList answers={newAnswers} question={question} dispatchAnswers={dispatchAnswers}/>
                 </div>
             </div>) : (<StaticQuestion/>)}
         </form>

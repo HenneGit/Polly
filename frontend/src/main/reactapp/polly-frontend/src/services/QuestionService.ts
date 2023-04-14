@@ -5,11 +5,11 @@ import {SURVEY_ACTION_TYPE, SurveyReducerAction} from "../component/survey/Surve
 import {QUESTION_ACTION_TYPE, QuestionReducerAction} from "../component/question/QuestionReducer";
 
 
-const getAll = async (dispatch: React.Dispatch<any>) => {
+const getAll = async (dispatch: React.Dispatch<QuestionReducerAction>) => {
     return await http.get<Array<Question>>("/question/get");
 };
 
-const get = async (id: string, dispatch: React.Dispatch<any>) => {
+const get = async (id: string, dispatch: React.Dispatch<QuestionReducerAction>) => {
     return await http.get<Question>(`/question/${id}`);
 };
 

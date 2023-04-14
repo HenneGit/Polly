@@ -6,7 +6,6 @@ import {MdAdd, MdOutlineKeyboardBackspace} from "react-icons/md";
 import {SurveyReducerAction} from "../../survey/SurveyReducer";
 import surveyService from "../../../services/SurveyService";
 import questionService from "../../../services/QuestionService";
-import QuestionService from "../../../services/QuestionService";
 
 interface QuestionProps {
     questions: Question[];
@@ -18,7 +17,7 @@ interface QuestionProps {
 }
 
 const QuestionList: React.FC<QuestionProps> = ({questions, dispatchQuestions, dispatchSurveys, isQuestionEdit,setQuestionEdit, survey}) => {
-    console.log(survey);
+
     const closeQuestions = () => {
         setQuestionEdit(false);
         surveyService.getAll(dispatchSurveys);
