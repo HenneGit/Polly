@@ -18,7 +18,7 @@ const add = async (data: Answer, dispatch: React.Dispatch<AnswerReducerAction>) 
 };
 
 const update = async (data: Answer, dispatch: React.Dispatch<AnswerReducerAction>) => {
-    let updatedQuestion = await http.put<Answer>(`/answer/update`, data);
+    let updatedQuestion = await http.put<Answer>(`/answer/update`, data).then(resp => resp.data);
     dispatch({type: ANSWER_ACTION_TYPE.UPDATE, payload: updatedQuestion})
 };
 
@@ -28,9 +28,8 @@ const remove = async (id: string ,dispatch: React.Dispatch<AnswerReducerAction>)
 
 };
 const getByQuestionId = async (id: string, dispatch: React.Dispatch<AnswerReducerAction>) => {
-    let data = await http.get<Answer>(`/question/getByQuestionId/${id}`).then(resp => resp.data);
+    let data = await http.get<Answer>(`/answer/getByQuestionId/${id}`).then(resp => resp.data);
     dispatch({type: ANSWER_ACTION_TYPE.GET_BY_QUESTION_ID, payload: data})
-
 };
 
 const AnswerService = {

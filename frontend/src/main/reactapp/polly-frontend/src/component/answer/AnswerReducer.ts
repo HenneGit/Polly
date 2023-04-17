@@ -29,6 +29,7 @@ export const answerReducer = (state: Answer[], action: AnswerReducerAction): Ans
         case ANSWER_ACTION_TYPE.REMOVE:
             return state.filter(answer => answer.primaryKey !== action.payload);
         case ANSWER_ACTION_TYPE.UPDATE:
+            console.log(action.payload);
             let withoutOldAnswer = state.filter(answer => answer.primaryKey !== action.payload.primaryKey);
             return [...withoutOldAnswer, action.payload];
         default:

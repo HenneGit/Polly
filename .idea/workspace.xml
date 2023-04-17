@@ -4,18 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="314eb581-d504-47f3-bc46-b9583dcb124e" name="Changes" comment="comments.">
+    <list default="true" id="314eb581-d504-47f3-bc46-b9583dcb124e" name="Changes" comment="Answer frontend started. Crud not yet working.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/service/AnswerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/service/AnswerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/AnswerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/AnswerServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/answer/AnswerReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/answer/AnswerReducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/answer/answerlist/AnswerList.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/answer/answerlist/AnswerList.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/answer/answerlist/AnswerList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/answer/answerlist/AnswerList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/answer/singleanswer/SingleAnswer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/answer/singleanswer/SingleAnswer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/question/QuestionReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/question/QuestionReducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/question/questionlist/QuestionList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/question/questionlist/QuestionList.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/question/singlequestion/SingleQuestion.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/question/singlequestion/SingleQuestion.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/survey/SurveyReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/survey/SurveyReducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/services/AnswerService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/services/AnswerService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/services/QuestionService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/services/QuestionService.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/src/main/java/com/hahrens/webapp/rest/AnswerRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main/java/com/hahrens/webapp/rest/AnswerRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/src/test/java/com/hahrens/webapp/rest/AnswerRestControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/test/java/com/hahrens/webapp/rest/AnswerRestControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,7 +178,9 @@
       <workItem from="1681282314151" duration="14901000" />
       <workItem from="1681366300876" duration="13736000" />
       <workItem from="1681411002147" duration="4877000" />
-      <workItem from="1681455429405" duration="6599000" />
+      <workItem from="1681455429405" duration="6658000" />
+      <workItem from="1681554363831" duration="615000" />
+      <workItem from="1681716231262" duration="1462000" />
     </task>
     <task id="LOCAL-00001" summary="init commit.">
       <created>1678887988652</created>
@@ -456,7 +455,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681415189723</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Answer frontend started. Crud not yet working.">
+      <created>1681472074598</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1681472074598</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -474,7 +480,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="react app started." />
     <MESSAGE value="rest testing setup working." />
     <MESSAGE value="AnswerRestControllerTest completed." />
     <MESSAGE value="useless class removed." />
@@ -499,7 +504,8 @@
     <MESSAGE value="dto mapping without caching." />
     <MESSAGE value="bug in update entity fixed." />
     <MESSAGE value="comments." />
-    <option name="LAST_COMMIT_MESSAGE" value="comments." />
+    <MESSAGE value="Answer frontend started. Crud not yet working." />
+    <option name="LAST_COMMIT_MESSAGE" value="Answer frontend started. Crud not yet working." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -515,11 +521,6 @@
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/webapp/src/main/java/com/hahrens/webapp/rest/AnswerRestController.java</url>
-          <line>110</line>
-          <option name="timeStamp" value="113" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/webapp/src/test/java/com/hahrens/webapp/rest/AnswerRestControllerTest.java</url>
           <line>141</line>
           <option name="timeStamp" value="117" />
@@ -528,6 +529,11 @@
           <url>file://$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/QuestionServiceTest.java</url>
           <line>85</line>
           <option name="timeStamp" value="146" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/AnswerServiceImpl.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="149" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/App.tsx</url>

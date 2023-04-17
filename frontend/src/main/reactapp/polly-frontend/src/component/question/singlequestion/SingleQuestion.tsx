@@ -29,6 +29,7 @@ const SingleQuestion = ({question, dispatch, isEditQuestion}: Props) => {
     const [newAnswers, dispatchAnswers] = useReducer(answerReducer, initAnswers);
 
     useEffect(() => {
+        console.log(question.primaryKey);
         AnswerService.getByQuestionId(question.primaryKey, dispatchAnswers);
     }, []);
 

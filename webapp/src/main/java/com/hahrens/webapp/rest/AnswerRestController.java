@@ -62,7 +62,7 @@ public class AnswerRestController {
      * @return all found answers.
      */
     @RequestMapping(value = "getByQuestionId/{questionId}", method = RequestMethod.GET)
-    public ResponseEntity<Collection<AnswerDTO>> getAnswersByQuestion(@PathVariable String questionId)    {
+    public ResponseEntity<Collection<AnswerDTO>> getAnswersByQuestion(@PathVariable UUID questionId)    {
         if (questionId == null) {
             return ResponseEntity.badRequest().build();
         }

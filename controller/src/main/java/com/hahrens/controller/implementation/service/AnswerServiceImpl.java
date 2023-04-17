@@ -1,9 +1,9 @@
 package com.hahrens.controller.implementation.service;
 
 import com.hahrens.controller.api.model.dto.AnswerDTO;
+import com.hahrens.controller.api.model.dto.DTOEntityInterface;
 import com.hahrens.controller.api.service.AnswerService;
 import com.hahrens.controller.api.service.DTOMapping;
-import com.hahrens.controller.implementation.model.AnswerDTOImpl;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
@@ -34,9 +34,8 @@ public class AnswerServiceImpl implements AnswerService {
         if (answerDTO == null) {
             return null;
         }
-        AnswerDTOImpl answerDTO1 = new AnswerDTOImpl(UUID.randomUUID(), answerDTO.getQuestionPk(), answerDTO.getAnswerText());
-        dtoMapping.addEntity(answerDTO1);
-        return answerDTO1;
+        DTOEntityInterface dtoEntityInterface = dtoMapping.addEntity(answerDTO);
+        return (AnswerDTO) dtoEntityInterface;
     }
 
     @Override
@@ -63,7 +62,7 @@ public class AnswerServiceImpl implements AnswerService {
     }
 
     @Override
-    public Collection<AnswerDTO> findAllByQuestionId(final Comparable<?> questionId) {
+    public Collection<AnswerDTO> findAllByQuestionId(final UUID questionId) {
         if (questionId == null) {
             return null;
         }

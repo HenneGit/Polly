@@ -4,6 +4,7 @@ import com.hahrens.controller.api.model.dto.AnswerDTO;
 import com.hahrens.controller.api.model.dto.QuestionDTO;
 
 import java.util.Collection;
+import java.util.UUID;
 
 /**
  * a service for managing answers.
@@ -16,7 +17,7 @@ public interface AnswerService extends DTOService<AnswerDTO>{
      * @param questionId the question to get the answers for.
      * @return all answers found for given question.
      */
-    Collection<AnswerDTO> findAllByQuestionId(Comparable<?> questionId);
+    Collection<AnswerDTO> findAllByQuestionId(UUID questionId);
 
 
 }
