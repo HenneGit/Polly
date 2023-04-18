@@ -4,15 +4,56 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="314eb581-d504-47f3-bc46-b9583dcb124e" name="Changes" comment="Answer frontend started. Crud not yet working.">
+    <list default="true" id="314eb581-d504-47f3-bc46-b9583dcb124e" name="Changes" comment="renaming backend to storage. Users and security started.">
+      <change afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/registration/RegistrationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/service/JwtService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/registration/RegistrationRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/registration/RegistrationServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/security/JwtAuthenticationFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/security/PasswordEncoder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/security/config/WebSecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/JwtServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/UserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/src/main/java/com/hahrens/storage/model/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/src/main/java/com/hahrens/storage/model/UserRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/storage/src/main/java/com/hahrens/storage/repository/UserEntityRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/webapp/src/main/java/com/hahrens/webapp/rest/registration/UserRegistrationRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/service/AnswerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/service/AnswerService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/AnswerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/AnswerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/storage/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/app.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/storage/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/hahrens/backend/model/AnswerEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/storage/src/main/java/com/hahrens/storage/model/AnswerEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/hahrens/backend/model/QuestionEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/storage/src/main/java/com/hahrens/storage/model/QuestionEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/hahrens/backend/model/SurveyEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/storage/src/main/java/com/hahrens/storage/model/SurveyEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/hahrens/backend/repository/AnswerEntityRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/storage/src/main/java/com/hahrens/storage/repository/AnswerEntityRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/hahrens/backend/repository/QuestionEntityRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/storage/src/main/java/com/hahrens/storage/repository/QuestionEntityRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/hahrens/backend/repository/SurveyEntityRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/storage/src/main/java/com/hahrens/storage/repository/SurveyEntityRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application-prod.properties" beforeDir="false" afterPath="$PROJECT_DIR$/storage/src/main/resources/application-prod.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application-test.properties" beforeDir="false" afterPath="$PROJECT_DIR$/storage/src/main/resources/application-test.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/storage/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/logback.xml" beforeDir="false" afterPath="$PROJECT_DIR$/storage/src/main/resources/logback.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/hahrens/backend/repository/AnswerEntityRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/storage/src/test/java/com/hahrens/storage/repository/AnswerEntityRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/hahrens/backend/repository/QuestionEntityRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/storage/src/test/java/com/hahrens/storage/repository/QuestionEntityRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/hahrens/backend/repository/SurveyEntityRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/storage/src/test/java/com/hahrens/storage/repository/SurveyEntityRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/test/java/com/hahrens/backend/repository/TestApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/storage/src/test/java/com/hahrens/storage/repository/TestApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/controller/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/DTOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/DTOFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/DTOMappingImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/DTOMappingImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/TestSetup.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/TestSetup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/mocks/AnswerEntityRepositoryMock.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/mocks/AnswerEntityRepositoryMock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/mocks/QuestionEntityRepositoryMock.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/mocks/QuestionEntityRepositoryMock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/mocks/SurveyEntityRepositoryMock.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/mocks/SurveyEntityRepositoryMock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/answer/AnswerReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/answer/AnswerReducer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/question/singlequestion/SingleQuestion.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/question/singlequestion/SingleQuestion.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/services/AnswerService.ts" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/services/AnswerService.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/main/java/com/hahrens/webapp/rest/AnswerRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main/java/com/hahrens/webapp/rest/AnswerRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/test/java/com/hahrens/webapp/rest/AnswerRestControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/test/java/com/hahrens/webapp/rest/AnswerRestControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/answer/singleanswer/SingleAnswer.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/answer/singleanswer/SingleAnswer.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/answer/singleanswer/SingleAnswer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/answer/singleanswer/SingleAnswer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/question/questionlist/QuestionList.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/question/questionlist/QuestionList.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/question/questionlist/QuestionList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/question/questionlist/QuestionList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/question/singlequestion/SingleQuestion.css" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/component/question/singlequestion/SingleQuestion.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webapp/src/main/java/com/hahrens/webapp/PollyApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main/java/com/hahrens/webapp/PollyApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,9 +63,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
         <option value="package-info" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -73,7 +114,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.repository.indices" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/node_modules/typescript/lib" />
   </component>
   <component name="ReactorSettings">
@@ -105,11 +146,11 @@
       </method>
     </configuration>
     <configuration name="StorageTest" type="JUnit" factoryName="JUnit">
-      <module name="backend" />
+      <module name="storage" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="ALTERNATIVE_JRE_PATH" value="temurin-17" />
       <option name="PACKAGE_NAME" value="com.hahrens.backend.repository" />
-      <option name="MAIN_CLASS_NAME" value="com.hahrens.backend.repository.SurveyEntityRepositoryTest" />
+      <option name="MAIN_CLASS_NAME" value="com.hahrens.storage.repository.SurveyEntityRepositoryTest" />
       <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
@@ -180,7 +221,9 @@
       <workItem from="1681411002147" duration="4877000" />
       <workItem from="1681455429405" duration="6658000" />
       <workItem from="1681554363831" duration="615000" />
-      <workItem from="1681716231262" duration="1462000" />
+      <workItem from="1681716231262" duration="4342000" />
+      <workItem from="1681739623568" duration="4198000" />
+      <workItem from="1681804135580" duration="6399000" />
     </task>
     <task id="LOCAL-00001" summary="init commit.">
       <created>1678887988652</created>
@@ -462,7 +505,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681472074598</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="all crud operations working frontend to backend.">
+      <created>1681717760683</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1681717760683</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -480,8 +530,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="rest testing setup working." />
-    <MESSAGE value="AnswerRestControllerTest completed." />
     <MESSAGE value="useless class removed." />
     <MESSAGE value="QuestionRestControllerTest completed." />
     <MESSAGE value="RestControllerTests completed." />
@@ -505,18 +553,20 @@
     <MESSAGE value="bug in update entity fixed." />
     <MESSAGE value="comments." />
     <MESSAGE value="Answer frontend started. Crud not yet working." />
-    <option name="LAST_COMMIT_MESSAGE" value="Answer frontend started. Crud not yet working." />
+    <MESSAGE value="all crud operations working frontend to backend." />
+    <MESSAGE value="renaming backend to storage. Users and security started." />
+    <option name="LAST_COMMIT_MESSAGE" value="renaming backend to storage. Users and security started." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/backend/src/test/java/com/hahrens/backend/repository/SurveyEntityRepositoryTest.java</url>
+          <url>file://$PROJECT_DIR$/storage/src/test/java/com/hahrens/storage/repository/SurveyEntityRepositoryTest.java</url>
           <line>39</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/backend/src/test/java/com/hahrens/backend/repository/AnswerEntityRepositoryTest.java</url>
+          <url>file://$PROJECT_DIR$/storage/src/test/java/com/hahrens/storage/repository/AnswerEntityRepositoryTest.java</url>
           <line>87</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
@@ -534,6 +584,10 @@
           <url>file://$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/AnswerServiceImpl.java</url>
           <line>57</line>
           <option name="timeStamp" value="149" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-config/5.7.2/spring-security-config-5.7.2.jar!/org/springframework/security/config/annotation/web/configuration/WebSecurityConfigurerAdapter.class</url>
+          <option name="timeStamp" value="150" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/App.tsx</url>

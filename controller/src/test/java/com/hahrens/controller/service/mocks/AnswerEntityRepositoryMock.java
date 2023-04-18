@@ -1,8 +1,8 @@
 package com.hahrens.controller.service.mocks;
 
-import com.hahrens.backend.model.AnswerEntity;
-import com.hahrens.backend.model.QuestionEntity;
-import com.hahrens.backend.repository.AnswerEntityRepository;
+import com.hahrens.storage.model.AnswerEntity;
+import com.hahrens.storage.model.QuestionEntity;
+import com.hahrens.storage.repository.AnswerEntityRepository;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

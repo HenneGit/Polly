@@ -1,6 +1,4 @@
-body {
-  background-color: #535bf2;
-}
+
 
 .app {
   width: 100vw;
@@ -8,11 +6,10 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #2f74c0;
   font-family: "Neucha", cursive;
 }
 
 .header {
   font-size: 10em;
-  color: white;
+  color: black;
 }

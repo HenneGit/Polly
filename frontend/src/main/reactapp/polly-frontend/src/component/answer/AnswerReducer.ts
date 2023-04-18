@@ -1,4 +1,4 @@
-
+import "../answer/singleanswer/SingleAnswer.css"
 import {Answer} from "../../model/models";
 /**
  * type of action to perform in reducer.

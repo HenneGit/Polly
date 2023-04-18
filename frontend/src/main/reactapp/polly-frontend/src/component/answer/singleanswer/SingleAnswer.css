@@ -1,0 +1,16 @@
+.answer--single {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.answer--single > span {
+    font-size: 1.5em;
+    padding: 5px;
+    border: 1px solid darkgreen;
+    border-radius: 5px;
+    height: 1.5em;
+    width: 90%;
+}

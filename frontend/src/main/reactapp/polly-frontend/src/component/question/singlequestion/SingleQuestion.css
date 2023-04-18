@@ -1,10 +1,12 @@
-.question--single{
+.question--single {
     padding: 5px 5px 5px 5px;
     display: flex;
     flex-direction: column;
-    background-color: burlywood;
-    width: 20vw;
-    height: 20vh;
+    border-radius: 10px;
+    border: 1px solid gray;
+    padding: 30px;
+    width: 30vw;
+    height: auto;
 }
 
 
@@ -14,12 +16,18 @@
 }
 
 .question--single__details span {
-    margin-bottom: 5px;
-    background-color: antiquewhite;
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    height: 1.5em;
+    font-size: 1.5em;
+    align-content: center;
+    background-color: ghostwhite;
 }
 
 .question--single__details input {
-    padding: 2px 2px 2px 2px;
+    padding: 5px;
     margin-bottom: 5px;
     height: 2em;
     border-radius: 10px;

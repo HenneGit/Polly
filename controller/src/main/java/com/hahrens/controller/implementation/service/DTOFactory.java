@@ -1,8 +1,8 @@
 package com.hahrens.controller.implementation.service;
 
-import com.hahrens.backend.model.AnswerEntity;
-import com.hahrens.backend.model.QuestionEntity;
-import com.hahrens.backend.model.SurveyEntity;
+import com.hahrens.storage.model.AnswerEntity;
+import com.hahrens.storage.model.QuestionEntity;
+import com.hahrens.storage.model.SurveyEntity;
 import com.hahrens.controller.api.model.dto.AnswerDTO;
 import com.hahrens.controller.api.model.dto.QuestionDTO;
 import com.hahrens.controller.api.model.dto.SurveyDTO;

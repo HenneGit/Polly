@@ -1,8 +1,8 @@
 package com.hahrens.controller.service;
 
-import com.hahrens.backend.model.AnswerEntity;
-import com.hahrens.backend.model.QuestionEntity;
-import com.hahrens.backend.model.SurveyEntity;
+import com.hahrens.storage.model.AnswerEntity;
+import com.hahrens.storage.model.QuestionEntity;
+import com.hahrens.storage.model.SurveyEntity;
 import com.hahrens.controller.api.service.DTOService;
 import com.hahrens.controller.implementation.service.DTOMappingImpl;
 import com.hahrens.controller.service.mocks.AnswerEntityRepositoryMock;

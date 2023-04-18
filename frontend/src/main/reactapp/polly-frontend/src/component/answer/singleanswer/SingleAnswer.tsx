@@ -5,6 +5,7 @@ import {AiFillEdit} from "react-icons/ai";
 import {MdDelete, MdDone} from "react-icons/md";
 import AnswerService from "../../../services/AnswerService";
 import {RxCross2} from "react-icons/rx";
+import "./SingleAnswer.css";
 
 interface AnswerProps {
     answer: Answer;
@@ -44,7 +45,7 @@ const SingleAnswer: React.FC<AnswerProps> = ({answer, question, dispatch}) => {
     }
 
     return (<div>
-        {isEdit ? (<div>
+        {isEdit ? (<div className='answer--single'>
                 <input className="survey__single--input"
                        onChange={(e) => setEditAnswerText(e.target.value)}
                        placeholder="AnswerText"

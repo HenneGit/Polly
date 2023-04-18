@@ -6,6 +6,7 @@ import {MdAdd, MdOutlineKeyboardBackspace} from "react-icons/md";
 import {SurveyReducerAction} from "../../survey/SurveyReducer";
 import surveyService from "../../../services/SurveyService";
 import questionService from "../../../services/QuestionService";
+import "./QuestionList.css";
 
 interface QuestionProps {
     questions: Question[];

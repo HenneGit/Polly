@@ -1,6 +1,5 @@
 .question--list {
-    width: 50vw;
-    height: 50vh;
-    background-color: gold;
-
+    display: flex;
+    flex-direction: column;
+    gap: 2em
 }

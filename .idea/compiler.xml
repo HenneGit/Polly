@@ -13,12 +13,16 @@
         <module name="frontend" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="storage" target="17" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="backend" options="-parameters" />
       <module name="controller" options="-parameters" />
       <module name="frontend" options="-parameters" />
+      <module name="storage" options="-parameters" />
       <module name="webapp" options="-parameters" />
     </option>
   </component>

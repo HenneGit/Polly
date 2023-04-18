@@ -9,8 +9,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @Configuration
 @SpringBootApplication
-@EntityScan(basePackages = {"com.hahrens.backend.model"})
-@EnableJpaRepositories(basePackages = {"com.hahrens.backend.repository"})
+@EntityScan(basePackages = {"com.hahrens.storage.model"})
+@EnableJpaRepositories(basePackages = {"com.hahrens.storage.repository"})
 @ComponentScan({"com.hahrens.*"})
 public class PollyApplication {
 
