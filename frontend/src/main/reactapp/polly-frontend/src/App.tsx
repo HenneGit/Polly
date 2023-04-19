@@ -7,6 +7,7 @@ import surveyService from "./services/SurveyService";
 import SurveyList from "./component/survey/surveyList/SurveyList";
 import {questionReducer} from "./component/question/QuestionReducer";
 import QuestionList from "./component/question/questionlist/QuestionList";
+import Login from "./component/login/Login";
 
 
 const App: React.FC = () => {
@@ -23,17 +24,18 @@ const App: React.FC = () => {
     }, []);
 
     return (
-        <div className='app'>
-            <span className='header'>Polly</span>
-            <InputField survey={survey} setSurvey={setSurvey}
-                        handleAddSurvey={(e) => surveyService.add({
-                            primaryKey: "",
-                            name: survey,
-                            description: ""
-                        }, dispatchSurveys)}/>
-            <SurveyList surveys={surveys} dispatchSurveys={dispatchSurveys} dispatchQuestions={dispatchQuestions} setQuestionEdit={setQuestionEdit} setActiveSurvey={setActiveSurvey}/>
-            <QuestionList questions={questions} dispatchQuestions={dispatchQuestions} isQuestionEdit={isQuestionEdit} setQuestionEdit={setQuestionEdit} dispatchSurveys={dispatchSurveys} survey={activeSurvey}/>
-        </div>
+        <Login/>
+        // <div className='app'>
+        //     <span className='header'>Polly</span>
+        //     <InputField survey={survey} setSurvey={setSurvey}
+        //                 handleAddSurvey={(e) => surveyService.add({
+        //                     primaryKey: "",
+        //                     name: survey,
+        //                     description: ""
+        //                 }, dispatchSurveys)}/>
+        //     <SurveyList surveys={surveys} dispatchSurveys={dispatchSurveys} dispatchQuestions={dispatchQuestions} setQuestionEdit={setQuestionEdit} setActiveSurvey={setActiveSurvey}/>
+        //     <QuestionList questions={questions} dispatchQuestions={dispatchQuestions} isQuestionEdit={isQuestionEdit} setQuestionEdit={setQuestionEdit} dispatchSurveys={dispatchSurveys} survey={activeSurvey}/>
+        // </div>
     );
 }
 

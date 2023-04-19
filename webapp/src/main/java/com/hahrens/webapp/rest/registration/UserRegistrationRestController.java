@@ -2,20 +2,45 @@ package com.hahrens.webapp.rest.registration;
 
 import com.hahrens.controller.api.registration.RegistrationService;
 import com.hahrens.controller.implementation.registration.RegistrationRequest;
+import com.hahrens.controller.implementation.registration.event.RegistrationCompleteEvent;
+import com.hahrens.storage.model.User;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(path = "/user/registration")
 @AllArgsConstructor
 public class UserRegistrationRestController {
 
+    private final String REGISTER_SUCCESS = "Success! Please verify your email now.";
     private final RegistrationService registrationService;
+    private final ApplicationEventPublisher publisher;
 
-    public String register(@RequestBody RegistrationRequest registrationRequest) {
-        return registrationService.register(registrationRequest);
+
+    @PostMapping("/register")
+    public String registerUser(@RequestBody RegistrationRequest registrationRequest, final HttpServletRequest request) {
+        User user = registrationService.registerUser(registrationRequest);
+        publisher.publishEvent(new RegistrationCompleteEvent(user, applicationUrl(request)));
+        return REGISTER_SUCCESS;
     }
+
+
+    @PostMapping("/verifyEmail/{verificationToken}")
+    public String verifyEmail(@PathVariable String verificationToken) {
+
+
+
+        return "Success";
+    }
+
+    private String applicationUrl(final HttpServletRequest request) {
+
+        return "http://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
+    }
+
+
+
 
 }

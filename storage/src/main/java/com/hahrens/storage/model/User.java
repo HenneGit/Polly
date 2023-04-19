@@ -22,7 +22,8 @@ public class User implements UserDetails {
     @SequenceGenerator(name = "user_sequence", sequenceName = "user_sequence", allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_sequence")
     private Long id;
-    private String name;
+    private String firstName;
+    private String lastName;
     private String userName;
     private String email;
     private String password;
@@ -31,8 +32,9 @@ public class User implements UserDetails {
     private boolean locked;
     private boolean enabled;
 
-    public User(String name, String userName, String email, String password, UserRole userRole, boolean locked, boolean enabled) {
-        this.name = name;
+    public User(String firstName, String lastName, String userName, String email, String password, UserRole userRole, boolean locked, boolean enabled) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.userName = userName;
         this.email = email;
         this.password = password;
