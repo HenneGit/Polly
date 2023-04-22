@@ -3,6 +3,7 @@ package com.hahrens.webapp.rest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hahrens.controller.api.service.dto.SurveyService;
 import com.hahrens.controller.implementation.model.SurveyDTOImpl;
+import com.hahrens.webapp.rest.dto.SurveyRestController;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

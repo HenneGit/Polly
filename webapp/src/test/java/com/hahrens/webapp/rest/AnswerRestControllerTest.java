@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hahrens.controller.api.service.dto.AnswerService;
 import com.hahrens.controller.implementation.model.AnswerDTOImpl;
 import com.hahrens.controller.implementation.model.QuestionDTOImpl;
+import com.hahrens.webapp.rest.dto.AnswerRestController;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

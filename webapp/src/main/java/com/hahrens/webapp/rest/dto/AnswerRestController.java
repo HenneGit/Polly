@@ -1,4 +1,4 @@
-package com.hahrens.webapp.rest;
+package com.hahrens.webapp.rest.dto;
 
 import com.hahrens.controller.api.model.dto.AnswerDTO;
 import com.hahrens.controller.api.service.dto.AnswerService;
