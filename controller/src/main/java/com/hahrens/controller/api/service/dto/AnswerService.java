@@ -1,7 +1,6 @@
-package com.hahrens.controller.api.service;
+package com.hahrens.controller.api.service.dto;
 
 import com.hahrens.controller.api.model.dto.AnswerDTO;
-import com.hahrens.controller.api.model.dto.QuestionDTO;
 
 import java.util.Collection;
 import java.util.UUID;

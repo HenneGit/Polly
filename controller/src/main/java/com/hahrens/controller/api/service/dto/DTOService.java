@@ -1,4 +1,4 @@
-package com.hahrens.controller.api.service;
+package com.hahrens.controller.api.service.dto;
 
 import java.util.Collection;
 import java.util.UUID;

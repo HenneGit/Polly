@@ -1,7 +1,7 @@
 package com.hahrens.webapp.rest;
 
 import com.hahrens.controller.api.model.dto.SurveyDTO;
-import com.hahrens.controller.api.service.SurveyService;
+import com.hahrens.controller.api.service.dto.SurveyService;
 import com.hahrens.controller.implementation.model.SurveyDTOImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -1,9 +1,9 @@
 package com.hahrens.controller.service;
 
 import com.hahrens.controller.api.model.dto.QuestionDTO;
-import com.hahrens.controller.api.service.QuestionService;
+import com.hahrens.controller.api.service.dto.QuestionService;
 import com.hahrens.controller.implementation.model.QuestionDTOImpl;
-import com.hahrens.controller.implementation.service.QuestionServiceImpl;
+import com.hahrens.controller.implementation.service.dto.QuestionServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

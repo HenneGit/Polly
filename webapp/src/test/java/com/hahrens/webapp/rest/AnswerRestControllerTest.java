@@ -1,7 +1,7 @@
 package com.hahrens.webapp.rest;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.hahrens.controller.api.service.AnswerService;
+import com.hahrens.controller.api.service.dto.AnswerService;
 import com.hahrens.controller.implementation.model.AnswerDTOImpl;
 import com.hahrens.controller.implementation.model.QuestionDTOImpl;
 import org.junit.jupiter.api.BeforeEach;

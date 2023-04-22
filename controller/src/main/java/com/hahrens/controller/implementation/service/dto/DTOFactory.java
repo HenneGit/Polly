@@ -1,4 +1,4 @@
-package com.hahrens.controller.implementation.service;
+package com.hahrens.controller.implementation.service.dto;
 
 import com.hahrens.storage.model.AnswerEntity;
 import com.hahrens.storage.model.QuestionEntity;

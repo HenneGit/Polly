@@ -1,4 +1,4 @@
-package com.hahrens.controller.api.service;
+package com.hahrens.controller.api.service.security;
 
 import io.jsonwebtoken.Claims;
 import org.springframework.security.core.userdetails.UserDetails;

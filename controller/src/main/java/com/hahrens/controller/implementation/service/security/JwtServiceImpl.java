@@ -1,6 +1,6 @@
-package com.hahrens.controller.implementation.service;
+package com.hahrens.controller.implementation.service.security;
 
-import com.hahrens.controller.api.service.JwtService;
+import com.hahrens.controller.api.service.security.JwtService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

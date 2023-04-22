@@ -2,7 +2,7 @@ package com.hahrens.controller.service;
 
 import com.hahrens.controller.api.model.dto.AnswerDTO;
 import com.hahrens.controller.implementation.model.AnswerDTOImpl;
-import com.hahrens.controller.implementation.service.AnswerServiceImpl;
+import com.hahrens.controller.implementation.service.dto.AnswerServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

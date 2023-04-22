@@ -1,9 +1,9 @@
-package com.hahrens.controller.implementation.service;
+package com.hahrens.controller.implementation.service.dto;
 
 import com.hahrens.controller.api.model.dto.AnswerDTO;
 import com.hahrens.controller.api.model.dto.DTOEntityInterface;
-import com.hahrens.controller.api.service.AnswerService;
-import com.hahrens.controller.api.service.DTOMapping;
+import com.hahrens.controller.api.service.dto.AnswerService;
+import com.hahrens.controller.api.service.dto.DTOMapping;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;

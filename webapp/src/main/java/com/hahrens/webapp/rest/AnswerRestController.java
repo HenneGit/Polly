@@ -1,9 +1,8 @@
 package com.hahrens.webapp.rest;
 
 import com.hahrens.controller.api.model.dto.AnswerDTO;
-import com.hahrens.controller.api.service.AnswerService;
+import com.hahrens.controller.api.service.dto.AnswerService;
 import com.hahrens.controller.implementation.model.AnswerDTOImpl;
-import com.hahrens.controller.implementation.model.QuestionDTOImpl;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

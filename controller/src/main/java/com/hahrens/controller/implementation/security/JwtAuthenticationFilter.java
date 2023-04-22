@@ -1,7 +1,7 @@
 package com.hahrens.controller.implementation.security;
 
-import com.hahrens.controller.api.service.JwtService;
-import com.hahrens.controller.implementation.service.UserService;
+import com.hahrens.controller.api.service.security.JwtService;
+import com.hahrens.controller.implementation.service.user.UserService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 

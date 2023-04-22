@@ -2,6 +2,7 @@ package com.hahrens.controller.implementation.registration;
 
 import com.hahrens.controller.api.registration.RegistrationService;
 import com.hahrens.controller.implementation.registration.exception.UserAlreadyExistsException;
+import com.hahrens.controller.implementation.registration.validation.TokenValidationResult;
 import com.hahrens.storage.model.User;
 import com.hahrens.storage.model.VerificationToken;
 import com.hahrens.storage.repository.UserEntityRepository;
@@ -10,6 +11,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.Optional;
 
 @Service
@@ -34,7 +36,30 @@ public class RegistrationServiceImpl implements RegistrationService {
     @Override
     public void saveUserVerificationToken(final User user, final String token) {
         VerificationToken verificationToken = new VerificationToken(token, user);
-        VerificationToken save = verificationTokenRepository.save(verificationToken);
+        verificationTokenRepository.save(verificationToken);
+
+    }
+
+    @Override
+    public VerificationToken findByToken(String token) {
+        return verificationTokenRepository.findByToken(token);
+    }
+
+    @Override
+    public TokenValidationResult validateToken(String verificationToken) {
+        VerificationToken token = verificationTokenRepository.findByToken(verificationToken);
+        User user = token.getUser();
+        if (user.isEnabled()) {
+            return TokenValidationResult.USER_ENABLED;
+        }
+
+        if (token.getExpirationDate().before(new Date())) {
+            verificationTokenRepository.delete(token);
+            return TokenValidationResult.EXPIRED;
+        }
+        user.setEnabled(true);
+        userRepository.save(user);
+        return TokenValidationResult.VALID;
 
     }
 

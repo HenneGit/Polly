@@ -1,15 +1,12 @@
-package com.hahrens.controller.implementation.service;
+package com.hahrens.controller.implementation.service.dto;
 
 import com.hahrens.controller.api.model.dto.SurveyDTO;
-import com.hahrens.controller.api.service.DTOMapping;
-import com.hahrens.controller.api.service.SurveyService;
+import com.hahrens.controller.api.service.dto.DTOMapping;
+import com.hahrens.controller.api.service.dto.SurveyService;
 import com.hahrens.controller.implementation.model.SurveyDTOImpl;
-import jakarta.annotation.PreDestroy;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 import java.util.UUID;
 
 @Service
