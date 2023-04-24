@@ -20,7 +20,7 @@ import java.util.Optional;
 @AllArgsConstructor
 public class RegistrationServiceImpl implements RegistrationService {
 
-    private final String USER_EXISTS_MSG = "User with email s% already exists.";
+    private static final String USER_EXISTS_MSG = "User with email %s already exists.";
     private final UserEntityRepository userRepository;
     private final BCryptPasswordEncoder passwordEncoder;
     private final VerificationTokenRepository verificationTokenRepository;

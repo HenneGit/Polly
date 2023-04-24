@@ -4,30 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="314eb581-d504-47f3-bc46-b9583dcb124e" name="Changes" comment="registration process implemented.">
-      <change afterPath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/security/RegistrationServiceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/src/test/java/com/hahrens/storage/repository/UserEntityRepositoryTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/src/test/java/com/hahrens/storage/repository/VerificationTokenRepositoryTest.java" afterDir="false" />
+    <list default="true" id="314eb581-d504-47f3-bc46-b9583dcb124e" name="Changes" comment="some comments and tests for User and VerificationToken repositories.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/registration/RegistrationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/service/security/RegistrationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/service/security/AuthenticationService.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/service/security/AuthenticationService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/service/security/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/api/service/security/JwtService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/registration/RegistrationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/security/RegistrationServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/registration/listener/RegistrationCompleteEventListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/registration/listener/RegistrationCompleteEventListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/security/JwtServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/security/JwtServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/AnswerServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/dto/AnswerServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/QuestionServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/dto/QuestionServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/SurveyServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/dto/SurveyServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/TestSetup.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/dto/TestSetup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/mocks/AnswerEntityRepositoryMock.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/dto/mocks/AnswerEntityRepositoryMock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/mocks/QuestionEntityRepositoryMock.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/dto/mocks/QuestionEntityRepositoryMock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/mocks/SurveyEntityRepositoryMock.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/dto/mocks/SurveyEntityRepositoryMock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/mocks/TestConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/dto/mocks/TestConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/app.log" beforeDir="false" afterPath="$PROJECT_DIR$/storage/app.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/src/main/java/com/hahrens/storage/model/VerificationToken.java" beforeDir="false" afterPath="$PROJECT_DIR$/storage/src/main/java/com/hahrens/storage/model/VerificationToken.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storage/src/main/java/com/hahrens/storage/repository/VerificationTokenRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/storage/src/main/java/com/hahrens/storage/repository/VerificationTokenRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/security/RegistrationServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/security/RegistrationServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/security/RegistrationServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/security/RegistrationServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/storage/src/test/java/com/hahrens/storage/repository/VerificationTokenRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/storage/src/test/java/com/hahrens/storage/repository/VerificationTokenRepositoryTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webapp/src/main/java/com/hahrens/webapp/rest/registration/UserRegistrationRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/main/java/com/hahrens/webapp/rest/registration/UserRegistrationRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/test/java/com/hahrens/webapp/rest/AnswerRestControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/test/java/com/hahrens/webapp/rest/AnswerRestControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,7 +90,19 @@
       <recent name="$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/services" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.StorageTest">
+  <component name="RunManager" selected="JUnit.RegistrationServiceTest">
+    <configuration name="RegistrationServiceTest" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="controller" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="ALTERNATIVE_JRE_PATH" value="temurin-17" />
+      <option name="PACKAGE_NAME" value="com.hahrens.controller.service.security" />
+      <option name="MAIN_CLASS_NAME" value="com.hahrens.controller.service.security.RegistrationServiceTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="RestControllerTests" type="JUnit" factoryName="JUnit">
       <module name="webapp" />
       <option name="PACKAGE_NAME" value="com.hahrens.webapp.rest" />
@@ -131,18 +125,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="com.hahrens.controller.service in controller" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
-      <module name="controller" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="ALTERNATIVE_JRE_PATH" value="temurin-17" />
-      <option name="PACKAGE_NAME" value="com.hahrens.controller.service" />
-      <option name="MAIN_CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="PollyApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="webapp" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.hahrens.webapp.PollyApplication" />
@@ -154,7 +136,7 @@
     <list>
       <item itemvalue="JUnit.RestControllerTests" />
       <item itemvalue="JUnit.StorageTest" />
-      <item itemvalue="JUnit.com.hahrens.controller.service in controller" />
+      <item itemvalue="JUnit.RegistrationServiceTest" />
       <item itemvalue="Spring Boot.PollyApplication" />
     </list>
   </component>
@@ -203,7 +185,7 @@
       <workItem from="1681913093907" duration="752000" />
       <workItem from="1682145881389" duration="98000" />
       <workItem from="1682146001151" duration="11502000" />
-      <workItem from="1682320231422" duration="2748000" />
+      <workItem from="1682320231422" duration="8635000" />
     </task>
     <task id="LOCAL-00001" summary="init commit.">
       <created>1678887988652</created>
@@ -513,7 +495,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682153474743</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="some comments and tests for User and VerificationToken repositories.">
+      <created>1682322995713</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1682322995713</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -531,7 +520,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="RestControllerTests completed." />
     <MESSAGE value="change find by question/survey to id. React app moved. React services started." />
     <MESSAGE value="some comments." />
     <MESSAGE value="cleanup and comments." />
@@ -556,7 +544,8 @@
     <MESSAGE value="renaming backend to storage. Users and security started." />
     <MESSAGE value="Registration started." />
     <MESSAGE value="registration process implemented." />
-    <option name="LAST_COMMIT_MESSAGE" value="registration process implemented." />
+    <MESSAGE value="some comments and tests for User and VerificationToken repositories." />
+    <option name="LAST_COMMIT_MESSAGE" value="some comments and tests for User and VerificationToken repositories." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -592,8 +581,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/controller/src/main/java/com/hahrens/controller/implementation/service/security/RegistrationServiceImpl.java</url>
-          <line>50</line>
-          <option name="timeStamp" value="151" />
+          <line>55</line>
+          <option name="timeStamp" value="154" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/controller/src/test/java/com/hahrens/controller/service/security/RegistrationServiceTest.java</url>
+          <line>87</line>
+          <option name="timeStamp" value="155" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/frontend/src/main/reactapp/polly-frontend/src/App.tsx</url>
@@ -609,14 +603,8 @@
     </pin-to-top-manager>
     <watches-manager>
       <configuration name="JUnit">
-        <watch expression="questionService.findAll()" language="JAVA" />
-        <watch expression="answerService.findAll()" language="JAVA" />
-        <watch expression="jsonListWriter.parseObject(contentAsString)" language="JAVA" />
-        <watch expression="jsonListWriter.parseObject(contentAsString)" language="JAVA" />
-        <watch expression="jsonObjectWriter.write(answerDTO).getJson()" language="JAVA" />
-        <watch expression="findAll()" language="JAVA" />
-        <watch expression="byId.getPrimaryKey()" language="JAVA" />
-        <watch expression="findAll()" language="JAVA" />
+        <watch expression="new Date()" language="JAVA" />
+        <watch expression="token.getExpirationDate()" language="JAVA" />
       </configuration>
       <configuration name="SpringBootApplicationConfigurationType">
         <watch expression="dtoMapping.getSurveys()" language="JAVA" />

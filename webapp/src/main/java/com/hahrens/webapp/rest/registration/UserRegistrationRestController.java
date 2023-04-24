@@ -31,7 +31,7 @@ public class UserRegistrationRestController {
     @GetMapping("/verifyEmail/{token}")
     public String verifyEmail(@PathVariable String token) {
         TokenValidationResult tokenValidationResult = registrationService.validateToken(token);
-        return tokenValidationResult.getMessage();
+         return tokenValidationResult.getMessage();
     }
 
     private String applicationUrl(final HttpServletRequest request) {
