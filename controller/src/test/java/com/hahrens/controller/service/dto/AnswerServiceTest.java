@@ -1,4 +1,4 @@
-package com.hahrens.controller.service;
+package com.hahrens.controller.service.dto;
 
 import com.hahrens.controller.api.model.dto.AnswerDTO;
 import com.hahrens.controller.implementation.model.AnswerDTOImpl;

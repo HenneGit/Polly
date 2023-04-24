@@ -1,4 +1,4 @@
-package com.hahrens.controller.service.mocks;
+package com.hahrens.controller.service.dto.mocks;
 
 import com.hahrens.storage.model.QuestionEntity;
 import com.hahrens.storage.model.SurveyEntity;

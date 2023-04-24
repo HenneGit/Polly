@@ -134,7 +134,7 @@ public class AnswerRestControllerTest {
 
     @Test
     public void testFindByQuestionId() throws Exception {
-        MockHttpServletResponse response = mvc.perform(get("/answer/getByQuestionId/" + "someId")
+        MockHttpServletResponse response = mvc.perform(get("/answer/getByQuestionId/" + UUID.randomUUID())
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(questionDTOJsonObjectWriter.write(questionDTO).getJson())
                         .accept(MediaType.APPLICATION_JSON_VALUE))

@@ -1,4 +1,4 @@
-package com.hahrens.controller.api.registration;
+package com.hahrens.controller.api.service.security;
 
 import com.hahrens.controller.implementation.registration.RegistrationRequest;
 import com.hahrens.controller.implementation.registration.validation.TokenValidationResult;

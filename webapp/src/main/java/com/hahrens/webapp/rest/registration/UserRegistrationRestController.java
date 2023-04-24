@@ -1,6 +1,6 @@
 package com.hahrens.webapp.rest.registration;
 
-import com.hahrens.controller.api.registration.RegistrationService;
+import com.hahrens.controller.api.service.security.RegistrationService;
 import com.hahrens.controller.implementation.registration.RegistrationRequest;
 import com.hahrens.controller.implementation.registration.event.RegistrationCompleteEvent;
 import com.hahrens.controller.implementation.registration.validation.TokenValidationResult;

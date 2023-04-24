@@ -21,8 +21,8 @@ public class VerificationToken {
     private String token;
     private Date expirationDate;
 
-    @OneToMany()
-    @JoinColumn(name ="user_id")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
     private static final int EXPIRATION_TIME = 15;
@@ -30,12 +30,12 @@ public class VerificationToken {
     public VerificationToken(String token, User user) {
         this.token = token;
         this.user = user;
-        this.expirationDate = this.getExpirationDate();
+        this.expirationDate = this.getTokenExpirationDate();
     }
 
     public VerificationToken(String token) {
         this.token = token;
-        this.expirationDate = this.getExpirationDate();
+        this.expirationDate = this.getTokenExpirationDate();
     }
 
     private Date getTokenExpirationDate() {

@@ -1,13 +1,13 @@
-package com.hahrens.controller.service;
+package com.hahrens.controller.service.dto;
 
 import com.hahrens.storage.model.AnswerEntity;
 import com.hahrens.storage.model.QuestionEntity;
 import com.hahrens.storage.model.SurveyEntity;
 import com.hahrens.controller.api.service.dto.DTOService;
 import com.hahrens.controller.implementation.service.dto.DTOMappingImpl;
-import com.hahrens.controller.service.mocks.AnswerEntityRepositoryMock;
-import com.hahrens.controller.service.mocks.QuestionEntityRepositoryMock;
-import com.hahrens.controller.service.mocks.SurveyEntityRepositoryMock;
+import com.hahrens.controller.service.dto.mocks.AnswerEntityRepositoryMock;
+import com.hahrens.controller.service.dto.mocks.QuestionEntityRepositoryMock;
+import com.hahrens.controller.service.dto.mocks.SurveyEntityRepositoryMock;
 
 
 import java.util.List;

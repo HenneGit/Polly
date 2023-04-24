@@ -1,6 +1,8 @@
-package com.hahrens.controller.implementation.registration;
+package com.hahrens.controller.implementation.service.security;
 
-import com.hahrens.controller.api.registration.RegistrationService;
+import com.hahrens.controller.api.service.security.RegistrationService;
+import com.hahrens.controller.implementation.registration.RegistrationRequest;
+import com.hahrens.controller.implementation.registration.UserFactory;
 import com.hahrens.controller.implementation.registration.exception.UserAlreadyExistsException;
 import com.hahrens.controller.implementation.registration.validation.TokenValidationResult;
 import com.hahrens.storage.model.User;
@@ -29,8 +31,7 @@ public class RegistrationServiceImpl implements RegistrationService {
         if (user.isPresent()) {
             throw new UserAlreadyExistsException(String.format(USER_EXISTS_MSG, registrationRequest.email()));
         }
-        User save = userRepository.save(UserFactory.getUserFromRequest(registrationRequest, passwordEncoder.encode(registrationRequest.password())));
-        return save;
+        return userRepository.save(UserFactory.getUserFromRequest(registrationRequest, passwordEncoder.encode(registrationRequest.password())));
     }
 
     @Override
@@ -52,7 +53,6 @@ public class RegistrationServiceImpl implements RegistrationService {
         if (user.isEnabled()) {
             return TokenValidationResult.USER_ENABLED;
         }
-
         if (token.getExpirationDate().before(new Date())) {
             verificationTokenRepository.delete(token);
             return TokenValidationResult.EXPIRED;
@@ -60,7 +60,6 @@ public class RegistrationServiceImpl implements RegistrationService {
         user.setEnabled(true);
         userRepository.save(user);
         return TokenValidationResult.VALID;
-
     }
 
 }
